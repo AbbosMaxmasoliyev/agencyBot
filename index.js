@@ -30,7 +30,7 @@ const app = express();
 
 //Set up default mongoose connection
 const mongoDB = process.env.MONGO_URI;
-mongoose.connect(mongoDB, { useNewUrlParser: true }).then(() => {
+mongoose.connect(mongoDB).then(() => {
     console.log("Connected Mongodb");
 }).catch((err) => {
     throw new Error(err, "salom")
@@ -54,7 +54,7 @@ app.get('/site', (req, res) => {
 app.use(errorHandler);
 
 // Set webhook
-bot.telegram.setWebhook(`https://your-server.com/api/webhook`);
+bot.telegram.setWebhook(`https://agencybot.onrender.com`);
 
 // Start bot (if not using webhooks)
 startBot(bot)
