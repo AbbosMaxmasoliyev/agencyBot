@@ -4,7 +4,7 @@ const config = {
   REDIS_HOST: process.env.REDIS_HOST,
   REDIS_PORT: process.env.REDIS_PORT,
   SESSION_TYPE: process.env.SESSION_TYPE,
-  DOMAIN: process.env.DOMAIN,
+  DOMAIN: "https://agencybot.onrender.com",
   PORT: process.env.DOMAIN_PORT,
   MONGO_URL: process.env.MONGO_URL,
   URL: process.env.URL,
