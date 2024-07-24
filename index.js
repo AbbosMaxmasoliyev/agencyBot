@@ -27,7 +27,7 @@ const { publishPromotion, getWithCategoryPromotion, getPublishWaitingPromotion }
 const app = express();
 
 // Set up default mongoose connection
-const mongoDB = process.env.MONGO_URI;
+const mongoDB = process.env.MONGO_URL;
 mongoose.connect(mongoDB, {
     useNewUrlParser: true, // Even though it's deprecated, it won't hurt to leave it for backward compatibility
     useUnifiedTopology: true, // This is the recommended option to use
