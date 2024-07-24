@@ -41,7 +41,6 @@ app.get('/site', (req, res) => {
 app.use(errorHandler);
 
 // Start bot
-startBot(bot);
 
 app.get("/bot/:id", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
@@ -84,5 +83,8 @@ app.get("/categories", async (req, res) => {
 
 const PORT = process.env.PORT || config.port;
 app.listen(PORT, () => {
+
+
     console.log(`Server is running on port http://localhost:${PORT}`);
+    startBot(bot)
 });
