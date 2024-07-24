@@ -52,14 +52,14 @@ app.get('/site', (req, res) => {
 app.use(errorHandler);
 
 // Define the domain for the webhook
-const webhookDomain = 'https://agencybot.onrender.com';
+// const webhookDomain = 'https://agencybot.onrender.com';
 
 
 // Set webhook
-bot.telegram.setWebhook(webhookDomain);
+// bot.telegram.setWebhook(webhookDomain);
 
 // Start bot (if not using webhooks)
-startBot(bot);
+// startBot(bot);
 
 app.get("/bot/:id", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
