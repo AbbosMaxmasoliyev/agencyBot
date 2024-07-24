@@ -8,7 +8,6 @@ const startBot = async (bot, botConfig = {}) => {
     }
     botConfig.webhook = {
       domain: config.DOMAIN,
-      port: 3001,
     };
   }
 
