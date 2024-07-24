@@ -15,14 +15,14 @@ const startBot = async (bot, botConfig = {}) => {
   const launchBot = async (retryCount = 0) => {
     try {
       await bot.launch(botConfig);
-      logger.info(`Bot @${bot.botInfo.username} started!`);
+      console.log(`Bot @${bot.botInfo.username} started!`);
     } catch (err) {
       if (err.response && err.response.error_code === 429) {
         const retryAfter = err.response.parameters.retry_after || 1;
-        logger.warn(`Rate limited by Telegram. Retrying after ${retryAfter} seconds...`);
+        console.log(`Rate limited by Telegram. Retrying after ${retryAfter} seconds...`);
         setTimeout(() => launchBot(retryCount + 1), retryAfter * 1000);
       } else {
-        logger.error(`Failed to launch bot: ${err.message}`);
+        console.log(`Failed to launch bot: ${err.message}`);
       }
     }
   };

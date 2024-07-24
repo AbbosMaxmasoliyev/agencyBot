@@ -1,17 +1,27 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require("cors");
+const cors = require("cors")
 const config = require('./config/config');
 const botRoutes = require('./botRoutes/botRoutes');
 const errorHandler = require('./middlewares/errorhandler');
 const bot = require('./src/main.js');
-const startBot = require("./src/utils/startBot.js");
+const startBot = require("./src/utils/startBot.js")
+const router = require('./routes/basic.js');
 const path = require('path');
 const { default: mongoose } = require('mongoose');
+const { updateUser, updateUserData } = require('./controller/user.js');
+const userRoutes = require('./routes/user.js');
+const adminRoutes = require('./routes/admin');
+const advertiseRoutes = require('./routes/advertise.js');
+const announceRoutes = require('./routes/announce.js');
+const barterRoutes = require('./routes/barter.js');
+const collaborationRoutes = require('./routes/collaboration.js');
+const { parser } = require('./middlewares/parser.js');
 const { User } = require('./src/database/index.js');
 const Announce = require('./models/announce.js');
 const Barter = require('./models/barter.js');
 const Advertise = require('./models/advertise.js');
+const { publishPromotion, getWithCategoryPromotion, getPublishWaitingPromotion } = require('./controller/all.js');
 
 const app = express();
 
@@ -81,10 +91,24 @@ app.get("/categories", async (req, res) => {
     }
 });
 
+
+
+
+
+app.use("/users", userRoutes)
+app.use('/admin', adminRoutes);
+app.use('/advertise', advertiseRoutes);
+app.use('/announce', announceRoutes);
+app.use('/barter', barterRoutes);
+app.use('/collaboration', collaborationRoutes);
+app.post('/publish/:promotion/:id', publishPromotion);
+app.get('/promotion/:promotion/:id', getWithCategoryPromotion);
+app.get('/publish/:id', getPublishWaitingPromotion);
+
 const PORT = process.env.PORT || config.port;
+startBot(bot)
 app.listen(PORT, () => {
 
 
     console.log(`Server is running on port http://localhost:${PORT}`);
-    startBot(bot)
 });
