@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require("cors");
 const config = require('./config/config');
+const botRoutes = require('./botRoutes/botRoutes');
 const errorHandler = require('./middlewares/errorhandler');
 const bot = require('./src/main.js');
 const startBot = require("./src/utils/startBot.js");
