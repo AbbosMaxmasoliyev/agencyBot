@@ -16,7 +16,7 @@ const Advertise = require('./models/advertise.js');
 const app = express();
 
 // Set up default mongoose connection
-const mongoDB = process.env.MONGO_URI;
+const mongoDB = process.env.MONGO_URL;
 mongoose.connect(mongoDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
