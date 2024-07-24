@@ -3,7 +3,6 @@ require("dotenv").config();
 const bot = require("./core/bot");
 const session = require("./core/session");
 const stage = require("./scenes");
-const startBot = require("./utils/startBot");
 const User = require("../models/user");
 
 bot.use(session);
@@ -26,4 +25,4 @@ bot.start(async (ctx) => {
   }
 });
 
-module.exports = startBot(bot)
+module.exports = bot

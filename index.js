@@ -106,8 +106,8 @@ app.get('/promotion/:promotion/:id', getWithCategoryPromotion);
 app.get('/publish/:id', getPublishWaitingPromotion);
 
 const PORT = process.env.PORT || config.port;
-bot
 app.listen(PORT, () => {
+    startBot(bot)
 
 
     console.log(`Server is running on port http://localhost:${PORT}`);
