@@ -26,4 +26,4 @@ bot.start(async (ctx) => {
   }
 });
 
-module.exports = bot
+module.exports = startBot(bot)
