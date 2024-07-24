@@ -1,12 +1,12 @@
 // index.js
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require("cors")
+const cors = require("cors");
 const config = require('./config/config');
 const botRoutes = require('./botRoutes/botRoutes');
 const errorHandler = require('./middlewares/errorhandler');
 const bot = require('./src/main.js');
-const startBot = require("./src/utils/startBot.js")
+const startBot = require("./src/utils/startBot.js");
 const router = require('./routes/basic.js');
 const path = require('path');
 const { default: mongoose } = require('mongoose');
@@ -26,50 +26,52 @@ const { publishPromotion, getWithCategoryPromotion, getPublishWaitingPromotion }
 
 const app = express();
 
-
-
-//Set up default mongoose connection
+// Set up default mongoose connection
 const mongoDB = process.env.MONGO_URI;
-mongoose.connect(mongoDB).then(() => {
-    console.log("Connected Mongodb");
+mongoose.connect(mongoDB, {
+    useNewUrlParser: true, // Even though it's deprecated, it won't hurt to leave it for backward compatibility
+    useUnifiedTopology: true, // This is the recommended option to use
+}).then(() => {
+    console.log("Connected to MongoDB");
 }).catch((err) => {
-    throw new Error(err, "salom")
-})
-//Get the default connection
+    console.error("Failed to connect to MongoDB", err);
+    process.exit(1); // Exit the application with failure code
+});
 
 app.use(cors());
-app.use(express.static("public"))
+app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', botRoutes);
 
 app.get('/site', (req, res) => {
-    console.log(path.join(__dirname, 'public', 'index.html'));
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-
-
 app.use(errorHandler);
 
+// Define the domain for the webhook
+const webhookDomain = 'https://agencybot.onrender.com';
+
+
 // Set webhook
-bot.telegram.setWebhook(`https://agencybot.onrender.com`);
+bot.telegram.setWebhook(webhookDomain);
 
 // Start bot (if not using webhooks)
-startBot(bot)
+startBot(bot);
 
 app.get("/bot/:id", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"))
-})
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.get("/all", async (req, res) => {
     try {
-        let users = await User.find()
-        let orders = await User.find({ status: false })
-        let announces = await Announce.find()
-        let barters = await Barter.find()
-        let advertises = await Advertise.find()
+        let users = await User.find();
+        let orders = await User.find({ status: false });
+        let announces = await Announce.find();
+        let barters = await Barter.find();
+        let advertises = await Advertise.find();
         let allData = [
             {
                 title: "Пользователи",
@@ -96,19 +98,16 @@ app.get("/all", async (req, res) => {
                 count: advertises.length,
                 link: "advertises"
             },
-        ]
+        ];
 
-
-        res.status(200).send(allData)
+        res.status(200).send(allData);
     } catch (error) {
-        res.status(400).send({ msg: error.message })
-
+        res.status(400).send({ msg: error.message });
     }
-})
+});
 
 app.get("/categories", async (req, res) => {
     try {
-
         let allCategories = [
             {
                 "value": "fitness",
@@ -122,16 +121,15 @@ app.get("/categories", async (req, res) => {
                 "value": "travel",
                 "label": "Путешествия"
             }
-        ]
+        ];
 
-
-        res.status(200).send(allCategories)
+        res.status(200).send(allCategories);
     } catch (error) {
-        res.status(400).send({ msg: error.message })
-
+        res.status(400).send({ msg: error.message });
     }
-})
-app.use("/users", userRoutes)
+});
+
+app.use("/users", userRoutes);
 app.use('/admin', adminRoutes);
 app.use('/advertise', advertiseRoutes);
 app.use('/announce', announceRoutes);
@@ -140,7 +138,6 @@ app.use('/collaboration', collaborationRoutes);
 app.post('/publish/:promotion', publishPromotion);
 app.get('/promotion/:promotion/:id', getWithCategoryPromotion);
 app.get('/publish/:id', getPublishWaitingPromotion);
-
 
 app.listen(config.port, () => {
     console.log(`Server is running on port http://localhost:${config.port}`);
