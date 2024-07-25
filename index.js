@@ -44,7 +44,8 @@ const corsOptions = {
     origin: [
         'https://blogerwebapp.vercel.app',
         'https://bloger-agency-adminka.vercel.app',
-        "http://localhost:3000"
+        "http://localhost:3000",
+        "http://localhost:5173"
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
