@@ -36,8 +36,12 @@ mongoose.connect(mongoDB, {
     console.error("Failed to connect to MongoDB", err);
     process.exit(1);
 });
-
-app.use(cors());
+const corsOptions = {
+    origin: 'https://blogerwebapp.vercel.app', // Faqat ushbu domen so'rovlariga ruxsat berish
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Ruxsat etilgan HTTP metodlari
+    allowedHeaders: ['Content-Type', 'Authorization'], // Ruxsat etilgan headerlar
+};
+app.use(cors(corsOptions));
 app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
