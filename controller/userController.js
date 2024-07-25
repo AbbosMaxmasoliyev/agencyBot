@@ -106,21 +106,20 @@ const updateUseStatus = async (req, res) => {
             await axios.post(
                 `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
                 {
-
                     chat_id: user.userId,
-                    text: "Sizning shaxsingiz tasdiqlandi. E'lon va reklamalar berishingiz mumkin",
+                    text: "Ваша личность подтверждена. Вы можете размещать объявления и рекламу",
                     reply_markup: {
                         inline_keyboard: [
                             [
                                 {
-                                    text: "Reklama berish",
+                                    text: "Разместить рекламу",
                                     web_app: { url: `${WEB_APP_URL}/user/${user.userId}` }
                                 }
                             ]
                         ]
                     }
-
                 }
+
             )
                 .then(res => console.log(res))
                 .catch(err => console.log("error", err));

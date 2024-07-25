@@ -3,34 +3,34 @@ const { User } = require("../database");
 
 const scene = new Scenes.BaseScene("start");
 
-let WEB_APP_URL = process.env.WEB_APP
+let WEB_APP_URL = process.env.WEB_APP;
 
 scene.enter(async (ctx) => {
-  let userId = ctx.message.chat.id
-  let user = await User.findOne({ userId })
+  let userId = ctx.message.chat.id;
+  let user = await User.findOne({ userId });
   console.log(userId);
   if (user.web_app.gender) {
     let keyboard = Markup.inlineKeyboard([
       [
         {
-          text: "Salom xush kelibsiz",
+          text: "Здравствуйте, добро пожаловать",
           web_app: { url: `https://blogerwebapp.vercel.app/user/${userId}` },
         },
       ],
     ]).resize();
 
-    await ctx.reply("Web app ochish", keyboard);
+    await ctx.reply("Открыть веб-приложение", keyboard);
   } else {
     let keyboard = Markup.inlineKeyboard([
       [
         {
-          text: "Registratsiya",
+          text: "Регистрация",
           web_app: { url: `https://blogerwebapp.vercel.app/user/${userId}/bot` },
         },
       ],
     ]).resize();
 
-    await ctx.reply("Ro'yxatdan o'tish", keyboard);
+    await ctx.reply("Зарегистрироваться", keyboard);
   }
 });
 

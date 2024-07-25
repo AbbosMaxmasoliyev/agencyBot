@@ -10,14 +10,14 @@ function validateName(name) {
 }
 
 function validatePhoneNumber(phoneNumber) {
-  const phoneRegex = /^998\d{9}$/;
+  const phoneRegex = /^\+998\d{9}$/;
   return phoneRegex.test(phoneNumber);
 }
 
 const scene = new WizardScene(
   "auth",
   (ctx) => {
-    ctx.reply("Введите ваше имя:");
+    ctx.reply("Введите ваше имя (Аббос):");
     return ctx.wizard.next();
   },
   (ctx) => {
@@ -25,31 +25,31 @@ const scene = new WizardScene(
 
     if (!validateName(firstName)) {
       console.log(validateName(firstName));
-      ctx.reply("Пожалуйста, введите ваше имя в правильном формате с заглавной буквы:");
+      ctx.reply("Пожалуйста, введите ваше имя в правильном формате с заглавной буквы (Аббос):");
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 
     ctx.wizard.state.firstName = firstName;
-    ctx.reply("Введите вашу фамилию:");
+    ctx.reply("Введите вашу фамилию (Макхмасалиев):");
     return ctx.wizard.next();
   },
   (ctx) => {
     const lastName = ctx.message?.text;
 
     if (!validateName(lastName)) {
-      ctx.reply("Пожалуйста, введите вашу фамилию в правильном формате с заглавной буквы:");
+      ctx.reply("Пожалуйста, введите вашу фамилию в правильном формате с заглавной буквы (Макхмасалиев):");
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 
     ctx.wizard.state.lastName = lastName;
-    ctx.reply("Введите ваш номер телефона:");
+    ctx.reply("Введите ваш номер телефона (+998992247645):");
     return ctx.wizard.next();
   },
   async (ctx) => {
     const phoneNumber = ctx.message?.text;
 
     if (!validatePhoneNumber(phoneNumber)) {
-      ctx.reply("Пожалуйста, введите ваш номер телефона:");
+      ctx.reply("Пожалуйста, введите ваш номер телефона (+998992247645):");
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 

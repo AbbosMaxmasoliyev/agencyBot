@@ -43,7 +43,8 @@ mongoose.connect(mongoDB, {
 const corsOptions = {
     origin: [
         'https://blogerwebapp.vercel.app',
-        'https://bloger-agency-adminka.vercel.app'
+        'https://bloger-agency-adminka.vercel.app',
+        "http://localhost:3000"
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
