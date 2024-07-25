@@ -17,7 +17,7 @@ function validatePhoneNumber(phoneNumber) {
 const scene = new WizardScene(
   "auth",
   (ctx) => {
-    ctx.reply("Ismingizni kiriting:");
+    ctx.reply("Введите ваше имя:");
     return ctx.wizard.next();
   },
   (ctx) => {
@@ -25,31 +25,31 @@ const scene = new WizardScene(
 
     if (!validateName(firstName)) {
       console.log(validateName(firstName));
-      ctx.reply("Iltimos, ismingizni to'g'ri formatda katta harf bilan kiriting:");
+      ctx.reply("Пожалуйста, введите ваше имя в правильном формате с заглавной буквы:");
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 
     ctx.wizard.state.firstName = firstName;
-    ctx.reply("Familiyangizni kiriting:");
+    ctx.reply("Введите вашу фамилию:");
     return ctx.wizard.next();
   },
   (ctx) => {
     const lastName = ctx.message?.text;
 
     if (!validateName(lastName)) {
-      ctx.reply("Iltimos, familiyangizni to'g'ri formatda katta harf bilan kiriting:");
+      ctx.reply("Пожалуйста, введите вашу фамилию в правильном формате с заглавной буквы:");
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 
     ctx.wizard.state.lastName = lastName;
-    ctx.reply("Telefon raqamingizni kiriting:");
+    ctx.reply("Введите ваш номер телефона:");
     return ctx.wizard.next();
   },
   async (ctx) => {
     const phoneNumber = ctx.message?.text;
 
     if (!validatePhoneNumber(phoneNumber)) {
-      ctx.reply("Iltimos, telefon raqamingizni kiriting:");
+      ctx.reply("Пожалуйста, введите ваш номер телефона:");
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 
@@ -68,7 +68,7 @@ const scene = new WizardScene(
       { new: true }
     );
 
-    ctx.reply("Ma'lumotlaringiz muvaffaqiyatli saqlandi. Rahmat!");
+    ctx.reply("Ваши данные успешно сохранены. Спасибо!");
     return ctx.scene.enter("start");
   }
 );

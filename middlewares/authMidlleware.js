@@ -6,9 +6,18 @@ const protect = async (req, res, next) => {
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         try {
             token = req.headers.authorization.split(' ')[1];
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
-            req.admin = await Admin.findById(decoded.id).select('-password');
-            next();
+            const decoded = jwt.decode(token, process.env.JWT_SECRET);
+            if (decoded.username) {
+                let { username } = decoded
+                let admin = await Admin.findOne({ username })
+                if (admin.role === "superadmin") {
+                    req.permissions = JSON.stringify(["superadmin", "admin"])
+                    next();
+                }
+            } else {
+                req.permissions = JSON.stringify(["manager", "admin"])
+                res.status(401).json({ message: 'Not authorized' });
+            }
         } catch (error) {
             res.status(401).json({ message: 'Not authorized, token failed' });
         }
@@ -16,5 +25,7 @@ const protect = async (req, res, next) => {
         res.status(401).json({ message: 'Not authorized, no token' });
     }
 };
+
+
 
 module.exports = { protect };

@@ -1,5 +1,5 @@
 const Admin = require('../models/admin');
-const generateToken = require('../utils/generateToken');
+const { generateToken, decodeToken } = require('../utils/generateToken');
 const bcrypt = require("bcrypt")
 // Sign-up (Ro'yxatdan o'tish)
 const signUp = async (req, res) => {
@@ -35,11 +35,19 @@ const signIn = async (req, res) => {
         let checkPassword = await bcrypt.compare(password, admin.password)
         console.log(checkPassword);
         if (admin && checkPassword) {
-            res.json({
-                _id: admin._id,
-                username: admin.username,
-                token: generateToken(admin._id)
-            });
+            if (admin.role == "superadmin") {
+                res.send({
+                    username: admin.username,
+                    token: generateToken(admin._id,),
+                    permissions: ["admin", "superadmin"]
+                });
+            } else {
+                res.send({
+                    username: admin.username,
+                    token: generateToken(admin._id,),
+                    permissions: ["admin", "manager"]
+                });
+            }
         } else {
             console.log(admin);
             res.status(401).json({ message: 'Invalid username or password' });
@@ -51,9 +59,27 @@ const signIn = async (req, res) => {
 
 // CRUD operatsiyalari (Create, Read, Update, Delete)
 // Ma'lumotlarni yaratish
-const createData = async (req, res) => {
-    // Ma'lumot yaratish kodi
-};
+const createManager = async (req, res) => {
+    const { username, password } = req.body;
+    console.log(username);
+    console.log(req.body);
+    try {
+        const adminExists = await Admin.findOne({ username });
+        console.log(adminExists);
+        if (adminExists) {
+            return res.status(400).json({ message: 'Admin already exists' });
+        }
+        const admin = await Admin.create({ username, password, role: "manager" });
+
+        res.status(201).send({
+            username: admin.username,
+            password
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ message: error.message });
+    }
+}
 
 // Ma'lumotlarni olish
 const getData = async (req, res) => {
@@ -70,4 +96,4 @@ const deleteData = async (req, res) => {
     // Ma'lumot o'chirish kodi
 };
 
-module.exports = { signUp, signIn, createData, getData, updateData, deleteData };
+module.exports = { signUp, signIn, createManager, getData, updateData, deleteData };

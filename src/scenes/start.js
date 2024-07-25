@@ -14,7 +14,7 @@ scene.enter(async (ctx) => {
       [
         {
           text: "Salom xush kelibsiz",
-          web_app: { url: `https://blogerwebapp.vercel.app/users/${userId}` },
+          web_app: { url: `https://blogerwebapp.vercel.app/user/${userId}` },
         },
       ],
     ]).resize();
