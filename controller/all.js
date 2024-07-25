@@ -43,13 +43,18 @@ const publishPromotion = async (req, res) => {
 
 const getWithCategoryPromotion = async (req, res) => {
     let promotionKey = req.params.promotion
+    let category = req.params.category
     let id = req.params.id
-    console.log(promotionKey, id);
     try {
         let user = await User.findOne({ userId: id })
+
         console.log(user.web_app.category);
 
-        const promotion = await promotions[promotionKey].find({ category: user.web_app.category, status: true, owner: { $ne: user._id } });
+        console.log(category);
+
+        const promotion = await promotions[promotionKey].find({ category: category,  owner: { $ne: user._id } });
+
+        
         console.log(promotion);
         if (promotion.length) {
             return res.status(200).send(promotion)

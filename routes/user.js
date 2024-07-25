@@ -13,7 +13,7 @@ router.get('/order', orderUser);
 router.get('/byId/:id', getUser);
 router.put('/updateById/:id', updateUser);
 router.put('/updateStatus/:id', updateUseStatus);
-router.post('/web/:id', parser, updateUserWebInfo);
+router.post('/web/:id', updateUserWebInfo);
 router.delete('/:id', deleteUser);
 
 module.exports = router;

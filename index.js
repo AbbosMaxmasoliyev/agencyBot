@@ -102,7 +102,7 @@ app.use('/announce', announceRoutes);
 app.use('/barter', barterRoutes);
 app.use('/collaboration', collaborationRoutes);
 app.post('/publish/:promotion/:id', publishPromotion);
-app.get('/promotion/:promotion/:id', getWithCategoryPromotion);
+app.get('/promotion/:promotion/category/:category/:id', getWithCategoryPromotion);
 app.get('/publish/:id', getPublishWaitingPromotion);
 
 const PORT = process.env.PORT || config.port;

@@ -143,15 +143,14 @@ const updateUseStatus = async (req, res) => {
 
 const updateUserWebInfo = async (req, res) => {
     let userId = req.params.id
+    console.log(req.params);
     console.log(Object.keys(req.body).length)
     console.log(req.body);
     if (!Object.keys(req.body).length) {
         return res.status(404).send({ message: 'Fields required' });
     }
     try {
-
-        const user = await User.findOneAndUpdate({ userId }, { web_app: { ...req.body, userTelegramId: Date.now() }, action: req.body.action, status: false }, { new: true });
-
+        const user = await User.findOneAndUpdate({ userId: req.params.id }, { web_app: { ...req.body, userTelegramId: Date.now() }, action: req.body.action, status: false }, { new: true });
         if (!user) {
             return res.status(404).send({ message: 'User not found' });
         }

@@ -7,6 +7,7 @@ const createCollaboration = async (req, res) => {
 
         let userId;
         let agreeId;
+        console.log(req.body);
         if (req.body.owner) {
             let user = await User.findOne({ userId: req.body.owner })
             userId = user._id

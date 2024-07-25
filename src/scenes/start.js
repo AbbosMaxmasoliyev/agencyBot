@@ -8,12 +8,13 @@ let WEB_APP_URL = process.env.WEB_APP
 scene.enter(async (ctx) => {
   let userId = ctx.message.chat.id
   let user = await User.findOne({ userId })
+  console.log(userId);
   if (user.web_app.gender) {
     let keyboard = Markup.inlineKeyboard([
       [
         {
-          text: "Mini App ochish",
-          web_app: { url: `https://blogerwebapp.vercel.app/user/${userId}` },
+          text: "Salom xush kelibsiz",
+          web_app: { url: `https://blogerwebapp.vercel.app/users/${userId}` },
         },
       ],
     ]).resize();
