@@ -36,11 +36,24 @@ mongoose.connect(mongoDB, {
     console.error("Failed to connect to MongoDB", err);
     process.exit(1);
 });
+const allowedOrigins = [
+    'https://blogerwebapp.vercel.app',
+    'https://bloger-agency-adminka.vercel.app'
+];
+
 const corsOptions = {
-    origin: 'https://blogerwebapp.vercel.app', // Faqat ushbu domen so'rovlariga ruxsat berish
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Ruxsat etilgan HTTP metodlari
-    allowedHeaders: ['Content-Type', 'Authorization'], // Ruxsat etilgan headerlar
+    origin: (origin, callback) => {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    optionsSuccessStatus: 204
 };
+
 app.use(cors(corsOptions));
 app.use(express.static("public"));
 app.use(bodyParser.json());
