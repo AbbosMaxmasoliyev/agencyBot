@@ -17,7 +17,7 @@ const signUp = async (req, res) => {
         res.status(201).send({
             _id: admin._id,
             username: admin.username,
-            token: generateToken(admin._id)
+            token: generateToken({ username: admin.username })
         });
     } catch (error) {
         console.log(error);
@@ -38,13 +38,13 @@ const signIn = async (req, res) => {
             if (admin.role == "superadmin") {
                 res.send({
                     username: admin.username,
-                    token: generateToken(admin._id,),
+                    token: generateToken({ username: admin.username }),
                     permissions: ["admin", "superadmin"]
                 });
             } else {
                 res.send({
                     username: admin.username,
-                    token: generateToken(admin._id,),
+                    token: generateToken({ username: admin.username }),
                     permissions: ["admin", "manager"]
                 });
             }
@@ -71,10 +71,11 @@ const createManager = async (req, res) => {
         }
         const admin = await Admin.create({ username, password, role: "manager" });
 
-        res.status(201).send({
+        res.status(200).send({
             username: admin.username,
             password
         });
+
     } catch (error) {
         console.log(error);
         res.status(400).json({ message: error.message });
@@ -82,18 +83,75 @@ const createManager = async (req, res) => {
 }
 
 // Ma'lumotlarni olish
-const getData = async (req, res) => {
-    // Ma'lumot olish kodi
+const getManagers = async (req, res) => {
+    try {
+        let managers = await Admin.find({ role: "manager" })
+        res.status(200).send(managers)
+    } catch (error) {
+        res.status(400).send({ success: false })
+
+    }
 };
 
 // Ma'lumotni yangilash
-const updateData = async (req, res) => {
-    // Ma'lumot yangilash kodi
+const updateManager = async (req, res) => {
+    const { id } = req.params;
+    const { username, password } = req.body;
+
+    try {
+        // Mavjud managerni qidiring
+        const manager = await Admin.findById(id);
+
+        if (!manager) {
+            return res.status(404).json({ message: 'Manager not found' });
+        }
+
+        // Yangi username boshqa manager tomonidan ishlatilmayotganini tekshiring
+        const managerWithNewUsername = await Admin.findOne({ username });
+        if (managerWithNewUsername && managerWithNewUsername.id !== id) {
+            return res.status(400).json({ message: 'Username already taken by another manager' });
+        }
+
+        // Manager ma'lumotlarini yangilang
+        const salt = await bcrypt.genSalt(10);
+        let nextPassword = await bcrypt.hash(password, salt)
+        let updatedManager = await Admin.findByIdAndUpdate(id, { username, password: nextPassword })
+
+        if (updatedManager._id) {
+            res.status(200).send({
+                username: updatedManager.username,
+                message: 'Manager updated successfully'
+            });
+        } else {
+            res.status(400).send({
+                message: 'Manager updated failed'
+            });
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ message: error.message });
+    }
 };
 
 // Ma'lumotni o'chirish
-const deleteData = async (req, res) => {
-    // Ma'lumot o'chirish kodi
-};
+const deleteManager = async (req, res) => {
+    const { id } = req.params;
 
-module.exports = { signUp, signIn, createManager, getData, updateData, deleteData };
+    try {
+        // Mavjud managerni qidiring va o'chiring
+        const manager = await Admin.findByIdAndDelete(id);
+
+        if (!manager) {
+            return res.status(404).json({ message: 'Manager not found' });
+        }
+
+        res.status(200).send({
+            message: 'Manager deleted successfully'
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ message: error.message });
+    }
+};
+module.exports = { signUp, signIn, createManager, getManagers, updateManager, deleteManager };
