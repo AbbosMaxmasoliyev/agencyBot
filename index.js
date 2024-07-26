@@ -26,7 +26,7 @@ const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeU
 const app = express();
 
 // Set up default mongoose connection
-const mongoDBURL = process.env.MONGO_URI;
+const mongoDBURL = process.env.MONGO_URL;
 mongoose.connect(mongoDBURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
