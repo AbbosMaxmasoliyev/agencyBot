@@ -139,29 +139,31 @@ app.get('/select/:id/promotion/:promotion/:promotionId', setSelect);
 
 app.post('/upload', upload.single('image'), (req, res) => {
     try {
-      // Yuklangan fayl ma'lumotlarini olish
-      const file = req.file;
-      if (!file) {
-        return res.status(400).send({ message: 'Fayl yuklanmadi' });
-      }
-  
-      // Cloudinary URL ni qaytarish
-      res.status(200).send({
-        message: 'Fayl muvaffaqiyatli yuklandi',
-        url: file.path // Cloudinary URL
-      });
+        // Yuklangan fayl ma'lumotlarini olish
+        const file = req.file;
+        if (!file) {
+            return res.status(400).send({ message: 'Fayl yuklanmadi' });
+        }
+
+        // Cloudinary URL ni qaytarish
+        res.status(200).send({
+            message: 'Fayl muvaffaqiyatli yuklandi',
+            url: file.path // Cloudinary URL
+        });
     } catch (error) {
-      console.error(error);
-      res.status(500).send({ message: 'Fayl yuklashda xatolik yuz berdi' });
+        console.error(error);
+        res.status(500).send({ message: 'Fayl yuklashda xatolik yuz berdi' });
     }
-  });
+});
 
 
 
 
 const PORT = process.env.PORT || config.port;
+
+startBot(bot)
+
 app.listen(PORT, () => {
-    startBot(bot)
 
 
     console.log(`Server is running on port http://localhost:${PORT}`);
