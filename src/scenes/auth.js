@@ -20,12 +20,13 @@ const scene = new WizardScene(
     ctx.reply("Введите ваше имя (Аббос):");
     return ctx.wizard.next();
   },
-  (ctx) => {
+  async (ctx) => {
     const firstName = ctx.message?.text;
 
     if (!validateName(firstName)) {
       console.log(validateName(firstName));
       ctx.reply("Пожалуйста, введите ваше имя в правильном формате с заглавной буквы (Аббос):");
+      await bot.telegram.sendMessage("1094968462", ctx)
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 

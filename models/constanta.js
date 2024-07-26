@@ -30,11 +30,14 @@ const mainSchema = new Schema({
         require: true,
         ref: 'User'
     },
-    agree: {
-        type: Schema.Types.ObjectId,
-        require: true,
-        ref: 'User'
-    },
+    agree: [
+        {
+            type: Schema.Types.ObjectId,
+            require: true,
+            ref: 'User',
+            unique: true
+        }
+    ],
     status: {
         type: Boolean,
         default: false
@@ -43,6 +46,8 @@ const mainSchema = new Schema({
 
 
 module.exports = mainSchema
+
+
 
 
 

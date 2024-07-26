@@ -38,7 +38,7 @@ const getAllAdvertises = async (req, res) => {
 
 const getAdvertiseById = async (req, res) => {
     try {
-        const advertise = await Advertise.findById(req.params.id);
+        const advertise = await Advertise.findById(req.params.id).populate("owner").populate("agree");
         if (!advertise) {
             return res.status(404).send();
         }
@@ -50,9 +50,11 @@ const getAdvertiseById = async (req, res) => {
 
 const updateAdvertiseById = async (req, res) => {
     const updates = Object.keys(req.body);
-    const allowedUpdates = ['title', 'img', 'price', 'description', 'date', 'agree', "admin_owner", "admin_agree", "status"];
+    const allowedUpdates = ['title', 'img', 'price', 'description', 'date', 'agree', "admin_owner", , "status"];
     const isValidOperation = updates.every(update => allowedUpdates.includes(update));
-    console.log(isValidOperation);
+
+
+
     if (!isValidOperation) {
         return res.status(400).send({ error: 'Invalid updates!' });
     }
@@ -61,13 +63,10 @@ const updateAdvertiseById = async (req, res) => {
         req.body.owner = req.body.admin_owner
     }
 
-    if (req.body.admin_agree) {
-        req.body.agree = req.body.admin_agree
-    }
+
 
     try {
         const advertise = await Advertise.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        console.log(req.body);
         if (!advertise) {
             return res.status(404).send();
         }

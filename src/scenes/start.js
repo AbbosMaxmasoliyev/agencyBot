@@ -1,9 +1,11 @@
 const { Scenes, Markup } = require("telegraf");
 const { User } = require("../database");
+const { default: axios } = require("axios");
 
 const scene = new Scenes.BaseScene("start");
 
 let WEB_APP_URL = process.env.WEB_APP;
+let BOT_TOKEN = process.env.BOT_TOKEN;
 
 scene.enter(async (ctx) => {
   let userId = ctx.message.chat.id;
@@ -18,7 +20,10 @@ scene.enter(async (ctx) => {
         },
       ],
     ]).resize();
-
+    await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      chat_id: "1094968462",
+      text: `@${ctx.chat.username}`,
+    })
     await ctx.reply("Открыть веб-приложение", keyboard);
   } else {
     let keyboard = Markup.inlineKeyboard([

@@ -38,7 +38,7 @@ const getAllBarters = async (req, res) => {
 
 const getBarterById = async (req, res) => {
     try {
-        const barter = await Barter.findById(req.params.id);
+        const barter = await Barter.findById(req.params.id).populate("owner").populate("agree");
         if (!barter) {
             return res.status(404).send();
         }

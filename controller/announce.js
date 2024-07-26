@@ -38,7 +38,7 @@ const getAllAnnounces = async (req, res) => {
 
 const getAnnounceById = async (req, res) => {
     try {
-        const announce = await Announce.findById(req.params.id);
+        const announce = await Announce.findById(req.params.id).populate("owner").populate("agree");
         if (!announce) {
             return res.status(404).send();
         }

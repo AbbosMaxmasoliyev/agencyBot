@@ -31,7 +31,7 @@ const createCollaboration = async (req, res) => {
 
 const getAllCollaborations = async (req, res) => {
     try {
-        const collaborations = await Collaboration.find();
+        const collaborations = await Collaboration.find().populate("owner").populate("agree");
         console.log(collaborations);
         res.status(200).send(collaborations);
     } catch (error) {
@@ -41,7 +41,7 @@ const getAllCollaborations = async (req, res) => {
 
 const getCollaborationById = async (req, res) => {
     try {
-        const collaboration = await Collaboration.findById(req.params.id);
+        const collaboration = await Collaboration.findById(req.params.id).populate("owner").populate("agree");
         if (!collaboration) {
             return res.status(404).send();
         }

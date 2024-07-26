@@ -21,12 +21,12 @@ const { User } = require('./src/database/index.js');
 const Announce = require('./models/announce.js');
 const Barter = require('./models/barter.js');
 const Advertise = require('./models/advertise.js');
-const { publishPromotion, getWithCategoryPromotion, getPublishWaitingPromotion } = require('./controller/all.js');
+const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree } = require('./controller/all.js');
 
 const app = express();
 
 // Set up default mongoose connection
-const mongoDB = process.env.MONGO_URL;
+const mongoDB = process.env.MONGO_URI;
 mongoose.connect(mongoDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -107,6 +107,20 @@ app.get("/categories", async (req, res) => {
     }
 });
 
+app.get("/roles", async (req, res) => {
+    try {
+        let allCategories = [
+            { value: "bloger", label: "Блогер" },
+            { value: "freelancer", label: "Фрилансер" },
+            { value: "reklama", label: "Рекламодатель" },
+        ];
+
+        res.status(200).send(allCategories);
+    } catch (error) {
+        res.status(400).send({ msg: error.message });
+    }
+});
+
 
 
 
@@ -119,7 +133,9 @@ app.use('/barter', barterRoutes);
 app.use('/collaboration', collaborationRoutes);
 app.post('/publish/:promotion/:id', publishPromotion);
 app.get('/promotion/:promotion/category/:category/:id', getWithCategoryPromotion);
-app.get('/publish/:id', getPublishWaitingPromotion);
+app.get('/agree/:id/promotion/:promotion/:promotionId', setAgree);
+app.get('/remove/:id/promotion/:promotion/:promotionId', removeUserFromPromotionAgree);
+app.get('/select/:id/promotion/:promotion/:promotionId', setSelect);
 
 const PORT = process.env.PORT || config.port;
 app.listen(PORT, () => {
