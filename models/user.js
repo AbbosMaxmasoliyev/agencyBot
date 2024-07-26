@@ -52,7 +52,7 @@ const userSchema = new Schema({
         role: String,
         userTelegramId: {
             type: String,
-            default: Date.now(),
+
             unique: true,
             sparse: true
         }

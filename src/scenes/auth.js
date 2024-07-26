@@ -64,6 +64,7 @@ const scene = new WizardScene(
           firstName: ctx.wizard.state.firstName,
           lastName: ctx.wizard.state.lastName,
           phoneNumber: ctx.wizard.state.phoneNumber,
+          web_app: { userTelegramId: `${ctx.chat.username}-${Date.now()}-${ctx.chat.id}` }
         },
       },
       { new: true }

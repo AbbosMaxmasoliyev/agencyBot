@@ -22,11 +22,11 @@ const Announce = require('./models/announce.js');
 const Barter = require('./models/barter.js');
 const Advertise = require('./models/advertise.js');
 const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree } = require('./controller/all.js');
-
+const upload = require("./middlewares/upload.js")
 const app = express();
 
 // Set up default mongoose connection
-const mongoDBURL = process.env.MONGO_URL;
+const mongoDBURL = process.env.MONGO_URI;
 mongoose.connect(mongoDBURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -136,6 +136,28 @@ app.get('/promotion/:promotion/category/:category/:id', getWithCategoryPromotion
 app.get('/agree/:id/promotion/:promotion/:promotionId', setAgree);
 app.get('/remove/:id/promotion/:promotion/:promotionId', removeUserFromPromotionAgree);
 app.get('/select/:id/promotion/:promotion/:promotionId', setSelect);
+
+app.post('/upload', upload.single('image'), (req, res) => {
+    try {
+      // Yuklangan fayl ma'lumotlarini olish
+      const file = req.file;
+      if (!file) {
+        return res.status(400).send({ message: 'Fayl yuklanmadi' });
+      }
+  
+      // Cloudinary URL ni qaytarish
+      res.status(200).send({
+        message: 'Fayl muvaffaqiyatli yuklandi',
+        url: file.path // Cloudinary URL
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: 'Fayl yuklashda xatolik yuz berdi' });
+    }
+  });
+
+
+
 
 const PORT = process.env.PORT || config.port;
 app.listen(PORT, () => {
