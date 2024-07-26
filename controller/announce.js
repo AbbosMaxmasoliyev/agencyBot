@@ -18,7 +18,7 @@ const createAnnounce = async (req, res) => {
             }
         }
 
-        const announce = new Announce({ ...req.body, owner: userId, agree: agreeId ? agreeId : null });
+        const announce = new Announce({ ...req.body, owner: userId, agree: [] });
         await announce.save();
         res.status(201).send(announce);
     } catch (error) {

@@ -18,7 +18,7 @@ const createBarter = async (req, res) => {
             }
         }
 
-        const barter = new Barter({ ...req.body, owner: userId, agree: agreeId ? agreeId : null });
+        const barter = new Barter({ ...req.body, owner: userId, agree: [] });
         await barter.save();
         res.status(201).send(barter);
     } catch (error) {

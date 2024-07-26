@@ -18,7 +18,7 @@ const createAdvertise = async (req, res) => {
             }
         }
 
-        const advertise = new Advertise({ ...req.body, owner: userId, agree: agreeId ? agreeId : null });
+        const advertise = new Advertise({ ...req.body, owner: userId, agree: [] });
         await advertise.save();
         res.status(201).send(advertise);
     } catch (error) {
