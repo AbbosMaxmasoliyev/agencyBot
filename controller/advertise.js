@@ -50,7 +50,8 @@ const getAdvertiseById = async (req, res) => {
 
 const updateAdvertiseById = async (req, res) => {
     const updates = Object.keys(req.body);
-    const allowedUpdates = ['title', 'img', 'price', 'description', 'date', 'agree', "admin_owner", , "status"];
+    const allowedUpdates = ['title', 'img', 'price', 'description', 'date', 'agree', "admin_owner", "status"];
+    console.log(updates)
     const isValidOperation = updates.every(update => allowedUpdates.includes(update));
 
 
