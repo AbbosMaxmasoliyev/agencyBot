@@ -20,7 +20,7 @@ const createCollaboration = async (req, res) => {
             }
         }
 
-        const collaboration = new Collaboration({ ...req.body, owner: userId, agree: agreeId ? agreeId : null });
+        const collaboration = new Collaboration({ ...req.body, owner: userId, agree: [] });
         await collaboration.save();
         res.status(201).send(collaboration);
     } catch (error) {
@@ -64,9 +64,7 @@ const updateCollaborationById = async (req, res) => {
         req.body.owner = req.body.admin_owner
     }
 
-    if (req.body.admin_agree) {
-        req.body.agree = req.body.admin_agree
-    }
+
 
     try {
         const collaboration = await Collaboration.findByIdAndUpdate(req.params.id, req.body, { new: true });
