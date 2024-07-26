@@ -2,8 +2,8 @@ const Advertise = require('../models/advertise');
 const User = require('../models/user');
 
 const createAdvertise = async (req, res) => {
+    console.log(req.body);
     try {
-
         let userId;
         let agreeId;
         if (req.body.owner) {
