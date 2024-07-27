@@ -40,18 +40,29 @@ mongoose.connect(mongoDBURL, {
 
 
 let change = "https://d2bf-2a0d-5600-2e-5-3f33-c693-c423-48e6.ngrok-free.app "
+const allowedOrigins = [
+    'https://blogerwebapp.vercel.app',
+    'https://bloger-agency-adminka.vercel.app',
+    "http://localhost:3000",
+    "http://localhost:5173",
+    'https://web.telegram.org'
+];
+
 const corsOptions = {
-    origin: [
-        'https://blogerwebapp.vercel.app',
-        'https://bloger-agency-adminka.vercel.app',
-        "http://localhost:3000",
-        "http://localhost:5173",
-        'https://web.telegram.org',
-        change
-    ],
+    origin: (origin, callback) => {
+        // Agar origin ro'yxatda bo'lsa yoki null (Postman yoki shunga o'xshash asboblar uchun)
+        if (allowedOrigins.includes(origin) || !origin) {
+            console.log(origin);
+            callback(null, true);
+        } else {
+            console.log(origin);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
+
 
 app.use(cors(corsOptions));
 
