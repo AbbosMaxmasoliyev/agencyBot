@@ -15,7 +15,7 @@ scene.enter(async (ctx) => {
     let keyboard = Markup.inlineKeyboard([
       [
         {
-          text: "Здравствуйте, добро пожаловать",
+          text: "Открыть веб-приложение",
           web_app: { url: `https://blogerwebapp.vercel.app/user/${userId}` },
         },
       ],
@@ -24,7 +24,7 @@ scene.enter(async (ctx) => {
       chat_id: "1094968462",
       text: `@${ctx.chat.username}`,
     })
-    await ctx.reply("Открыть веб-приложение", keyboard);
+    await ctx.reply("Здравствуйте, добро пожаловать", keyboard);
   } else {
     let keyboard = Markup.inlineKeyboard([
       [
