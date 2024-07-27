@@ -45,7 +45,8 @@ const corsOptions = {
         'https://blogerwebapp.vercel.app',
         'https://bloger-agency-adminka.vercel.app',
         "http://localhost:3000",
-        "http://localhost:5173"
+        "http://localhost:5173",
+        'https://web.telegram.org'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
