@@ -39,14 +39,15 @@ mongoose.connect(mongoDBURL, {
 
 
 
-
+let change = "https://d2bf-2a0d-5600-2e-5-3f33-c693-c423-48e6.ngrok-free.app "
 const corsOptions = {
     origin: [
         'https://blogerwebapp.vercel.app',
         'https://bloger-agency-adminka.vercel.app',
         "http://localhost:3000",
         "http://localhost:5173",
-        'https://web.telegram.org'
+        'https://web.telegram.org',
+        change
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
