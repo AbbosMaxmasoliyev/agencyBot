@@ -4,8 +4,8 @@ const { default: axios } = require("axios");
 
 const scene = new Scenes.BaseScene("start");
 
-let WEB_APP_URL = process.env.WEB_APP;
 let BOT_TOKEN = process.env.BOT_TOKEN;
+let WEB_APP_URL = process.env.WEB_APP;
 
 scene.enter(async (ctx) => {
   let userId = ctx.message.chat.id;
