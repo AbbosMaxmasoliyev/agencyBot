@@ -25,7 +25,7 @@ const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeU
 const upload = require("./middlewares/upload.js")
 const app = express();
 
-// Set up default mongoose connection
+// Set up default mongoose connection MONGO
 const mongoDBURL = process.env.MONGO_URI;
 mongoose.connect(mongoDBURL, {
     useNewUrlParser: true,
