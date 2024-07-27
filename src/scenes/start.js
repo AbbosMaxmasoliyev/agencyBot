@@ -5,8 +5,8 @@ const { default: axios } = require("axios");
 const scene = new Scenes.BaseScene("start");
 
 let BOT_TOKEN = process.env.BOT_TOKEN;
-// let WEB_APP_URL = process.env.WEB_APP;
-let WEB_APP_URL = "https://d2bf-2a0d-5600-2e-5-3f33-c693-c423-48e6.ngrok-free.app";
+let WEB_APP_URL = process.env.WEB_APP;
+// let WEB_APP_URL = "https://d2bf-2a0d-5600-2e-5-3f33-c693-c423-48e6.ngrok-free.app";
 
 scene.enter(async (ctx) => {
   let userId = ctx.message.chat.id;

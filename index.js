@@ -39,7 +39,6 @@ mongoose.connect(mongoDBURL, {
 
 
 
-let change = "https://d2bf-2a0d-5600-2e-5-3f33-c693-c423-48e6.ngrok-free.app "
 const allowedOrigins = [
     'https://blogerwebapp.vercel.app',
     'https://bloger-agency-adminka.vercel.app',
