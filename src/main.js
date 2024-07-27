@@ -8,7 +8,7 @@ const User = require("../models/user");
 bot.use(session);
 bot.use(stage.middleware());
 
-bot.start(async (ctx) => {
+let main = bot.start(async (ctx) => {
   const userId = ctx.from.id.toString();
 
   let user = await User.findOne({ userId });
@@ -25,4 +25,4 @@ bot.start(async (ctx) => {
   }
 });
 
-module.exports = bot
+module.exports = main
