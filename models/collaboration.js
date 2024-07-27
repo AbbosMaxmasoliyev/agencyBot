@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const mainSchema = require('./constanta');
-const Schema = mongoose.Schema;
 
 const CollaborationSchema = mainSchema
 

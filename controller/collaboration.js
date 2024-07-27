@@ -2,11 +2,9 @@ const Collaboration = require('../models/collaboration');
 const User = require('../models/user');
 
 const createCollaboration = async (req, res) => {
-    console.log(req.body);
     try {
 
         let userId;
-        let agreeId;
         console.log(req.body);
         if (req.body.owner) {
             let user = await User.findOne({ userId: req.body.owner })
@@ -15,12 +13,11 @@ const createCollaboration = async (req, res) => {
         } else {
 
             userId = req.body.admin_owner
-            if (req.body.admin_agree) {
-                agreeId = req.body.admin_agree
-            }
-        }
 
-        const collaboration = new Collaboration({ ...req.body, owner: userId, agree: [] });
+        }
+        console.log(req.body);
+        const collaboration = new Collaboration({ ...req.body, owner: userId, });
+        console.log(collaboration);
         await collaboration.save();
         res.status(201).send(collaboration);
     } catch (error) {

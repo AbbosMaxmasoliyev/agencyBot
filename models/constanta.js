@@ -1,4 +1,5 @@
-const { Schema } = require("mongoose")
+const { Schema } = require("mongoose");
+
 const mainSchema = new Schema({
     title: {
         type: String,
@@ -22,34 +23,28 @@ const mainSchema = new Schema({
     },
     date: {
         type: Date,
-        default: Date.now(),
+        default: Date.now,
         required: true,
     },
     owner: {
         type: Schema.Types.ObjectId,
-        require: true,
+        required: true,
         ref: 'User'
     },
     agree: [
         {
             type: Schema.Types.ObjectId,
-            require: true,
             ref: 'User',
-            unique: true
+            default: null
         }
     ],
     status: {
         type: Boolean,
         default: false
     }
-})
+});
 
+// Ensure there is no unique index on the `agree` field unless intentionally added
+mainSchema.index({ agree: 1 }, { unique: false }); // Making sure agree is not unique
 
-module.exports = mainSchema
-
-
-
-
-
-
-
+module.exports = mainSchema;
