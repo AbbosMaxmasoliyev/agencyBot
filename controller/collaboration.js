@@ -3,20 +3,26 @@ const User = require('../models/user');
 
 const createCollaboration = async (req, res) => {
     try {
-
         let userId;
         console.log(req.body);
+        // Ikkinchi added
         if (req.body.owner) {
-            let user = await User.findOne({ userId: req.body.owner })
-            userId = user._id
-
+            let user = await User.findOne({ userId: req.body.owner });
+            if (!user) {
+                return res.status(404).send({ message: 'Foydalanuvchi topilmadi' });
+            }
+            userId = user._id;
         } else {
-
-            userId = req.body.admin_owner
-
+            userId = req.body.admin_owner;
         }
-        console.log(req.body);
-        const collaboration = new Collaboration({ ...req.body, owner: userId, });
+
+        // agree maydonidagi qiymatlarni tekshirish va to'g'ri formatda ekanligini ta'minlash
+        let agree = [];
+        if (req.body.agree && Array.isArray(req.body.agree)) {
+            agree = req.body.agree.filter(id => mongoose.Types.ObjectId.isValid(id));
+        }
+
+        const collaboration = new Collaboration({ ...req.body, owner: userId, agree });
         console.log(collaboration);
         await collaboration.save();
         res.status(201).send(collaboration);
@@ -25,7 +31,6 @@ const createCollaboration = async (req, res) => {
         res.status(400).send(error);
     }
 };
-
 const getAllCollaborations = async (req, res) => {
     try {
         const collaborations = await Collaboration.find().populate("owner").populate("agree");
