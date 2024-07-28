@@ -3,24 +3,29 @@ const User = require('../models/user');
 
 const createAnnounce = async (req, res) => {
     try {
-
         let userId;
-        let agreeId;
+        console.log(req.body);
+        // Ikkinchi added
         if (req.body.owner) {
-            let user = await User.findOne({ userId: req.body.owner })
-            userId = user._id
-
-        } else {
-
-            userId = req.body.admin_owner
-            if (req.body.admin_agree) {
-                agreeId = req.body.admin_agree
+            let user = await User.findOne({ userId: req.body.owner });
+            if (!user) {
+                return res.status(404).send({ message: 'Foydalanuvchi topilmadi' });
             }
+            userId = user._id;
+        } else {
+            userId = req.body.admin_owner;
         }
 
-        const announce = new Announce({ ...req.body, owner: userId, agree: [] });
-        await announce.save();
-        res.status(201).send(announce);
+        // agree maydonidagi qiymatlarni tekshirish va to'g'ri formatda ekanligini ta'minlash
+        let agree = [];
+        if (req.body.agree && Array.isArray(req.body.agree)) {
+            agree = req.body.agree.filter(id => mongoose.Types.ObjectId.isValid(id));
+        }
+
+        const collaboration = new Announce({ ...req.body, owner: userId, agree });
+        console.log(collaboration);
+        await collaboration.save();
+        res.status(201).send(collaboration);
     } catch (error) {
         console.log(error);
         res.status(400).send(error);

@@ -2,25 +2,30 @@ const Advertise = require('../models/advertise');
 const User = require('../models/user');
 
 const createAdvertise = async (req, res) => {
-    console.log(req.body);
     try {
         let userId;
-        let agreeId;
+        console.log(req.body);
+        // Ikkinchi added
         if (req.body.owner) {
-            let user = await User.findOne({ userId: req.body.owner })
-            userId = user._id
-
-        } else {
-
-            userId = req.body.admin_owner
-            if (req.body.admin_agree) {
-                agreeId = req.body.admin_agree
+            let user = await User.findOne({ userId: req.body.owner });
+            if (!user) {
+                return res.status(404).send({ message: 'Foydalanuvchi topilmadi' });
             }
+            userId = user._id;
+        } else {
+            userId = req.body.admin_owner;
         }
 
-        const advertise = new Advertise({ ...req.body, owner: userId, agree: [] });
-        await advertise.save();
-        res.status(201).send(advertise);
+        // agree maydonidagi qiymatlarni tekshirish va to'g'ri formatda ekanligini ta'minlash
+        let agree = [];
+        if (req.body.agree && Array.isArray(req.body.agree)) {
+            agree = req.body.agree.filter(id => mongoose.Types.ObjectId.isValid(id));
+        }
+
+        const collaboration = new Advertise({ ...req.body, owner: userId, agree });
+        console.log(collaboration);
+        await collaboration.save();
+        res.status(201).send(collaboration);
     } catch (error) {
         console.log(error);
         res.status(400).send(error);
