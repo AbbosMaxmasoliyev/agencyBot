@@ -108,7 +108,7 @@ const updateUseStatus = async (req, res) => {
                 {
                     chat_id: user.userId,
                     text: `Ваша учетная запись успешно подтверждена.
-Вы можете предоставлять рекламу и рекламу.`,
+Вы можете видеть объявления.`,
                     reply_markup: {
                         inline_keyboard: [
                             [
