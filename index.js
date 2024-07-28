@@ -44,7 +44,8 @@ const allowedOrigins = [
     'https://bloger-agency-adminka.vercel.app',
     "http://localhost:3000",
     "http://localhost:5173",
-    'https://web.telegram.org'
+    'https://web.telegram.org',
+    "https://d419-2605-6440-4015-8000-9e86-7d6c-9b1a-76a5.ngrok-free.app"
 ];
 
 const corsOptions = {

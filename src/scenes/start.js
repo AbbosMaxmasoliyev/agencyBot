@@ -6,7 +6,7 @@ const scene = new Scenes.BaseScene("start");
 
 let BOT_TOKEN = process.env.BOT_TOKEN;
 let WEB_APP_URL = process.env.WEB_APP;
-// let WEB_APP_URL = "https://d2bf-2a0d-5600-2e-5-3f33-c693-c423-48e6.ngrok-free.app";
+// let WEB_APP_URL = "https://d419-2605-6440-4015-8000-9e86-7d6c-9b1a-76a5.ngrok-free.app";
 
 scene.enter(async (ctx) => {
   let userId = ctx.message.chat.id;
@@ -17,7 +17,8 @@ scene.enter(async (ctx) => {
       [
         {
           text: "Открыть веб-приложение",
-          web_app: { url: `${WEB_APP_URL}/user/${userId}` },
+          // web_app: { url: `${WEB_APP_URL}/user/${userId}` },
+          web_app: { url: `${WEB_APP_URL}` },
         },
       ],
     ]).resize();

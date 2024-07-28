@@ -3,6 +3,7 @@ const {
 } = require("telegraf");
 const db = require("../database");
 const User = require("../../models/user");
+const bot = require("../core/bot");
 
 function validateName(name) {
   const nameRegex = /^[A-Za-z\u0400-\u04FF]{2,}$/;
