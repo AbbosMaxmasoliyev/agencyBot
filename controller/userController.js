@@ -107,12 +107,13 @@ const updateUseStatus = async (req, res) => {
                 `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
                 {
                     chat_id: user.userId,
-                    text: "Ваша личность подтверждена. Вы можете размещать объявления и рекламу",
+                    text: `Ваша учетная запись успешно подтверждена.
+Вы можете предоставлять рекламу и рекламу.`,
                     reply_markup: {
                         inline_keyboard: [
                             [
                                 {
-                                    text: "Разместить рекламу",
+                                    text: "Объявления",
                                     web_app: { url: `${WEB_APP_URL}/user/${user.userId}` }
                                 }
                             ]
