@@ -18,7 +18,7 @@ scene.enter(async (ctx) => {
         {
           text: "Открыть веб-приложение",
           // web_app: { url: `${WEB_APP_URL}/user/${userId}` },
-          web_app: { url: `${WEB_APP_URL}` },
+          web_app: { url: `${WEB_APP_URL}/user/${userId}` },
         },
       ],
     ]).resize();

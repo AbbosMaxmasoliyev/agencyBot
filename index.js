@@ -22,7 +22,7 @@ const Announce = require('./models/announce.js');
 const Barter = require('./models/barter.js');
 const Advertise = require('./models/advertise.js');
 const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree } = require('./controller/all.js');
-const upload = require("./middlewares/upload.js")
+const uploadMiddleware = require('./middlewares/upload.js');
 const app = express();
 
 // Set up default mongoose connection MONGO
@@ -150,7 +150,7 @@ app.get('/agree/:id/promotion/:promotion/:promotionId', setAgree);
 app.get('/remove/:id/promotion/:promotion/:promotionId', removeUserFromPromotionAgree);
 app.get('/select/:id/promotion/:promotion/:promotionId', setSelect);
 
-app.post('/upload', upload.single('image'), (req, res) => {
+app.post('/upload', uploadMiddleware, (req, res) => {
     try {
         // Yuklangan fayl ma'lumotlarini olish
         const file = req.file;
@@ -164,7 +164,7 @@ app.post('/upload', upload.single('image'), (req, res) => {
             url: file.path // Cloudinary URL
         });
     } catch (error) {
-        console.error(error);
+        console.error(JSON.stringify(error));
         res.status(500).send({ message: 'Fayl yuklashda xatolik yuz berdi' });
     }
 });

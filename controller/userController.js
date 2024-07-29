@@ -162,6 +162,29 @@ const updateUserWebInfo = async (req, res) => {
     }
 };
 
+
+
+const updateUserBot = async (req, res) => {
+    let userId = req.params.id
+    console.log(req.params);
+    console.log(Object.keys(req.body).length)
+    console.log(req.body);
+    if (!Object.keys(req.body).length) {
+        return res.status(404).send({ message: 'Fields required' });
+    }
+    try {
+        const user = await User.findOneAndUpdate({ userId: userId }, { ...req.body, web_app: { ...req.body.web_app, userTelegramId: new Date().getTime() } }, { new: true });
+        if (!user) {
+            return res.status(404).send({ message: 'User not found' });
+        }
+
+        res.status(200).send({ success: true });
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ message: error.message });
+    }
+};
+
 // Delete user
 const deleteUser = async (req, res) => {
     try {
@@ -189,5 +212,6 @@ module.exports = {
     updateUserWebInfo,
     deleteUser,
     orderUser,
-    updateUseStatus
+    updateUseStatus,
+    updateUserBot
 };
