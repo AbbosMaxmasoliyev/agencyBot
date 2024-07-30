@@ -6,21 +6,23 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Add SSH key
-      uses: webfactory/ssh-agent@v0.5.3
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        node-version: 20.14
 
-    - name: Add server to known hosts
-      run: |
-        ssh-keyscan -H 93.127.163.78 >> ~/.ssh/known_hosts
+    - name: Install dependencies
+      run: npm install
 
     - name: Deploy
       run: |
-        ssh root@93.127.163.78 'cd projects/agencyBot/ && git pull && npm install && pm2 restart AGENCYBOT'
+        ssh root@93.127.163.78 'cd /projects/agencyBot && git pull && npm install && pm2 restart AGENCYBOT'
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
