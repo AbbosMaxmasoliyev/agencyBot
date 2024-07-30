@@ -25,8 +25,9 @@ const publishPromotion = async (req, res) => {
 
         const promotion = await promotions[promotionKey](req.body);
         let users = await User.find({
-            'web_app.category': promotion.category
-        })
+            status: true,
+            userId: { $ne: id }  // userId qiymati id ga teng bo‘lmagan hujjatlarni qidirish
+        });
         console.log(users, " => Users");
 
         let results = await sendMessagesToUsers(users)
@@ -35,6 +36,72 @@ const publishPromotion = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(400).send(error);
+    }
+};
+
+
+
+const createPromotion = async (req, res) => {
+
+    let promotionKey = req.params.promotion
+    let id = req.params.id
+    try {
+        let userId;
+        console.log(req.body);
+
+        // Ikkinchi added
+        if (req.body.owner) {
+            // Foydalanuvchini qidiring
+            let user = await User.findOne({ userId: req.body.owner });
+            if (!user) {
+                return res.status(404).send({ message: 'Foydalanuvchi topilmadi' });
+            }
+            userId = user._id;
+        } else {
+            // Agar owner bo‘lmasa, admin_owner ni olish
+            userId = req.body.admin_owner;
+        }
+
+        // agree maydonidagi qiymatlarni tekshirish va to'g'ri formatda ekanligini ta'minlash
+        let agree = [];
+        if (req.body.agree && Array.isArray(req.body.agree)) {
+            agree = req.body.agree.filter(id => mongoose.Types.ObjectId.isValid(id));
+        }
+
+        // Promotion maydonini tekshirish
+        let promotion = [];
+        if (req.body.promotion && Array.isArray(req.body.promotion)) {
+            promotion = req.body.promotion.filter(promo => typeof promo === 'string' && promo.trim() !== '');
+        }
+
+        // Collaboration yaratish
+        const collaboration = promotions[promotionKey]({
+            ...req.body,
+            owner: userId,
+            agree,
+            promotion  // Promotion maydonini qo‘shish
+        });
+
+        console.log(collaboration);
+
+        // Saqlash
+        await collaboration.save();
+        res.status(201).send(collaboration);
+
+        // Promotion yaratish
+        const message = req.body.promotionMessage || "Yangi hamkorlik yaratildi!"; // Promotion xabari
+        let users = await User.find({
+            status: true,
+            _id: { $ne: collaboration.owner }  // admin_owner qiymati bo‘lmagan hujjatlarni qidirish
+        });
+
+        // Xabar yuborish
+        let results = await sendMessagesToUsers(users, message);
+        console.log(results);
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({ error: 'Ishlatishda xatolik yuz berdi', details: error.message });
     }
 };
 
@@ -182,4 +249,4 @@ const setSelect = async (req, res) => {
 
 
 
-module.exports = { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree, promotions }
+module.exports = { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree, promotions, createPromotion }

@@ -32,7 +32,6 @@ const language = new Scenes.WizardScene(
     // Tarjima tilini o‘zgartiring
     await ctx.i18n.changeLanguage(selectedLanguage);
 
-    ctx.reply(ctx.i18n.t("language_changed")); // Til o'zgartirildi degan xabar
     return ctx.scene.enter("auth");
   }
 );

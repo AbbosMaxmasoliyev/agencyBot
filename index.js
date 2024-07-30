@@ -21,7 +21,7 @@ const { User } = require('./src/database/index.js');
 const Announce = require('./models/announce.js');
 const Barter = require('./models/barter.js');
 const Advertise = require('./models/advertise.js');
-const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree } = require('./controller/all.js');
+const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree, createPromotion } = require('./controller/all.js');
 const uploadMiddleware = require('./middlewares/upload.js');
 const app = express();
 
@@ -109,10 +109,22 @@ app.get("/all", async (req, res) => {
 app.get("/categories", async (req, res) => {
     try {
         let allCategories = [
-            { value: "fitness", label: "Фитнес" },
-            { value: "sport", label: "Спорт" },
-            { value: "travel", label: "Путешествия" },
-        ];
+            { ru: "Всё для дома", uz: "Uy uchun", value: "for_house" },
+            { ru: "Beauty", uz: "Go'zallik", value: "beauty" },
+            { ru: "Еда", uz: "Ovqat", value: "food" },
+            { ru: "Развлекательные", uz: "Ko'ngilochar", value: "entertainment" },
+            { ru: "Контент (фрилансеры)", uz: "Kontent (frilanserlar)", value: "content_freelancers" },
+            { ru: "Отели \\ Зоны отдыха", uz: "Mehmonxonalar \\ Dam olish zonalari", value: "hotels_rest_areas" },
+            { ru: "Одежда", uz: "Kiyim-kechak", value: "clothing" },
+            { ru: "Спорт", uz: "Sport", value: "sports" },
+            { ru: "Технологии", uz: "Texnologiyalar", value: "technology" },
+            { ru: "Туризм", uz: "Turizm", value: "tourism" },
+            { ru: "Медицина", uz: "Tibbiyot", value: "medicine" },
+            { ru: "Благотворительность", uz: "Xayriya", value: "charity" },
+            { ru: "Авто", uz: "Avto", value: "auto" },
+            { ru: "Обучение", uz: "Ta'lim", value: "education" },
+            { ru: "Творчество", uz: "Ijod", value: "creativity" }
+        ];;
 
         res.status(200).send(allCategories);
     } catch (error) {
@@ -144,7 +156,7 @@ app.use('/advertise', advertiseRoutes);
 app.use('/announce', announceRoutes);
 app.use('/barter', barterRoutes);
 app.use('/collaboration', collaborationRoutes);
-app.post('/publish/:promotion/:id', publishPromotion);
+app.post('/publish/:promotion/:id', createPromotion);
 app.get('/promotion/:promotion/category/:category/:id', getWithCategoryPromotion);
 app.get('/agree/:id/promotion/:promotion/:promotionId', setAgree);
 app.get('/remove/:id/promotion/:promotion/:promotionId', removeUserFromPromotionAgree);

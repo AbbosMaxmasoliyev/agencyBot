@@ -25,17 +25,25 @@ const sendMessageToUser = (userId, message) => {
     });
 };
 
+
+let textGetWithLanguage = (user, key) => {
+    let pathMessage = require(`../public/locales/${user.language}/translation.json`)
+    console.log(pathMessage);
+    return pathMessage[key]
+}
+
 // Function to send messages to all users
-const sendMessagesToUsers = async (users, promotion) => {
+const sendMessagesToUsers = async (users, promotion, ctx) => {
+
     try {
         const sendPromises = users.map(user => sendMessageToUser(user.userId,
             {
-                text: "Sizga mos e'lon joylandi ",
+                text: textGetWithLanguage(user, "posted_for_you"),
                 reply_markup: {
                     inline_keyboard: [
                         [
                             {
-                                text: "Tekshirish",
+                                text: textGetWithLanguage(user, "view"),
                                 web_app: { url: `${WEB_APP_URL}/user/${user.userId}/for-me/${promotion}` }
                             }
                         ]
@@ -43,7 +51,6 @@ const sendMessagesToUsers = async (users, promotion) => {
                 }
             }));
         const results = await Promise.all(sendPromises);
-        console.log(results);
         return results
     } catch (error) {
         return error;

@@ -10,5 +10,7 @@
     "error_surname": "Iltimos, familiyangizni katta harf bilan to'g'ri shaklda kiriting (Maxmasoliyev):",
     "phoneNumber": "Telefon raqamingizni kiriting (+998992247645):",
     "phoneNumber_error": "Telefon raqamingizni to'g'ri formatda kiriting (+998992247645):",
-    "saved_success": "Sizning ma'lumotlaringiz muvaffaqqiyatli saqlandi"
+    "saved_success": "Sizning ma'lumotlaringiz muvaffaqqiyatli saqlandi",
+    "posted_for_you": "Yangi e'lon joylashtirildi",
+    "view": "Qarang"
 }
