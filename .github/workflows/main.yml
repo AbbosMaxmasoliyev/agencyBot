@@ -23,6 +23,6 @@ jobs:
 
     - name: Deploy
       run: |
-        ssh root@93.127.163.78 'cd ./projects/agencyBot && git pull && npm install && pm2 restart AGENCYBOT'
+        ssh root@93.127.163.78 'cd projects/agencyBot/ && git pull && npm install && pm2 restart AGENCYBOT'
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
