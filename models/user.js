@@ -10,6 +10,9 @@ const Gender = Object.freeze({
 })
 
 
+
+
+
 const userSchema = new Schema({
 
     userId: {
@@ -36,6 +39,10 @@ const userSchema = new Schema({
     status: {
         type: Boolean,
         deafult: false
+    },
+    language: {
+        type: String,
+        
     },
     web_app: {
         category: String,

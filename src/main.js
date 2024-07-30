@@ -9,11 +9,14 @@ const i18next = require('../i18');
 
 
 bot.use(async (ctx, next) => {
-  const language = ctx.from.language_code || 'uz'; // Foydalanuvchi tilini aniqlash
+  let user = await User.findOne({ userId: ctx.from?.id })
+  const language = user?.language || "uz"; // Foydalanuvchi tilini aniqlash
   ctx.i18n = i18next.cloneInstance();
   ctx.i18n.changeLanguage(language);
   await next();
 });
+
+
 bot.use(session);
 bot.use(stage.middleware());
 
@@ -28,7 +31,7 @@ let main = bot.start(async (ctx) => {
   }
 
   if (!user.firstName || !user.lastName || !user.phoneNumber) {
-    ctx.scene.enter("auth");
+    ctx.scene.enter("language");
   } else {
     ctx.scene.enter("start");
   }

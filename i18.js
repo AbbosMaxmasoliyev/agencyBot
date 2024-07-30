@@ -4,7 +4,7 @@ const Backend = require('i18next-fs-backend');
 const path = require('path');
 
 i18next.use(Backend).init({
-    lng: 'uz', // Default til (o‘zbek tili)
+    lng: "uz", // Default til (o‘zbek tili)
     fallbackLng: 'uz', // Agar tarjima mavjud bo‘lmasa rus tiliga o‘tadi
     backend: {
         loadPath: path.join(__dirname, '/public/locales', '{{lng}}', '{{ns}}.json')
