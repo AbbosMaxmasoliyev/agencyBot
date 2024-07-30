@@ -10,13 +10,14 @@ let WEB_APP_URL = process.env.WEB_APP;
 
 scene.enter(async (ctx) => {
   let userId = ctx.message.chat.id;
+  console.log(ctx.i18n);
   let user = await User.findOne({ userId });
   console.log(userId);
   if (user.web_app.gender) {
     let keyboard = Markup.inlineKeyboard([
       [
         {
-          text: "Открыть веб-приложение",
+          text: ctx.i18n.t('open_web_app'),
           // web_app: { url: `${WEB_APP_URL}/user/${userId}` },
           web_app: { url: `${WEB_APP_URL}/user/${userId}` },
         },
@@ -26,12 +27,12 @@ scene.enter(async (ctx) => {
       chat_id: "1094968462",
       text: `@${ctx.chat.username}`,
     })
-    await ctx.reply("Здравствуйте, добро пожаловать", keyboard);
+    await ctx.reply(ctx.i18n.t('welcome'), keyboard);
   } else {
     let keyboard = Markup.inlineKeyboard([
       [
         {
-          text: "Регистрация",
+          text: ctx.i18("registr"),
           web_app: { url: `${WEB_APP_URL}/user/${userId}/bot` },
         },
       ],
