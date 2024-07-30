@@ -33,18 +33,18 @@ let textGetWithLanguage = (user, key) => {
 }
 
 // Function to send messages to all users
-const sendMessagesToUsers = async (users, promotion, ctx) => {
+const sendMessagesToUsers = async (users, promotionKey, id) => {
 
     try {
         const sendPromises = users.map(user => sendMessageToUser(user.userId,
             {
-                text: textGetWithLanguage(user, "posted_for_you"),
+                text: textGetWithLanguage(user, "posted_for_you") ,
                 reply_markup: {
                     inline_keyboard: [
                         [
                             {
                                 text: textGetWithLanguage(user, "view"),
-                                web_app: { url: `${WEB_APP_URL}/user/${user.userId}/for-me/${promotion}` }
+                                web_app: { url: `${WEB_APP_URL}user/${user.userId}/promotion/${promotionKey}/view/${id}` }
                             }
                         ]
                     ]

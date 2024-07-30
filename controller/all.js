@@ -96,7 +96,7 @@ const createPromotion = async (req, res) => {
         });
 
         // Xabar yuborish
-        let results = await sendMessagesToUsers(users, message);
+        let results = await sendMessagesToUsers(users, promotionKey, collaboration._id);
         console.log(results);
 
     } catch (error) {
