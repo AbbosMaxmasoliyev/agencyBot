@@ -20,7 +20,12 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
+      
+    - name: Add server to known hosts
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H 93.127.163.78 >> ~/.ssh/known_hosts
+        
     - name: Deploy
       run: |
         ssh root@93.127.163.78 'cd /projects/agencyBot && git pull && npm install && pm2 restart AGENCYBOT'
