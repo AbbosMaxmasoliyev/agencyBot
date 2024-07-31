@@ -41,6 +41,17 @@ const getAllCollaborations = async (req, res) => {
     }
 };
 
+
+const getMyCollaborations = async (req, res) => {
+    try {
+        const collaborations = await Collaboration.find({ userId: req.params.userId }).populate("owner").populate("agree");
+        console.log(collaborations);
+        res.status(200).send(collaborations);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
 const getCollaborationById = async (req, res) => {
     try {
         const collaboration = await Collaboration.findById(req.params.id).populate("owner").populate("agree");
@@ -101,5 +112,6 @@ module.exports = {
     updateCollaborationById,
     getCollaborationById,
     getAllCollaborations,
-    deleteCollaborationById
+    deleteCollaborationById,
+    getMyCollaborations
 }

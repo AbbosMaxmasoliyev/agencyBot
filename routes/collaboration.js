@@ -5,7 +5,8 @@ const { createCollaboration,
     updateCollaborationById,
     getCollaborationById,
     getAllCollaborations,
-    deleteCollaborationById } = require('../controller/collaboration');
+    deleteCollaborationById,
+    getMyCollaborations } = require('../controller/collaboration');
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -13,6 +14,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/create', createCollaboration);
 router.get('/all', getAllCollaborations);
+router.get('/my-collaboration/:userId', getMyCollaborations);
 router.get('/getById/:id', getCollaborationById);
 router.put('/update/:id', updateCollaborationById);
 router.delete('/delete/:id', deleteCollaborationById);
