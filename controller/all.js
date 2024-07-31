@@ -183,6 +183,25 @@ const setAgree = async (req, res) => {
 };
 
 
+const getMyPromotions = async (req, res) => {
+
+    const promotionKey = req.params.promotion
+    console.log(promotionKey);
+    console.log(req.params.userId);
+    try {
+        let user = await User.findOne({ userId: req.params.userId })
+        console.log(user);
+        const collaborations = await promotions[promotionKey].find({ owner: user._id }).populate("agree");
+        console.log(collaborations);
+        res.status(200).send(collaborations);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+
+
+
 const removeUserFromPromotionAgree = async (req, res) => {
     const { id, promotionId, promotion } = req.params;
 
@@ -249,4 +268,4 @@ const setSelect = async (req, res) => {
 
 
 
-module.exports = { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree, promotions, createPromotion }
+module.exports = { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree, promotions, createPromotion, getMyPromotions }

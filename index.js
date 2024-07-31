@@ -116,7 +116,7 @@ app.get("/categories", async (req, res) => {
             { ru: "Контент (фрилансеры)", uz: "Kontent (frilanserlar)", value: "content_freelancers" },
             { ru: "Отели \\ Зоны отдыха", uz: "Mehmonxonalar \\ Dam olish zonalari", value: "hotels_rest_areas" },
             { ru: "Одежда", uz: "Kiyim-kechak", value: "clothing" },
-            { ru: "Спорт", uz: "Sport", value: "sports" },
+            { ru: "Спорт", uz: "Sport", value: "sport" },
             { ru: "Технологии", uz: "Texnologiyalar", value: "technology" },
             { ru: "Туризм", uz: "Turizm", value: "tourism" },
             { ru: "Медицина", uz: "Tibbiyot", value: "medicine" },
