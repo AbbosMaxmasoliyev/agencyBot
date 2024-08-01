@@ -42,7 +42,10 @@ const userSchema = new Schema({
     },
     language: {
         type: String,
-        
+
+    },
+    fromTelegram: {
+        type: Object
     },
     web_app: {
         category: String,

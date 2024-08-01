@@ -156,7 +156,7 @@ app.use('/advertise', advertiseRoutes);
 app.use('/announce', announceRoutes);
 app.use('/barter', barterRoutes);
 app.use('/collaboration', collaborationRoutes);
-app.post('/publish/:promotion/:id', createPromotion);
+app.post('/create/:promotion/', createPromotion);
 app.get('/promotion/:promotion/category/:category/:id', getWithCategoryPromotion);
 app.get('/agree/:id/promotion/:promotion/:promotionId', setAgree);
 app.get('/remove/:id/promotion/:promotion/:promotionId', removeUserFromPromotionAgree);

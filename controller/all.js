@@ -44,7 +44,6 @@ const publishPromotion = async (req, res) => {
 const createPromotion = async (req, res) => {
 
     let promotionKey = req.params.promotion
-    let id = req.params.id
     try {
         let userId;
         console.log(req.body);
