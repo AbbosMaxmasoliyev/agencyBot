@@ -23,6 +23,7 @@ const Barter = require('./models/barter.js');
 const Advertise = require('./models/advertise.js');
 const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree, createPromotion } = require('./controller/all.js');
 const uploadMiddleware = require('./middlewares/upload.js');
+const Collaboration = require('./models/collaboration.js');
 const app = express();
 
 // Set up default mongoose connection MONGO
@@ -125,7 +126,15 @@ app.get("/categories", async (req, res) => {
             { ru: "Обучение", uz: "Ta'lim", value: "education" },
             { ru: "Творчество", uz: "Ijod", value: "creativity" }
         ];;
-
+        let length = await Collaboration.aggregate([
+            {
+                $group: {
+                    _id: "$category", // Kategoriyaga ko'ra guruhlaymiz
+                    count: { $sum: 1 } // Har bir kategoriya uchun sonini hisoblaymiz
+                }
+            }
+        ])
+        console.log(length);
         res.status(200).send(allCategories);
     } catch (error) {
         res.status(400).send({ msg: error.message });

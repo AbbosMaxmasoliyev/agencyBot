@@ -11,7 +11,11 @@ const mainSchema = new Schema({
     },
     price: {
         type: Number,
-        required: true,
+        required: false,
+    },
+    example: {
+        type: String,
+        require: false
     },
     description: {
         type: String,
@@ -19,7 +23,7 @@ const mainSchema = new Schema({
     },
     category: {
         type: String,
-        required: true,
+        required: false,
     },
     date: {
         type: Date,
