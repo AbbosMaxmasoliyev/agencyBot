@@ -18,12 +18,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        path: /home/runner/agencyBot
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd /home/runner/agencyBot
-    - run: git pull
-    - run: npm install
-    - run: pm2 restart AGENCYBOT
+    - name: Change to project directory
+      run: cd /home/runner/agencyBot
+    - name: Pull latest code
+      run: git pull
+    - name: Install dependencies
+      run: npm install
+    - name: Restart pm2 process
+      run: pm2 restart AGENCYBOT
