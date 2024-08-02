@@ -11,7 +11,7 @@ const bot = new Telegraf(config.botToken);
 
 bot.use(stage.middleware());
 bot.start(async (ctx) => {
-
+    ctx.reply("CI CD")
     let telegram_id = ctx.message.chat.id
 
     try {
