@@ -21,7 +21,7 @@ const language = new Scenes.WizardScene(
     const selectedLanguage = ctx.callbackQuery.data;
     await ctx.answerCbQuery();
     console.log(selectedLanguage);
-    // Foydalanuvchi tanlagan tilni saqlash
+    // Foydalanuvchi tanlagan tilni saqlashdi
     const userId = ctx.from.id.toString();
     await User.findOneAndUpdate(
       { userId },
