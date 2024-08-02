@@ -79,6 +79,7 @@ const userSchema = new Schema({
 
 userSchema.pre('save', function (next) {
     this.updatedAt = Date.now();
+    this.web_app.userTelegramId = `${Date.now() - Math.random()}`
     next();
 });
 

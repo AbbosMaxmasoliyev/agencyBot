@@ -37,21 +37,38 @@ const deleteUserAndAssociations = async (userId) => {
 
 // Create user
 const createUser = async (req, res) => {
-    console.log(req.body);
+    console.log(req.body, "=> Usercreate");
     try {
         const user = new User(req.body);
         await user.save();
         res.status(201).send(user);
     } catch (error) {
+        console.log(error);
+
         res.status(400).send({ message: error.message });
     }
 };
 
 // Read all users
 const getUsers = async (req, res) => {
+    const { page = 1, item = 10, role } = req.query; // default qiymatlar
+
+    let query = { status: true }; // doimiy filter
+    console.log(req.query, "=> query");
+
+    if (role) {
+        query["web_app.role"] = role; // role filtrni qo'shish
+    }
+    console.log(query);
+
     try {
-        const users = await User.find({ status: true });
-        res.status(200).send(users);
+        const totalUsers = await User.countDocuments({ ...query });
+        const users = await User.find(query)
+            .skip((page - 1) * item)
+            .limit(parseInt(item));
+        console.log(users);
+
+        res.status(200).send({ users, total: totalUsers });
     } catch (error) {
         res.status(500).send({ message: error.message });
     }
