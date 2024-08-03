@@ -4,7 +4,8 @@ const Barter = require('../models/barter'); // Adjust the path to your Barter mo
 const Advertise = require('../models/advertise'); // Adjust the path to your Advertise model
 const Announcement = require('../models/announce');
 const mongoose = require('mongoose');
-
+const { sendMessageToGroup, sendMessageToUser } = require('../src/core/bot');
+const { textGetWithLanguage } = require("../utils/text")
 
 const BOT_TOKEN = process.env.BOT_TOKEN
 const WEB_APP_URL = process.env.WEB_APP
@@ -41,6 +42,10 @@ const createUser = async (req, res) => {
     try {
         const user = new User(req.body);
         await user.save();
+
+        sendMessageToGroup(`Yangi User yaratildi`)
+        console.log(`Yangi User yaratildi`);
+
         res.status(201).send(user);
     } catch (error) {
         console.log(error);
@@ -119,29 +124,18 @@ const updateUseStatus = async (req, res) => {
             const user = await User.findOneAndUpdate({ userId: req.params.id }, { status: true }, { new: true, runValidators: true });
             if (!user) return res.status(404).send({ message: 'User not found' });
             console.log(user.userId);
-
-            await axios.post(
-                `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
-                {
-                    chat_id: user.userId,
-                    text: `Ваша учетная запись успешно подтверждена.
-Вы можете видеть объявления.`,
-                    reply_markup: {
-                        inline_keyboard: [
-                            [
-                                {
-                                    text: "Объявления",
-                                    web_app: { url: `${WEB_APP_URL}/user/${user.userId}` }
-                                }
-                            ]
+            await sendMessageToUser(textGetWithLanguage(user, "saved_success"), user.userId, {
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: textGetWithLanguage(user, "open_web_app"),
+                                web_app: { url: `${WEB_APP_URL}/user/${user.userId}` }
+                            }
                         ]
-                    }
+                    ]
                 }
-
-            )
-                .then(res => console.log(res))
-                .catch(err => console.log("error", err));
-
+            },)
 
 
 
@@ -171,6 +165,12 @@ const updateUserWebInfo = async (req, res) => {
         if (!user) {
             return res.status(404).send({ message: 'User not found' });
         }
+
+
+        const htmlMessage = `<b>Foydalanuvchi Ma'lumotlari:</b>\n<i>Ism:</i> ${user.firstName} ${user.lastName}\n<i>Username:</i> @${user.fromTelegram.username}\n<i>Telefon:</i> ${user.phoneNumber}\n`;
+        sendMessageToGroup(htmlMessage)
+
+        sendMessageToUser(textGetWithLanguage(user, "after_registr"), user.userId)
 
         res.status(200).send({ success: true });
     } catch (error) {

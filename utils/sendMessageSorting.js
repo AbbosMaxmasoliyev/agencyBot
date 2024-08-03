@@ -26,11 +26,7 @@ const sendMessageToUser = (userId, message) => {
 };
 
 
-let textGetWithLanguage = (user, key) => {
-    let pathMessage = require(`../public/locales/${user.language}/translation.json`)
-    console.log(pathMessage);
-    return pathMessage[key]
-}
+
 
 // Function to send messages to all users
 const sendMessagesToUsers = async (users, promotionKey, id) => {
@@ -38,7 +34,7 @@ const sendMessagesToUsers = async (users, promotionKey, id) => {
     try {
         const sendPromises = users.map(user => sendMessageToUser(user.userId,
             {
-                text: textGetWithLanguage(user, "posted_for_you") ,
+                text: textGetWithLanguage(user, "posted_for_you"),
                 reply_markup: {
                     inline_keyboard: [
                         [

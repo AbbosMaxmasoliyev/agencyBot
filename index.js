@@ -21,11 +21,12 @@ const { User } = require('./src/database/index.js');
 const Announce = require('./models/announce.js');
 const Barter = require('./models/barter.js');
 const Advertise = require('./models/advertise.js');
-const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree, createPromotion } = require('./controller/all.js');
+const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeUserFromPromotionAgree, createPromotion, getMyPromotions } = require('./controller/all.js');
 const uploadMiddleware = require('./middlewares/upload.js');
 const Collaboration = require('./models/collaboration.js');
+const { default: axios } = require('axios');
 const app = express();
-
+const BOT_TOKEN = process.env.BOT_TOKEN
 // Set up default mongoose connection MONGO
 const mongoDBURL = process.env.MONGO_URI;
 mongoose.connect(mongoDBURL, {
@@ -166,6 +167,7 @@ app.use('/announce', announceRoutes);
 app.use('/barter', barterRoutes);
 app.use('/collaboration', collaborationRoutes);
 app.post('/create/:promotion/', createPromotion);
+app.get("/my-promotion/", getMyPromotions)
 app.get('/promotion/:promotion/category/:category/:id', getWithCategoryPromotion);
 app.get('/agree/:id/promotion/:promotion/:promotionId', setAgree);
 app.get('/remove/:id/promotion/:promotion/:promotionId', removeUserFromPromotionAgree);
@@ -189,7 +191,6 @@ app.post('/upload', uploadMiddleware, (req, res) => {
         res.status(500).send({ message: 'Fayl yuklashda xatolik yuz berdi' });
     }
 });
-
 
 
 

@@ -91,7 +91,7 @@ const createPromotion = async (req, res) => {
         const message = req.body.promotionMessage || "Yangi hamkorlik yaratildi!"; // Promotion xabari
         let users = await User.find({
             status: true,
-            _id: { $ne: collaboration.owner }  // admin_owner qiymati bo‘lmagan hujjatlarni qidirish
+            // _id: { $ne: collaboration.owner }  // admin_owner qiymati bo‘lmagan hujjatlarni qidirish
         });
 
         // Xabar yuborish
@@ -114,11 +114,9 @@ const getWithCategoryPromotion = async (req, res) => {
     try {
         let user = await User.findOne({ userId: id })
 
-        console.log(user.web_app.category);
 
-        console.log(category);
 
-        const promotion = await promotions[promotionKey].find({ category: category, owner: { $ne: user._id } });
+        const promotion = await promotions[promotionKey].find({ category: category });
 
 
         console.log(promotion);
@@ -184,13 +182,12 @@ const setAgree = async (req, res) => {
 
 const getMyPromotions = async (req, res) => {
 
-    const promotionKey = req.params.promotion
-    console.log(promotionKey);
-    console.log(req.params.userId);
+    const { userId, promotion } = req.query
+
     try {
-        let user = await User.findOne({ userId: req.params.userId })
+        let user = await User.findOne({ userId: userId })
         console.log(user);
-        const collaborations = await promotions[promotionKey].find({ owner: user._id }).populate("agree");
+        const collaborations = await promotions[promotion].find({ owner: user._id }).populate("agree");
         console.log(collaborations);
         res.status(200).send(collaborations);
     } catch (error) {
