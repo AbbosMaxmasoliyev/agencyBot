@@ -39,6 +39,13 @@ mongoose.connect(mongoDBURL, {
     process.exit(1);
 });
 
+const promotions = {
+    "users": User,
+    "advertise": Advertise,
+    "announce": Announce,
+    "barter": Barter,
+    "collaboration": Collaboration,
+}
 
 
 const allowedOrigins = [
@@ -109,6 +116,9 @@ app.get("/all", async (req, res) => {
 });
 
 app.get("/categories", async (req, res) => {
+    let { promotion } = req.query
+
+
     try {
         let allCategories = [
             { ru: "Всё для дома", uz: "Uy uchun", value: "for_house" },
@@ -126,17 +136,29 @@ app.get("/categories", async (req, res) => {
             { ru: "Авто", uz: "Avto", value: "auto" },
             { ru: "Обучение", uz: "Ta'lim", value: "education" },
             { ru: "Творчество", uz: "Ijod", value: "creativity" }
-        ];;
-        let length = await Collaboration.aggregate([
-            {
-                $group: {
-                    _id: "$category", // Kategoriyaga ko'ra guruhlaymiz
-                    count: { $sum: 1 } // Har bir kategoriya uchun sonini hisoblaymiz
-                }
+        ];
+
+
+
+
+        let counts = {}
+
+        if (promotion) {
+            if (!promotions[promotion]) {
+                return res.status(400).send({ error: "Promotion not found" })
             }
-        ])
-        console.log(length);
-        res.status(200).send(allCategories);
+
+            let length = await promotions[promotion].aggregate([
+                {
+                    $group: {
+                        _id: "$category", // Kategoriyaga ko'ra guruhlaymiz
+                        count: { $sum: 1 } // Har bir kategoriya uchun sonini hisoblaymiz
+                    }
+                }
+            ])
+            length.forEach(value => counts[value._id] = value.count)
+        }
+        res.status(200).send({ categories: allCategories, length: counts });
     } catch (error) {
         res.status(400).send({ msg: error.message });
     }
