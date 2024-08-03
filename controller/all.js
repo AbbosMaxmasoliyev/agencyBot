@@ -3,7 +3,12 @@ const Announce = require("../models/announce");
 const Barter = require("../models/barter");
 const Collaboration = require("../models/collaboration");
 const User = require("../models/user");
+const { sendMessageToUser } = require("../src/core/bot");
 const sendMessagesToUsers = require("../utils/sendMessageSorting");
+const { textGetWithLanguage } = require("../utils/text");
+
+const WEB_APP = process.env.WEB_APP
+
 
 const promotions = {
     "users": User,
@@ -85,18 +90,30 @@ const createPromotion = async (req, res) => {
 
         // Saqlash
         await collaboration.save();
-        res.status(201).send(collaboration);
 
         // Promotion yaratish
-        const message = req.body.promotionMessage || "Yangi hamkorlik yaratildi!"; // Promotion xabari
         let users = await User.find({
             status: true,
             // _id: { $ne: collaboration.owner }  // admin_owner qiymati bo‘lmagan hujjatlarni qidirish
         });
+        // 
+        res.status(201).send(collaboration);
+        users.forEach(user => {
+            try {
+                sendMessageToUser(textGetWithLanguage(user, "posted_for_you"), user.userId, {
+                    reply_markup: {
+                        inline_keyboard: [
+                            [{ text: textGetWithLanguage(user, "view"), web_app: { url: `${WEB_APP}/user/${user.userId}/promotion/${promotionKey}/view/${collaboration._id}` } }],
+                        ],
+                        resize: true
+                    }
+                })
+            } catch (error) {
+                console.log(error);
 
+            }
+        })
         // Xabar yuborish
-        let results = await sendMessagesToUsers(users, promotionKey, collaboration._id);
-        console.log(results);
 
     } catch (error) {
         console.log(error);
