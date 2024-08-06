@@ -121,22 +121,36 @@ app.get("/categories", async (req, res) => {
 
     try {
         let allCategories = [
-            { ru: "Всё для дома", uz: "Uy uchun", value: "for_house" },
-            { ru: "Beauty", uz: "Go'zallik", value: "beauty" },
-            { ru: "Еда", uz: "Ovqat", value: "food" },
-            { ru: "Развлекательные", uz: "Ko'ngilochar", value: "entertainment" },
-            { ru: "Контент (фрилансеры)", uz: "Kontent (frilanserlar)", value: "content_freelancers" },
-            { ru: "Отели \\ Зоны отдыха", uz: "Mehmonxonalar \\ Dam olish zonalari", value: "hotels_rest_areas" },
-            { ru: "Одежда", uz: "Kiyim-kechak", value: "clothing" },
-            { ru: "Спорт", uz: "Sport", value: "sport" },
-            { ru: "Технологии", uz: "Texnologiyalar", value: "technology" },
-            { ru: "Туризм", uz: "Turizm", value: "tourism" },
-            { ru: "Медицина", uz: "Tibbiyot", value: "medicine" },
-            { ru: "Благотворительность", uz: "Xayriya", value: "charity" },
-            { ru: "Авто", uz: "Avto", value: "auto" },
-            { ru: "Обучение", uz: "Ta'lim", value: "education" },
-            { ru: "Творчество", uz: "Ijod", value: "creativity" }
-        ];
+            { "ru": "Шоу", "uz": "Шоу", "value": "show" },
+            { "ru": "Звезда", "uz": "Звезда", "value": "star" },
+            { "ru": "Певец", "uz": "Певец", "value": "singer" },
+            { "ru": "Актер", "uz": "Актер", "value": "actor" },
+            { "ru": "Музыка", "uz": "Музыка", "value": "music" },
+            { "ru": "Новостной блог", "uz": "Новостной блог", "value": "news_blog" },
+            { "ru": "Паблики", "uz": "Паблики", "value": "publics" },
+            { "ru": "Геймер - стример", "uz": "Геймер - стример", "value": "gamer_streamer" },
+            { "ru": "Авто блог", "uz": "Авто блог", "value": "auto_blog" },
+            { "ru": "Фуд блогер", "uz": "Фуд блогер", "value": "food_blog" },
+            { "ru": "Бизнес блогер / заработок / крипта", "uz": "Бизнес блогер / заработок / крипта", "value": "business_blog" },
+            { "ru": "Лайфстайл", "uz": "Лайфстайл", "value": "lifestyle" },
+            { "ru": "Семья", "uz": "Семья", "value": "family" },
+            { "ru": "Здоровье / медицина", "uz": "Здоровье / медицина", "value": "health_medicine" },
+            { "ru": "Спорт", "uz": "Спорт", "value": "sport" },
+            { "ru": "Искусство", "uz": "Искусство", "value": "art" },
+            { "ru": "Туризм", "uz": "Туризм", "value": "travel" },
+            { "ru": "Fashion / мода / одежда", "uz": "Fashion / мода / одежда", "value": "fashion" },
+            { "ru": "Модель", "uz": "Модель", "value": "model" },
+            { "ru": "Бьюти / красота блогер", "uz": "Бьюти / красота блогер", "value": "beauty" },
+            { "ru": "Вайнер / развлекательный", "uz": "Вайнер / развлекательный", "value": "vines" },
+            { "ru": "Техно блогер", "uz": "Техно блогер", "value": "tech_blog" },
+            { "ru": "Религия", "uz": "Религия", "value": "religion" },
+            { "ru": "Мотивация", "uz": "Мотивация", "value": "motivation" },
+            { "ru": "Обучение", "uz": "Обучение", "value": "education" },
+            { "ru": "Недвижимость", "uz": "Недвижимость", "value": "real_estate" },
+            { "ru": "Интерьер дизайнер", "uz": "Интерьер дизайнер", "value": "interior_design" },
+            { "ru": "Маркетинг", "uz": "Маркетинг", "value": "marketing" }
+        ]
+
 
 
 
