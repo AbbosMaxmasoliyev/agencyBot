@@ -121,29 +121,274 @@ app.get("/categories", async (req, res) => {
 
     try {
         let allCategories = [
-            { "ru": "Музыка / актер", "uz": "Muzika / aktyor", "value": "music_actor" },
-            { "ru": "Новостной блог / паблики", "uz": "Yangiliklar blogi / publikalar", "value": "news_blog_publics" },
-            { "ru": "Геймер / стример", "uz": "Geymer / strimer", "value": "gamer_streamer" },
-            { "ru": "Авто блог", "uz": "Avto blog", "value": "auto_blog" },
-            { "ru": "Фуд блогер / еда / обзор кафе", "uz": "Food blogger / ovqat / kafe sharhlari", "value": "food_blogger_reviews" },
-            { "ru": "Бизнес блогер / заработок / крипта", "uz": "Biznes blogger / daromad / kripto", "value": "business_blogger" },
-            { "ru": "Лайфстайл", "uz": "Lifestyle", "value": "lifestyle" },
-            { "ru": "Семья / Family", "uz": "Oila / Family", "value": "family" },
-            { "ru": "Здоровье / медицина", "uz": "Sog'liq / tibbiyot", "value": "health_medicine" },
-            { "ru": "Спорт", "uz": "Sport", "value": "sport" },
-            { "ru": "Искусство", "uz": "San'at", "value": "art" },
-            { "ru": "Туризм / Travel", "uz": "Turizm / Travel", "value": "travel" },
-            { "ru": "Fashion / мода / одежда", "uz": "Fashion / moda / kiyim", "value": "fashion" },
-            { "ru": "Модель", "uz": "Model", "value": "model" },
-            { "ru": "Бьюти / beauty / красота блогер", "uz": "Beauty / go'zallik blogger", "value": "beauty" },
-            { "ru": "Вайнер / vines / развлекательный", "uz": "Vayner", "value": "vines" },
-            { "ru": "Техно блогер", "uz": "Texno blogger", "value": "tech_blog" },
-            { "ru": "Религия", "uz": "Diniy", "value": "religion" },
-            { "ru": "Мотивация", "uz": "Motivatsiya", "value": "motivation" },
-            { "ru": "Обучение", "uz": "O'qitish", "value": "education" },
-            { "ru": "Недвижимость", "uz": "Nekremlik", "value": "real_estate" },
-            { "ru": "Интерьер дизайнер", "uz": "Interyer dizayneri", "value": "interior_design" },
-            { "ru": "Маркетинг", "uz": "Marketing", "value": "marketing" }
+            {
+                "value": "lifestyle",
+                "uz": "Turmush tarzi",
+                "ru": "Лайфстайл"
+            },
+            {
+                "value": "food_blogger",
+                "uz": "Ovqat blogeri/Kafe sharhi",
+                "ru": "Фуд блогер/Обзор кафе"
+            },
+            {
+                "value": "beauty_blogger",
+                "uz": "Go‘zallik blogeri",
+                "ru": "Бьюти/Красота блогер"
+            },
+            {
+                "value": "tourism",
+                "uz": "Sayohat",
+                "ru": "Туризм/Путешествия"
+            },
+            {
+                "value": "gamer_streamer",
+                "uz": "Geymer/Strimer",
+                "ru": "Геймер/Стример"
+            },
+            {
+                "value": "business_crypto",
+                "uz": "Biznes/Daromad/Kripto",
+                "ru": "Бизнес/Заработок/Крипта"
+            },
+            {
+                "value": "family",
+                "uz": "Oila/Family",
+                "ru": "Семья/Family"
+            },
+            {
+                "value": "fashion",
+                "uz": "Moda/Kiyim/Fashion",
+                "ru": "Мода/Одежда/Fashion"
+            },
+            {
+                "value": "sport",
+                "uz": "Sport",
+                "ru": "Спорт"
+            },
+            {
+                "value": "health_medicine",
+                "uz": "Sog‘liqni saqlash/Tibbiyot",
+                "ru": "Здоровье/Медицина"
+            },
+            {
+                "value": "entertainment_viner",
+                "uz": "Ko‘ngilochar/Viner",
+                "ru": "Развлекательный/Вайнер"
+            },
+            {
+                "value": "music_actor",
+                "uz": "Musiqa/Aktyor",
+                "ru": "Музыка/Актер"
+            },
+            {
+                "value": "art",
+                "uz": "San’at",
+                "ru": "Искусство"
+            },
+            {
+                "value": "tech_blogger",
+                "uz": "Texno bloger",
+                "ru": "Техно блогер"
+            },
+            {
+                "value": "news_blog",
+                "uz": "Yangiliklar blogi/Jamoatlar",
+                "ru": "Новостной блог/Паблики"
+            },
+            {
+                "value": "motivation_self_development",
+                "uz": "Motivatsiya va O‘z-o‘zini rivojlantirish",
+                "ru": "Мотивация и Саморазвитие"
+            },
+            {
+                "value": "education",
+                "uz": "Ta’lim va Tarbiya",
+                "ru": "Обучение и Образование"
+            },
+            {
+                "value": "auto_blog",
+                "uz": "Avto blog",
+                "ru": "Авто блог"
+            },
+            {
+                "value": "marketing",
+                "uz": "Marketing",
+                "ru": "Маркетинг"
+            },
+            {
+                "value": "real_estate",
+                "uz": "Ko‘chmas mulk",
+                "ru": "Недвижимость"
+            },
+            {
+                "value": "interior_design",
+                "uz": "Interyer va Dizayn",
+                "ru": "Интерьер и Дизайн"
+            },
+            {
+                "value": "religion",
+                "uz": "Din",
+                "ru": "Религия"
+            },
+            {
+                "value": "model",
+                "uz": "Model",
+                "ru": "Модель"
+            }
+        ]
+
+
+
+
+
+
+        let counts = {}
+
+        if (promotion) {
+            if (!promotions[promotion]) {
+                return res.status(400).send({ error: "Promotion not found" })
+            }
+
+            let length = await promotions[promotion].aggregate([
+                {
+                    $group: {
+                        _id: "$category", // Kategoriyaga ko'ra guruhlaymiz
+                        count: { $sum: 1 } // Har bir kategoriya uchun sonini hisoblaymiz
+                    }
+                }
+            ])
+            length.forEach(value => counts[value._id] = value.count)
+        }
+        res.status(200).send({ categories: allCategories, length: counts });
+    } catch (error) {
+        res.status(400).send({ msg: error.message });
+    }
+});
+
+
+
+app.get("/categories-business", async (req, res) => {
+    let { promotion } = req.query
+
+
+    try {
+        let allCategories = [
+            {
+                "value": "lifestyle",
+                "uz": "Turmush tarzi",
+                "ru": "Лайфстайл"
+            },
+            {
+                "value": "food_blogger",
+                "uz": "Ovqat blogeri/Kafe sharhi",
+                "ru": "Фуд блогер/Обзор кафе"
+            },
+            {
+                "value": "beauty_blogger",
+                "uz": "Go‘zallik blogeri",
+                "ru": "Бьюти/Красота блогер"
+            },
+            {
+                "value": "tourism",
+                "uz": "Sayohat",
+                "ru": "Туризм/Путешествия"
+            },
+            {
+                "value": "gamer_streamer",
+                "uz": "Geymer/Strimer",
+                "ru": "Геймер/Стример"
+            },
+            {
+                "value": "business_crypto",
+                "uz": "Biznes/Daromad/Kripto",
+                "ru": "Бизнес/Заработок/Крипта"
+            },
+            {
+                "value": "family",
+                "uz": "Oila/Family",
+                "ru": "Семья/Family"
+            },
+            {
+                "value": "fashion",
+                "uz": "Moda/Kiyim/Fashion",
+                "ru": "Мода/Одежда/Fashion"
+            },
+            {
+                "value": "sport",
+                "uz": "Sport",
+                "ru": "Спорт"
+            },
+            {
+                "value": "health_medicine",
+                "uz": "Sog‘liqni saqlash/Tibbiyot",
+                "ru": "Здоровье/Медицина"
+            },
+            {
+                "value": "entertainment_viner",
+                "uz": "Ko‘ngilochar/Viner",
+                "ru": "Развлекательный/Вайнер"
+            },
+            {
+                "value": "music_actor",
+                "uz": "Musiqa/Aktyor",
+                "ru": "Музыка/Актер"
+            },
+            {
+                "value": "art",
+                "uz": "San’at",
+                "ru": "Искусство"
+            },
+            {
+                "value": "tech_blogger",
+                "uz": "Texno bloger",
+                "ru": "Техно блогер"
+            },
+            {
+                "value": "news_blog",
+                "uz": "Yangiliklar blogi/Jamoatlar",
+                "ru": "Новостной блог/Паблики"
+            },
+            {
+                "value": "motivation_self_development",
+                "uz": "Motivatsiya va O‘z-o‘zini rivojlantirish",
+                "ru": "Мотивация и Саморазвитие"
+            },
+            {
+                "value": "education",
+                "uz": "Ta’lim va Tarbiya",
+                "ru": "Обучение и Образование"
+            },
+            {
+                "value": "auto_blog",
+                "uz": "Avto blog",
+                "ru": "Авто блог"
+            },
+            {
+                "value": "marketing",
+                "uz": "Marketing",
+                "ru": "Маркетинг"
+            },
+            {
+                "value": "real_estate",
+                "uz": "Ko‘chmas mulk",
+                "ru": "Недвижимость"
+            },
+            {
+                "value": "interior_design",
+                "uz": "Interyer va Dizayn",
+                "ru": "Интерьер и Дизайн"
+            },
+            {
+                "value": "religion",
+                "uz": "Din",
+                "ru": "Религия"
+            },
+            {
+                "value": "model",
+                "uz": "Model",
+                "ru": "Модель"
+            }
         ]
 
 

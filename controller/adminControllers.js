@@ -28,12 +28,17 @@ const signUp = async (req, res) => {
 // Sign-in (Tizimga kirish)
 const signIn = async (req, res) => {
     const { username, password } = req.body;
-    console.log(username);
     console.log(req.body);
     try {
+        console.log(username, password);
         const admin = await Admin.findOne({ username });
-        let checkPassword = await bcrypt.compare(password, admin.password)
+        console.log(admin.password);
+
+        let checkPassword = await admin.matchPassword(password)
+
         console.log(checkPassword);
+        
+
         if (admin && checkPassword) {
             if (admin.role == "superadmin") {
                 res.send({
@@ -53,6 +58,8 @@ const signIn = async (req, res) => {
             res.status(401).json({ message: 'Invalid username or password' });
         }
     } catch (error) {
+        console.log(error);
+
         res.status(400).json({ message: error.message });
     }
 };

@@ -1,0 +1,348 @@
+{
+    "bloger": [
+        {
+            "value": "lifestyle",
+            "uz": "Turmush tarzi",
+            "ru": "Лайфстайл"
+        },
+        {
+            "value": "food_blogger",
+            "uz": "Ovqat blogeri/Kafe sharhi",
+            "ru": "Фуд блогер/Обзор кафе"
+        },
+        {
+            "value": "beauty_blogger",
+            "uz": "Go‘zallik blogeri",
+            "ru": "Бьюти/Красота блогер"
+        },
+        {
+            "value": "tourism",
+            "uz": "Sayohat",
+            "ru": "Туризм/Путешествия"
+        },
+        {
+            "value": "gamer_streamer",
+            "uz": "Geymer/Strimer",
+            "ru": "Геймер/Стример"
+        },
+        {
+            "value": "business_crypto",
+            "uz": "Biznes/Daromad/Kripto",
+            "ru": "Бизнес/Заработок/Крипта"
+        },
+        {
+            "value": "family",
+            "uz": "Oila/Family",
+            "ru": "Семья/Family"
+        },
+        {
+            "value": "fashion",
+            "uz": "Moda/Kiyim/Fashion",
+            "ru": "Мода/Одежда/Fashion"
+        },
+        {
+            "value": "sport",
+            "uz": "Sport",
+            "ru": "Спорт"
+        },
+        {
+            "value": "health_medicine",
+            "uz": "Sog‘liqni saqlash/Tibbiyot",
+            "ru": "Здоровье/Медицина"
+        },
+        {
+            "value": "entertainment_viner",
+            "uz": "Ko‘ngilochar/Viner",
+            "ru": "Развлекательный/Вайнер"
+        },
+        {
+            "value": "music_actor",
+            "uz": "Musiqa/Aktyor",
+            "ru": "Музыка/Актер"
+        },
+        {
+            "value": "art",
+            "uz": "San’at",
+            "ru": "Искусство"
+        },
+        {
+            "value": "tech_blogger",
+            "uz": "Texno bloger",
+            "ru": "Техно блогер"
+        },
+        {
+            "value": "news_blog",
+            "uz": "Yangiliklar blogi/Jamoatlar",
+            "ru": "Новостной блог/Паблики"
+        },
+        {
+            "value": "motivation_self_development",
+            "uz": "Motivatsiya va O‘z-o‘zini rivojlantirish",
+            "ru": "Мотивация и Саморазвитие"
+        },
+        {
+            "value": "education",
+            "uz": "Ta’lim va Tarbiya",
+            "ru": "Обучение и Образование"
+        },
+        {
+            "value": "auto_blog",
+            "uz": "Avto blog",
+            "ru": "Авто блог"
+        },
+        {
+            "value": "marketing",
+            "uz": "Marketing",
+            "ru": "Маркетинг"
+        },
+        {
+            "value": "real_estate",
+            "uz": "Ko‘chmas mulk",
+            "ru": "Недвижимость"
+        },
+        {
+            "value": "interior_design",
+            "uz": "Interyer va Dizayn",
+            "ru": "Интерьер и Дизайн"
+        },
+        {
+            "value": "religion",
+            "uz": "Din",
+            "ru": "Религия"
+        },
+        {
+            "value": "model",
+            "uz": "Model",
+            "ru": "Модель"
+        }
+    ],
+    "reklama": [
+        {
+            "value": "technology_electronics",
+            "uz": "Texnologiya va elektronika",
+            "ru": "Технологии и электроника"
+        },
+        {
+            "value": "clothing_fashion_jewelry",
+            "uz": "Kiyim, moda va zargarlik buyumlari",
+            "ru": "Одежда, мода и ювелирные изделия"
+        },
+        {
+            "value": "beauty_personal_care",
+            "uz": "Go‘zallik va shaxsiy gigiyena",
+            "ru": "Красота и личная гигиена"
+        },
+        {
+            "value": "health_fitness",
+            "uz": "Sog‘liqni saqlash va fitness",
+            "ru": "Здравоохранение и фитнес"
+        },
+        {
+            "value": "automobiles_autoparts",
+            "uz": "Avtomobillar va avto qismlar",
+            "ru": "Автомобили и автозапчасти"
+        },
+        {
+            "value": "business_services",
+            "uz": "Biznes xizmatlari",
+            "ru": "Бизнес-услуги"
+        },
+        {
+            "value": "restaurants_food",
+            "uz": "Restoranlar va ovqat",
+            "ru": "Рестораны и еда"
+        },
+        {
+            "value": "travel",
+            "uz": "Sayohat",
+            "ru": "Путешествия"
+        },
+        {
+            "value": "art_entertainment",
+            "uz": "San’at va ko‘ngil ochish",
+            "ru": "Искусство и развлечения"
+        },
+        {
+            "value": "real_estate",
+            "uz": "Ko‘chmas mulk",
+            "ru": "Недвижимость"
+        },
+        {
+            "value": "sports_recreation",
+            "uz": "Sport va dam olish",
+            "ru": "Спорт и отдых"
+        },
+        {
+            "value": "financial_services_insurance",
+            "uz": "Moliyaviy xizmatlar va sug‘urta",
+            "ru": "Финансовые услуги и страхование"
+        },
+        {
+            "value": "media_publishing",
+            "uz": "Media va nashriyot",
+            "ru": "Медиа и издательство"
+        },
+        {
+            "value": "animals_pets",
+            "uz": "Hayvonlar va uy hayvonlari",
+            "ru": "Животные и домашние питомцы"
+        },
+        {
+            "value": "education_training",
+            "uz": "Ta’lim va o‘qitish",
+            "ru": "Образование и обучение"
+        },
+        {
+            "value": "translation_language_services",
+            "uz": "Tarjima va til xizmatlari",
+            "ru": "Переводы и языковые услуги"
+        },
+        {
+            "value": "personal_services",
+            "uz": "Shaxsiy xizmatlar",
+            "ru": "Личные услуги"
+        },
+        {
+            "value": "career_employment",
+            "uz": "Karera va bandlik",
+            "ru": "Карьера и занятость"
+        },
+        {
+            "value": "shopping_collectibles_gifts",
+            "uz": "Xaridlar, kolleksiyalar va sovg‘alar",
+            "ru": "Покупки, коллекции и подарки"
+        },
+        {
+            "value": "politics_government_services",
+            "uz": "Siyosat va davlat xizmatlari",
+            "ru": "Политика и государственные услуги"
+        },
+        {
+            "value": "telecommunications_internet_services",
+            "uz": "Telekommunikatsiya va internet xizmatlari",
+            "ru": "Телекоммуникации и интернет-услуги"
+        },
+        {
+            "value": "industrial_commercial_goods",
+            "uz": "Sanoat va tijorat mahsulotlari",
+            "ru": "Промышленные и коммерческие товары"
+        },
+        {
+            "value": "social_media_communications",
+            "uz": "Ijtimoiy media va kommunikatsiyalar",
+            "ru": "Социальные медиа и коммуникации"
+        },
+        {
+            "value": "architecture_construction",
+            "uz": "Arxitektura va qurilish",
+            "ru": "Архитектура и строительство"
+        },
+        {
+            "value": "environmental_public_organizations",
+            "uz": "Ekologik va jamoat tashkilotlari",
+            "ru": "Экологические и общественные организации"
+        }
+    ],
+    "freelancer": [
+        {
+            "value": "marketing",
+            "uz": "Marketing",
+            "ru": "Маркетинг"
+        },
+        {
+            "value": "web_development",
+            "uz": "Veb-ishlab chiqish",
+            "ru": "Веб-разработка"
+        },
+        {
+            "value": "design",
+            "uz": "Dizayn",
+            "ru": "Дизайн"
+        },
+        {
+            "value": "content",
+            "uz": "Kontent",
+            "ru": "Контент"
+        },
+        {
+            "value": "healthcare",
+            "uz": "Sog‘liqni saqlash",
+            "ru": "Здравоохранение"
+        },
+        {
+            "value": "finance",
+            "uz": "Moliyaviy xizmatlar",
+            "ru": "Финансы"
+        },
+        {
+            "value": "business_administration",
+            "uz": "Biznes va boshqaruv",
+            "ru": "Бизнес и администрация"
+        },
+        {
+            "value": "engineering",
+            "uz": "Muhandislik",
+            "ru": "Инженерия"
+        },
+        {
+            "value": "education",
+            "uz": "Ta’lim",
+            "ru": "Образование"
+        },
+        {
+            "value": "law",
+            "uz": "Huquqshunoslik",
+            "ru": "Юриспруденция"
+        },
+        {
+            "value": "psychology",
+            "uz": "Psixologiya",
+            "ru": "Психология"
+        },
+        {
+            "value": "customer_support",
+            "uz": "Mijozlarga qo‘llab-quvvatlash",
+            "ru": "Поддержка клиентов"
+        },
+        {
+            "value": "analytics",
+            "uz": "Analitika",
+            "ru": "Аналитика"
+        },
+        {
+            "value": "photography",
+            "uz": "Fotografiya",
+            "ru": "Фотография"
+        },
+        {
+            "value": "fashion_style",
+            "uz": "Moda va uslub",
+            "ru": "Мода и стиль"
+        },
+        {
+            "value": "translations",
+            "uz": "Tarjima",
+            "ru": "Переводы"
+        },
+        {
+            "value": "sports_fitness",
+            "uz": "Sport va fitness",
+            "ru": "Спорт и фитнес"
+        },
+        {
+            "value": "architecture",
+            "uz": "Arxitektura",
+            "ru": "Архитектура"
+        },
+        {
+            "value": "event_planning",
+            "uz": "Tadbirlarni rejalashtirish",
+            "ru": "Планирование мероприятий"
+        },
+        {
+            "value": "transportation",
+            "uz": "Transport",
+            "ru": "Транспорт"
+        }
+    ]
+}

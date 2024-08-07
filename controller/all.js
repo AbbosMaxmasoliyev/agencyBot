@@ -156,6 +156,10 @@ const setAgree = async (req, res) => {
     let promotion = req.params.promotion;
     let promotionId = req.params.promotionId;
     try {
+        console.log(promotionId);
+        console.log(promotion);
+
+
         let user = await User.findOne({ userId });
         if (!user) {
             return res.status(404).send({ message: "User not found" });
@@ -166,6 +170,7 @@ const setAgree = async (req, res) => {
 
         // )
         const promotionDoc = await promotions[promotion].findById(promotionId);
+        console.log(promotionDoc);
 
         if (!promotionDoc) {
             return res.status(404).json({ message: 'Promotion topilmadi' });
@@ -204,7 +209,7 @@ const getMyPromotions = async (req, res) => {
     try {
         let user = await User.findOne({ userId: userId })
         console.log(user);
-        const collaborations = await promotions[promotion].find({ owner: user._id }).populate("agree");
+        const collaborations = await promotions[promotion].find({ owner: user._id }).populate("owner").populate("agree");
         console.log(collaborations);
         res.status(200).send(collaborations);
     } catch (error) {
