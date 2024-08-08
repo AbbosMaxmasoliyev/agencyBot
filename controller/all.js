@@ -181,7 +181,7 @@ const setAgree = async (req, res) => {
             if (!promotionDoc.agree.includes(user._id)) {
                 promotionDoc.agree.push(user._id);
                 await promotionDoc.save();
-                return res.status(200).json({ message: 'Foydalanuvchi muvaffaqiyatli qo‘shildi', promotionDoc });
+                return res.status(200).json({ message: "Foydalanuvchi muvaffaqiyatli qo'shildi", promotionDoc });
             } else {
                 return res.status(402).json({ message: 'Foydalanuvci oldindan mavjud' });
 
