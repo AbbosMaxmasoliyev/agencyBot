@@ -64,10 +64,7 @@ const scene = new WizardScene(
 
     const phoneNumber = ctx.message?.contact?.phone_number;
 
-    if (!validatePhoneNumber(phoneNumber)) {
-      ctx.reply(ctx.i18n.t("phoneNumber_error"));
-      return ctx.wizard.selectStep(ctx.wizard.cursor);
-    }
+
 
     ctx.wizard.state.phoneNumber = phoneNumber;
     const userId = ctx.from.id.toString();
