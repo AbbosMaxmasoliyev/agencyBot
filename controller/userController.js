@@ -61,9 +61,7 @@ const getUsers = async (req, res) => {
     let query = { status: true }; // doimiy filter
     console.log(req.query, "=> query");
 
-    if (role) {
-        query["web_app.role"] = role; // role filtrni qo'shish
-    }
+   
     console.log(query);
 
     try {

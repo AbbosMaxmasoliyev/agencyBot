@@ -43,11 +43,26 @@ const scene = new WizardScene(
     }
 
     ctx.wizard.state.lastName = lastName;
-    ctx.reply(ctx.i18n.t("phoneNumber"));
+    ctx.reply(ctx.i18n.t("phoneNumber"), {
+      reply_markup: {
+        keyboard: [
+          [
+            {
+              text: ctx.i18n.t("Share Phone Number"), // Masalan: "Telefon raqamimni ulashish"
+              request_contact: true // Telefon raqamni so'rash
+            }
+          ]
+        ],
+        resize_keyboard: true, // Klaviatura o'lchamini avtomatik moslashtirish
+        one_time_keyboard: true // Klaviaturani faqat bir marta ko'rsatish
+      }
+    });
+
     return ctx.wizard.next();
   },
   async (ctx) => {
-    const phoneNumber = ctx.message?.text;
+
+    const phoneNumber = ctx.message?.contact?.phone_number;
 
     if (!validatePhoneNumber(phoneNumber)) {
       ctx.reply(ctx.i18n.t("phoneNumber_error"));
