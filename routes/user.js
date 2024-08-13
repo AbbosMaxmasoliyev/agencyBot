@@ -9,6 +9,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/create', createUser);
 router.get('/all', getUsers);
+router.get('/allAdmin', getUsers);
 router.get('/order', orderUser);
 router.get('/byId/:id', getUser);
 router.put('/updateById/:id', updateUser);
