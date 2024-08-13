@@ -90,7 +90,7 @@ const getUsersAdmin = async (req, res) => {
 
     try {
         const totalUsers = await User.countDocuments();
-        const users = await User.find()
+        const users = await User.find({ status: true })
         console.log(users);
 
         res.status(200).send({ users, total: totalUsers });
