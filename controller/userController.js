@@ -62,7 +62,7 @@ const getUsers = async (req, res) => {
     let query = { status: true }; // doimiy filter
     console.log(req.query, "=> query");
 
-   
+
     console.log(query);
 
     try {
@@ -70,6 +70,27 @@ const getUsers = async (req, res) => {
         const users = await User.find(query)
             .skip((page - 1) * item)
             .limit(parseInt(item));
+        console.log(users);
+
+        res.status(200).send({ users, total: totalUsers });
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+    }
+};
+
+
+const getUsersAdmin = async (req, res) => {
+    // default qiymatlar
+
+    let query = { status: true }; // doimiy filter
+    console.log(req.query, "=> query");
+
+
+    console.log(query);
+
+    try {
+        const totalUsers = await User.countDocuments();
+        const users = await User.find()
         console.log(users);
 
         res.status(200).send({ users, total: totalUsers });
