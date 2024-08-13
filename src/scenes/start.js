@@ -46,11 +46,11 @@ scene.enter(async (ctx) => {
             {
               text: ctx.i18n.t('open_web_app'),
               web_app: { url: `${WEB_APP_URL}/user/${userId}` },
-              
+
             }
           ]
         ],
-        resize_keyboard:true
+        resize_keyboard: true
       }
     });
   } else {
@@ -62,6 +62,7 @@ scene.enter(async (ctx) => {
         },
       ],
     ]).resize();
+    console.log("salom");
 
     await ctx.reply(ctx.i18n.t("registration"), keyboard);
   }
