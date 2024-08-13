@@ -19,7 +19,7 @@ const language = new Scenes.WizardScene(
   // Tanlangan tilni saqlash va o'zgartirish bosqichi
   async (ctx) => {
     const selectedLanguage = ctx.callbackQuery?.data;
-    await ctx.answerCbQuery();
+    await ctx?.answerCbQuery();
     console.log(selectedLanguage);
     // Foydalanuvchi tanlagan tilni saqlashdi
     const userId = ctx.from.id.toString();
