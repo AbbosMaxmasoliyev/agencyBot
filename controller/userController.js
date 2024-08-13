@@ -250,5 +250,6 @@ module.exports = {
     deleteUser,
     orderUser,
     updateUseStatus,
-    updateUserBot
+    updateUserBot,
+    getUsersAdmin
 };
