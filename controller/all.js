@@ -49,6 +49,8 @@ const publishPromotion = async (req, res) => {
 const createPromotion = async (req, res) => {
 
     let promotionKey = req.params.promotion
+    console.log(req.body);
+
     try {
         let userId;
         console.log(req.body);
@@ -97,6 +99,8 @@ const createPromotion = async (req, res) => {
             category: collaboration.category
             // _id: { $ne: collaboration.owner }  // admin_owner qiymati bo‘lmagan hujjatlarni qidirish
         });
+        console.log(users);
+
         // 
         res.status(201).send(collaboration);
         users.forEach(user => {
@@ -204,8 +208,10 @@ const setAgree = async (req, res) => {
 
 
 const getMyPromotions = async (req, res) => {
+    console.log(req.query);
 
     const { userId, promotion } = req.query
+    console.log(promotions[promotion]);
 
     try {
         let user = await User.findOne({ userId: userId })
