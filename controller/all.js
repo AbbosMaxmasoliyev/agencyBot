@@ -94,6 +94,7 @@ const createPromotion = async (req, res) => {
         // Promotion yaratish
         let users = await User.find({
             status: true,
+            category: collaboration.category
             // _id: { $ne: collaboration.owner }  // admin_owner qiymati bo‘lmagan hujjatlarni qidirish
         });
         // 

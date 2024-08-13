@@ -5,7 +5,8 @@ const Advertise = require('../models/advertise'); // Adjust the path to your Adv
 const Announcement = require('../models/announce');
 const mongoose = require('mongoose');
 const { sendMessageToGroup, sendMessageToUser } = require('../src/core/bot');
-const { textGetWithLanguage } = require("../utils/text")
+const { textGetWithLanguage } = require("../utils/text");
+const { keyboard } = require('telegraf/markup');
 
 const BOT_TOKEN = process.env.BOT_TOKEN
 const WEB_APP_URL = process.env.WEB_APP
@@ -124,7 +125,7 @@ const updateUseStatus = async (req, res) => {
             console.log(user.userId);
             await sendMessageToUser(textGetWithLanguage(user, "saved_success"), user.userId, {
                 reply_markup: {
-                    inline_keyboard: [
+                    keyboard: [
                         [
                             {
                                 text: textGetWithLanguage(user, "open_web_app"),
