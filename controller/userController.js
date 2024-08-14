@@ -60,7 +60,7 @@ const getUsers = async (req, res) => {
     const { page = 1, item = 10, role, search } = req.query; // default qiymatlar
 
     let query = { status: true, active: true }; // doimiy filter
-    role ? query = { ...query, role } : null
+    role ? query = { ...query, "web_app.role": role } : null
     console.log(req.query, "=> query");
 
 
