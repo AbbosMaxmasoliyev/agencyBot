@@ -10,7 +10,7 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 
 router.post('/create', createAdvertise);
-router.get('/all', getAllAdvertises);
+router.get('/all', getAllAdvertises);       
 router.get('/getById/:id', getAdvertiseById);
 router.get('/my-collaboration/:userId/:promotion', getMyPromotions);
 router.put('/update/:id', updateAdvertiseById);

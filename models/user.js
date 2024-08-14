@@ -48,7 +48,7 @@ const userSchema = new Schema({
         type: Object
     },
     web_app: {
-        category: String,
+        category: [String],
         gender: String,
         instagram: String,
         telegram: String,

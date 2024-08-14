@@ -182,12 +182,14 @@ const updateUserWebInfo = async (req, res) => {
     }
     try {
         const user = await User.findOneAndUpdate({ userId: req.params.id }, { web_app: { ...req.body, userTelegramId: Date.now() }, action: req.body.action, status: false }, { new: true });
+        console.log(user);
+
         if (!user) {
             return res.status(404).send({ message: 'User not found' });
         }
 
 
-        const htmlMessage = `<b>Foydalanuvchi Ma'lumotlari:</b>\n<i>Ism:</i> ${user.firstName} ${user.lastName}\n<i>Username:</i> @${user.fromTelegram.username}\n<i>Telefon:</i> ${user.phoneNumber}\n`;
+        const htmlMessage = `<b>Foydalanuvchi Ma'lumotlari:</b>\n<i>Ism:</i> ${user.firstName} ${user.lastName}\n<i>Username:</i> @${user?.fromTelegram?.username}\n<i>Telefon:</i> ${user.phoneNumber}\n`;
         sendMessageToGroup(htmlMessage)
 
         sendMessageToUser(textGetWithLanguage(user, "after_registr"), user.userId)
