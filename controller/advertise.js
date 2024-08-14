@@ -7,7 +7,7 @@ const createAdvertise = async (req, res) => {
         console.log(req.body);
         // Ikkinchi added
         if (req.body.owner) {
-            let user = await User.findOne({ userId: req.body.owner });
+            let user = await User.findOne({ userId: req.body.owner, active: true });
             if (!user) {
                 return res.status(404).send({ message: 'Foydalanuvchi topilmadi' });
             }

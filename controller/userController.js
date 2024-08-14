@@ -16,18 +16,18 @@ const WEB_APP_URL = process.env.WEB_APP
 const deleteUserAndAssociations = async (userId) => {
     try {
 
-        let { _id } = await User.findOne({ userId: userId })
+        await User.findOneAndUpdate({ userId: userId }, { active: false })
         // Delete associated barter documents
-        await Barter.deleteMany({ owner: _id });
+        // await Barter.deleteMany({ owner: _id });
 
-        // Delete associated advertise documents
-        await Advertise.deleteMany({ owner: _id });
+        // // Delete associated advertise documents
+        // await Advertise.deleteMany({ owner: _id });
 
-        // Delete associated announcement documents
-        await Announcement.deleteMany({ owner: _id });
+        // // Delete associated announcement documents
+        // await Announcement.deleteMany({ owner: _id });
 
-        // Delete user
-        await User.findByIdAndDelete(_id);
+        // // Delete user
+        // await User.findByIdAndDelete(_id);
 
         return { success: true }
     } catch (error) {
@@ -59,7 +59,7 @@ const createUser = async (req, res) => {
 const getUsers = async (req, res) => {
     const { page = 1, item = 10, role } = req.query; // default qiymatlar
 
-    let query = { status: true }; // doimiy filter
+    let query = { status: true, active: true }; // doimiy filter
     console.log(req.query, "=> query");
 
 
@@ -90,7 +90,7 @@ const getUsersAdmin = async (req, res) => {
 
     try {
         const totalUsers = await User.countDocuments();
-        const users = await User.find({ status: true })
+        const users = await User.find({ status: true, active: true })
         console.log(users);
 
         res.status(200).send({ users, total: totalUsers });
@@ -113,7 +113,7 @@ const orderUser = async (req, res) => {
 // Read single user
 const getUser = async (req, res) => {
     try {
-        const user = await User.findOne({ userId: req.params.id });
+        const user = await User.findOne({ userId: req.params.id, active: true });
         if (!user) return res.status(404).send({ message: 'User not found' });
         res.status(200).send(user);
     } catch (error) {
@@ -127,7 +127,7 @@ const updateUser = async (req, res) => {
     console.log(req.body)
     try {
 
-        const user = await User.findOneAndUpdate({ userId: req.params.id }, { ...req.body }, { new: true, runValidators: true });
+        const user = await User.findOneAndUpdate({ userId: req.params.id, active: true }, { ...req.body }, { new: true, runValidators: true });
         if (!user) return res.status(404).send({ message: 'User not found' });
         res.status(200).send(user);
     } catch (error) {
@@ -141,7 +141,7 @@ const updateUseStatus = async (req, res) => {
     let status = req.body.status
     try {
         if (status) {
-            const user = await User.findOneAndUpdate({ userId: req.params.id }, { status: true }, { new: true, runValidators: true });
+            const user = await User.findOneAndUpdate({ userId: req.params.id, active: true }, { status: true }, { new: true, runValidators: true });
             if (!user) return res.status(404).send({ message: 'User not found' });
             console.log(user.userId);
             await sendMessageToUser(textGetWithLanguage(user, "saved_success"), user.userId, {
@@ -181,7 +181,7 @@ const updateUserWebInfo = async (req, res) => {
         return res.status(404).send({ message: 'Fields required' });
     }
     try {
-        const user = await User.findOneAndUpdate({ userId: req.params.id }, { web_app: { ...req.body, userTelegramId: Date.now() }, action: req.body.action, status: false }, { new: true });
+        const user = await User.findOneAndUpdate({ userId: req.params.id, active: true }, { web_app: { ...req.body, userTelegramId: Date.now() }, action: req.body.action, status: false }, { new: true });
         console.log(user);
 
         if (!user) {
@@ -212,7 +212,7 @@ const updateUserBot = async (req, res) => {
         return res.status(404).send({ message: 'Fields required' });
     }
     try {
-        const user = await User.findOneAndUpdate({ userId: userId }, { ...req.body, web_app: { ...req.body.web_app, userTelegramId: new Date().getTime() } }, { new: true });
+        const user = await User.findOneAndUpdate({ userId: userId, active: true }, { ...req.body, web_app: { ...req.body.web_app, userTelegramId: new Date().getTime() } }, { new: true });
         if (!user) {
             return res.status(404).send({ message: 'User not found' });
         }

@@ -257,7 +257,7 @@ const setSelect = async (req, res) => {
     let promotion = req.params.promotion;
     let promotionId = req.params.promotionId;
     try {
-        let user = await User.findOne({ userId });
+        let user = await User.findOne({ userId, active: true });
         if (!user) {
             return res.status(404).send({ message: "User not found" });
         }
