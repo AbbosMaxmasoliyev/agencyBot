@@ -58,7 +58,7 @@ const createPromotion = async (req, res) => {
         // Ikkinchi added
         if (req.body.owner) {
             // Foydalanuvchini qidiring
-            let user = await User.findOne({ userId: req.body.owner });
+            let user = await User.findOne({ userId: req.body.owner, status: true, active: true });
             if (!user) {
                 return res.status(404).send({ message: 'Foydalanuvchi topilmadi' });
             }
@@ -96,9 +96,10 @@ const createPromotion = async (req, res) => {
         // Promotion yaratish
         let users = await User.find({
             status: true,
-            category: collaboration.category
-            // _id: { $ne: collaboration.owner }  // admin_owner qiymati bo‘lmagan hujjatlarni qidirish
-        });
+            active: true,
+            "web_app.category": { $in: collaboration.category },
+            // _id: { $ne: collaboration.owner } // Agar kerak bo'lsa, ma'lum bir hujjatni chiqarib tashlash uchun
+        })
         console.log(users);
 
         // 
@@ -165,7 +166,7 @@ const setAgree = async (req, res) => {
         console.log(promotion);
 
 
-        let user = await User.findOne({ userId });
+        let user = await User.findOne({ userId, active: true, status: true });
         if (!user) {
             return res.status(404).send({ message: "User not found" });
         }
@@ -174,7 +175,7 @@ const setAgree = async (req, res) => {
         //     promotionId,
 
         // )
-        const promotionDoc = await promotions[promotion].findById(promotionId);
+        const promotionDoc = await promotions[promotion].findById(promotionId).populate("owner");
         console.log(promotionDoc);
 
         if (!promotionDoc) {
@@ -194,7 +195,10 @@ const setAgree = async (req, res) => {
         }
         promotionDoc.agree = []
         promotionDoc.agree.push(user._id);
+        console.log(promotion);
+
         await promotionDoc.save();
+        sendMessageToUser(`${textGetWithLanguage(promotionDoc.owner, "agreement")}\n${textGetWithLanguage(promotionDoc.owner, promotion)}\n${textGetWithLanguage(promotionDoc.owner, "named")}:${promotionDoc.title}\n${textGetWithLanguage(promotionDoc.owner, "whoIs")} ${user.phoneNumber}`, promotionDoc.owner.userId)
         res.status(200).json({ message: 'Foydalanuvchi muvaffaqiyatli qo‘shildi', promotionDoc })
         // Agar user ID oldindan mavjud bo'lmasa, qo'shing
 

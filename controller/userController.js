@@ -102,7 +102,7 @@ const getUsersAdmin = async (req, res) => {
 
 const orderUser = async (req, res) => {
     try {
-        const users = await User.find({ status: false });
+        const users = await User.find({ status: false, active: true });
         res.status(200).send(users);
     } catch (error) {
         res.status(500).send({ message: error.message });
@@ -153,7 +153,8 @@ const updateUseStatus = async (req, res) => {
                                 web_app: { url: `${WEB_APP_URL}/user/${user.userId}` }
                             }
                         ]
-                    ]
+                    ],
+                    resize_keyboard: true
                 }
             },)
 
@@ -226,8 +227,10 @@ const updateUserBot = async (req, res) => {
 
 // Delete user
 const deleteUser = async (req, res) => {
+    console.log(req.params.id);
+
     try {
-        const user = await deleteUserAndAssociations(req.params.id);
+        const user = await User.findOneAndUpdate({ userId: req.params.id, active: true }, { active: false, status: false }, { new: true });
         console.log(user);
         if (!user.success) return res.status(404).send({ message: 'User not found' });
 

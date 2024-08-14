@@ -10,8 +10,10 @@ let WEB_APP_URL = process.env.WEB_APP;
 scene.enter(async (ctx) => {
   let userId = ctx.message.chat.id;
   let user = await User.findOne({ userId, active: true });
+  console.log(user);
+  
   console.log(userId);
-  if (user.web_app.gender) {
+  if (user?.web_app?.gender) {
     const keyboard = Markup.inlineKeyboard([
       [
         {

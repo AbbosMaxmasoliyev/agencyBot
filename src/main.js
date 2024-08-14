@@ -23,7 +23,7 @@ bot.use(stage.middleware());
 let main = bot.start(async (ctx) => {
   const userId = ctx.from.id.toString();
 
-  let user = await User.findOne({ userId });
+  let user = await User.findOne({ userId, active: true });
 
   if (!user) {
     user = new User({ userId });

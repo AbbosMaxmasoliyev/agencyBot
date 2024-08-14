@@ -54,7 +54,7 @@ const scene = new WizardScene(
           ]
         ],
         resize_keyboard: true, // Klaviatura o'lchamini avtomatik moslashtirish
-        one_time_keyboard: true // Klaviaturani faqat bir marta ko'rsatish
+        one_time_keyboard: false // Klaviaturani faqat bir marta ko'rsatish
       }
     });
 
@@ -64,29 +64,40 @@ const scene = new WizardScene(
 
     const phoneNumber = ctx.message?.contact?.phone_number;
 
+    console.log(phoneNumber);
 
+    if (phoneNumber) {
+      ctx.wizard.state.phoneNumber = phoneNumber;
+      const userId = ctx.from.id.toString();
 
-    ctx.wizard.state.phoneNumber = phoneNumber;
-    const userId = ctx.from.id.toString();
-
-    await User.findOneAndUpdate(
-      { userId },
-      {
-        $set: {
-          firstName: ctx.wizard.state.firstName,
-          lastName: ctx.wizard.state.lastName,
-          phoneNumber: ctx.wizard.state.phoneNumber,
-          language: ctx.wizard.state.language,
-          fromTelegram: ctx.from,
-          web_app: { userTelegramId: `${ctx.chat.username}-${Date.now()}-${ctx.chat.id}` }
+      await User.findOneAndUpdate(
+        { userId, active: true },
+        {
+          $set: {
+            firstName: ctx.wizard.state.firstName,
+            lastName: ctx.wizard.state.lastName,
+            phoneNumber: ctx.wizard.state.phoneNumber,
+            language: ctx.wizard.state.language,
+            fromTelegram: ctx.from,
+            web_app: { userTelegramId: `${ctx.chat.username}-${Date.now()}-${ctx.chat.id}` }
+          },
         },
-      },
-      { new: true }
-    );
+        { new: true }
+      );
 
-    ctx.reply(ctx.i18n.t("saved_success"));
-    return ctx.scene.enter("start");
+      ctx.reply(ctx.i18n.t("saved_success"), {
+        reply_markup: {
+          remove_keyboard: true
+        }
+      });
+      return ctx.scene.enter("start");
+    } else {
+      ctx.reply(ctx.i18n.t("phoneNumber_error"));
+
+      ctx.wizard.selectStep(ctx.wizard.cursor);
+    }
   }
+
 );
 
 module.exports = scene;
