@@ -34,7 +34,7 @@ async function updateUserData(userTelegramId, updatingData) {
 }
 
 async function deleteUserWithId(userId) {
-    const user = await User.findOneAndDelete({ userId });
+    const user = await User.findOneAndUpdate({ userId }, { active: false });
     console.log(user, "=> Ichki");
     if (!user) {
         throw new Error('User not found');

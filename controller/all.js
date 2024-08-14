@@ -214,7 +214,7 @@ const getMyPromotions = async (req, res) => {
     console.log(promotions[promotion]);
 
     try {
-        let user = await User.findOne({ userId: userId })
+        let user = await User.findOne({ userId: userId, active: true })
         console.log(user);
         const collaborations = await promotions[promotion].find({ owner: user._id }).populate("owner").populate("agree");
         console.log(collaborations);

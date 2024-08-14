@@ -24,7 +24,7 @@ const language = new Scenes.WizardScene(
     // Foydalanuvchi tanlagan tilni saqlashdi
     const userId = ctx.from.id.toString();
     await User.findOneAndUpdate(
-      { userId },
+      { userId, active: true },
       { $set: { language: selectedLanguage } },
       { new: true }
     );

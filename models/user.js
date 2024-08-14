@@ -47,6 +47,10 @@ const userSchema = new Schema({
     fromTelegram: {
         type: Object
     },
+    active: {
+        type: Boolean,
+        default: true,
+    },
     web_app: {
         category: [String],
         gender: String,
