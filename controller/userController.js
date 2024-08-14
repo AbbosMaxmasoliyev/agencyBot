@@ -68,7 +68,7 @@ const getUsers = async (req, res) => {
 
     try {
         const totalUsers = await User.countDocuments({ ...query });
-        const users = await User.find({ query })
+        const users = await User.find({ ...query })
             .skip((page - 1) * item)
             .limit(parseInt(item));
         console.log(users);
