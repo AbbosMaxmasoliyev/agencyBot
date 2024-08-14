@@ -57,18 +57,22 @@ const createUser = async (req, res) => {
 
 // Read all users
 const getUsers = async (req, res) => {
-    const { page = 1, item = 10, role, search } = req.query; // default qiymatlar
+    const { page = 1, item = 10, search = "", role = "" } = req.query
 
-    let query = { status: true, active: true }; // doimiy filter
+    const searchCriteria = {
+        $or: [
+            { firstName: new RegExp(search, "i") },
+            { lastName: new RegExp(search, "i") },
+            { phoneNumber: new RegExp(search, "i") },
+            { username: new RegExp(search, "i") },
+        ],
+        active: true,
+    }
+    let query = { ...searchCriteria }
     role ? query = { ...query, "web_app.role": role } : null
-    console.log(req.query, "=> query");
-
-
-    console.log(query);
-
     try {
-        const totalUsers = await User.countDocuments({ ...query });
-        const users = await User.find({ ...query })
+        const totalUsers = await User.countDocuments(query);
+        const users = await User.find(query)
             .skip((page - 1) * item)
             .limit(parseInt(item));
         console.log(users);
