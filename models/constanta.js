@@ -22,7 +22,7 @@ const mainSchema = new Schema({
         required: true,
     },
     category: {
-        type: String,
+        type: [String],
         required: false,
     },
     date: {
