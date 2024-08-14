@@ -57,9 +57,10 @@ const createUser = async (req, res) => {
 
 // Read all users
 const getUsers = async (req, res) => {
-    const { page = 1, item = 10, role } = req.query; // default qiymatlar
+    const { page = 1, item = 10, role, search } = req.query; // default qiymatlar
 
     let query = { status: true, active: true }; // doimiy filter
+    role ? query = { ...query, role } : null
     console.log(req.query, "=> query");
 
 
@@ -67,7 +68,7 @@ const getUsers = async (req, res) => {
 
     try {
         const totalUsers = await User.countDocuments({ ...query });
-        const users = await User.find(query)
+        const users = await User.find({ query })
             .skip((page - 1) * item)
             .limit(parseInt(item));
         console.log(users);
