@@ -1,0 +1,1196 @@
+2024-08-15 10:42:48 info: Server is running on port http://localhost:3001 1723700568990 salom
+2024-08-15 10:42:53 info: Server is running on port http://localhost:3001 1723700573956 salom
+2024-08-15 10:43:03 info: Server is running on port http://localhost:3001 1723700583069 salom
+2024-08-15 10:45:28 info: Server is running on port http://localhost:3001 1723700728059 salom
+2024-08-15 10:45:41 info: Server is running on port http://localhost:3001 1723700741203 salom
+2024-08-15 10:49:09 info: Server is running on port http://localhost:3001 1723700949528 salom
+2024-08-15 10:49:26 info: uz
+2024-08-15 10:49:27 info: null
+2024-08-15 10:51:05 info: Server is running on port http://localhost:3001 1723701065347 salom
+2024-08-15 10:51:09 error: {
+  web_app: { category: [], userTelegramId: '1723700879490.2124' },
+  _id: new ObjectId('66bd968fb28e0ff279a70c12'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:47:59.485Z,
+  updatedAt: 2024-08-15T05:47:59.490Z,
+  __v: 0
+}
+2024-08-15 10:51:31 info: Server is running on port http://localhost:3001 1723701091626 salom
+2024-08-15 10:51:39 info: {
+  web_app: { category: [], userTelegramId: '1723700879490.2124' },
+  _id: new ObjectId('66bd968fb28e0ff279a70c12'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:47:59.485Z,
+  updatedAt: 2024-08-15T05:47:59.490Z,
+  __v: 0
+}
+2024-08-15 10:51:57 info: uz
+2024-08-15 10:51:57 info: null
+2024-08-15 10:52:14 info: Server is running on port http://localhost:3001 1723701134362 salom
+2024-08-15 10:52:31 info: Server is running on port http://localhost:3001 1723701151763 salom
+2024-08-15 10:52:36 info: {
+  web_app: { category: [], userTelegramId: '1723700879490.2124' },
+  _id: new ObjectId('66bd968fb28e0ff279a70c12'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:47:59.485Z,
+  updatedAt: 2024-08-15T05:47:59.490Z,
+  __v: 0
+}
+2024-08-15 10:52:38 info: uz
+2024-08-15 10:52:38 info: {
+  web_app: { category: [], userTelegramId: '1723700879490.2124' },
+  _id: new ObjectId('66bd968fb28e0ff279a70c12'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:47:59.485Z,
+  updatedAt: 2024-08-15T05:47:59.490Z,
+  __v: 0,
+  language: 'uz'
+}
+2024-08-15 10:53:00 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723701180694-1094968462'
+  },
+  _id: new ObjectId('66bd968fb28e0ff279a70c12'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:47:59.485Z,
+  updatedAt: 2024-08-15T05:47:59.490Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 10:55:13 info: Server is running on port http://localhost:3001 1723701313621 salom
+2024-08-15 10:56:08 info: Server is running on port http://localhost:3001 1723701368110 salom
+2024-08-15 10:56:15 info: Server is running on port http://localhost:3001 1723701375876 salom
+2024-08-15 10:56:53 info: null
+2024-08-15 10:56:55 info: ru
+2024-08-15 10:56:55 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 10:57:48 info: Server is running on port http://localhost:3001 1723701468873 salom
+2024-08-15 10:57:51 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 10:57:55 info: ru
+2024-08-15 10:57:55 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 10:58:44 info: Server is running on port http://localhost:3001 1723701524531 salom
+2024-08-15 11:00:32 info: Server is running on port http://localhost:3001 1723701632809 salom
+2024-08-15 11:00:36 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:00:38 info: ctx language=> ru
+2024-08-15 11:00:38 info: ru
+2024-08-15 11:00:38 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:01:12 info: Server is running on port http://localhost:3001 1723701672877 salom
+2024-08-15 11:01:14 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:01:17 info: ctx language=> ru
+2024-08-15 11:01:17 info: ru
+2024-08-15 11:01:17 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:01:43 info: Server is running on port http://localhost:3001 1723701703444 salom
+2024-08-15 11:01:47 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:01:52 info: ctx language=> ru
+2024-08-15 11:01:52 info: ru
+2024-08-15 11:01:52 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:01:59 info: ctx language=> uz
+2024-08-15 11:03:44 info: Server is running on port http://localhost:3001 1723701824649 salom
+2024-08-15 11:03:47 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:03:50 info: ctx language=> ru
+2024-08-15 11:03:50 info: ru
+2024-08-15 11:03:50 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:03:53 info: ctx language=> uz
+2024-08-15 11:04:20 info: Server is running on port http://localhost:3001 1723701860628 salom
+2024-08-15 11:04:35 info: Server is running on port http://localhost:3001 1723701875464 salom
+2024-08-15 11:04:53 info: Server is running on port http://localhost:3001 1723701893478 salom
+2024-08-15 11:05:07 info: Server is running on port http://localhost:3001 1723701907506 salom
+2024-08-15 11:05:53 info: Server is running on port http://localhost:3001 1723701953244 salom
+2024-08-15 11:05:53 info: i18next is ready...
+2024-08-15 11:05:59 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:06:01 info: ctx language=> ru
+2024-08-15 11:06:01 info: ru
+2024-08-15 11:06:01 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:06:06 info: ctx language=> uz
+2024-08-15 11:06:18 info: Server is running on port http://localhost:3001 1723701978632 salom
+2024-08-15 11:06:18 info: i18next is ready...
+2024-08-15 11:06:27 info: Server is running on port http://localhost:3001 1723701987399 salom
+2024-08-15 11:06:27 info: i18next is ready...
+2024-08-15 11:06:27 info: function () {
+        return _this2.t(...arguments);
+      }
+2024-08-15 11:06:30 info: Server is running on port http://localhost:3001 1723701990126 salom
+2024-08-15 11:06:30 info: i18next is ready...
+2024-08-15 11:06:30 info: function () {
+        return _this2.t(...arguments);
+      }
+2024-08-15 11:06:41 info: Server is running on port http://localhost:3001 1723702001984 salom
+2024-08-15 11:06:42 info: i18next is ready...
+2024-08-15 11:06:42 info: 
+2024-08-15 11:06:46 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:06:48 info: ctx language=> ru
+2024-08-15 11:06:48 info: ru
+2024-08-15 11:06:48 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:06:51 info: ctx language=> uz
+2024-08-15 11:07:43 info: Server is running on port http://localhost:3001 1723702063324 salom
+2024-08-15 11:07:43 info: i18next is ready...
+2024-08-15 11:07:43 info: 
+2024-08-15 11:07:48 info: Server is running on port http://localhost:3001 1723702068431 salom
+2024-08-15 11:07:48 info: i18next is ready...
+2024-08-15 11:07:48 info: 
+2024-08-15 11:08:05 info: Server is running on port http://localhost:3001 1723702085696 salom
+2024-08-15 11:08:05 info: i18next is ready...
+2024-08-15 11:08:05 info: 
+2024-08-15 11:08:28 info: Server is running on port http://localhost:3001 1723702108679 salom
+2024-08-15 11:08:28 info: i18next is ready...
+2024-08-15 11:08:28 info: 
+2024-08-15 11:08:31 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:08:34 info: ctx language=> uz
+2024-08-15 11:08:34 info: ru
+2024-08-15 11:08:34 info: null
+2024-08-15 11:08:36 info: ctx language=> uz
+2024-08-15 11:12:33 info: Server is running on port http://localhost:3001 1723702353786 salom
+2024-08-15 11:12:33 info: i18next is ready...
+2024-08-15 11:12:33 info: 
+2024-08-15 11:12:39 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:12:41 info: ctx language=> uz
+2024-08-15 11:12:41 info: ru
+2024-08-15 11:12:41 info: null
+2024-08-15 11:13:07 info: Server is running on port http://localhost:3001 1723702387719 salom
+2024-08-15 11:13:07 info: i18next is ready...
+2024-08-15 11:13:07 info: 
+2024-08-15 11:13:12 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:13:15 info: ctx language=> uz
+2024-08-15 11:13:15 info: ru
+2024-08-15 11:13:15 info: null
+2024-08-15 11:13:55 info: Server is running on port http://localhost:3001 1723702435618 salom
+2024-08-15 11:13:55 info: i18next is ready...
+2024-08-15 11:13:55 info: 
+2024-08-15 11:14:07 info: Server is running on port http://localhost:3001 1723702447919 salom
+2024-08-15 11:14:08 info: i18next is ready...
+2024-08-15 11:14:08 info: 
+2024-08-15 11:14:15 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:14:17 info: ctx language=> uz
+2024-08-15 11:14:17 info: ru
+2024-08-15 11:14:17 info: null
+2024-08-15 11:14:55 info: Server is running on port http://localhost:3001 1723702495488 salom
+2024-08-15 11:14:55 info: i18next is ready...
+2024-08-15 11:14:55 info: 
+2024-08-15 11:15:08 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:15:10 info: ctx language=> uz
+2024-08-15 11:15:11 info: ru
+2024-08-15 11:15:11 info: null
+2024-08-15 11:15:48 info: Server is running on port http://localhost:3001 1723702548041 salom
+2024-08-15 11:15:48 info: i18next is ready...
+2024-08-15 11:15:48 info: 
+2024-08-15 11:15:51 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:15:53 info: ctx language=> uz
+2024-08-15 11:15:53 info: ru
+2024-08-15 11:15:53 info: null
+2024-08-15 11:16:21 info: Server is running on port http://localhost:3001 1723702581219 salom
+2024-08-15 11:16:21 info: i18next is ready...
+2024-08-15 11:16:21 info: 
+2024-08-15 11:16:48 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:16:50 info: ctx language=> uz
+2024-08-15 11:16:50 info: ru
+2024-08-15 11:16:50 info: null
+2024-08-15 11:17:25 info: Server is running on port http://localhost:3001 1723702645858 salom
+2024-08-15 11:17:25 info: i18next is ready...
+2024-08-15 11:17:25 info: 
+2024-08-15 11:17:26 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:17:31 info: ctx language=> uz
+2024-08-15 11:17:31 info: ru
+2024-08-15 11:17:31 info: null
+2024-08-15 11:17:44 info: Server is running on port http://localhost:3001 1723702664991 salom
+2024-08-15 11:17:45 info: i18next is ready...
+2024-08-15 11:17:45 info: 
+2024-08-15 11:17:51 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:17:58 info: ctx language=> uz
+2024-08-15 11:17:58 info: ru
+2024-08-15 11:17:58 info: null
+2024-08-15 11:18:47 info: Server is running on port http://localhost:3001 1723702727163 salom
+2024-08-15 11:18:47 info: i18next is ready...
+2024-08-15 11:18:47 info: 
+2024-08-15 11:18:50 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:18:52 info: ru
+2024-08-15 11:18:52 info: null
+2024-08-15 11:19:24 info: Server is running on port http://localhost:3001 1723702764800 salom
+2024-08-15 11:19:24 info: i18next is ready...
+2024-08-15 11:19:24 info: 
+2024-08-15 11:19:26 info: Server is running on port http://localhost:3001 1723702766422 salom
+2024-08-15 11:19:26 info: i18next is ready...
+2024-08-15 11:19:26 info: 
+2024-08-15 11:19:31 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:19:36 info: ru
+2024-08-15 11:19:36 info: null
+2024-08-15 11:20:06 info: Server is running on port http://localhost:3001 1723702806281 salom
+2024-08-15 11:20:06 info: i18next is ready...
+2024-08-15 11:20:06 info: 
+2024-08-15 11:21:26 info: Server is running on port http://localhost:3001 1723702886816 salom
+2024-08-15 11:21:26 info: i18next is ready...
+2024-08-15 11:21:26 info: 
+2024-08-15 11:21:31 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:21:34 info: ru
+2024-08-15 11:21:34 info: null
+2024-08-15 11:22:05 info: Server is running on port http://localhost:3001 1723702925700 salom
+2024-08-15 11:22:05 info: i18next is ready...
+2024-08-15 11:22:05 info: 
+2024-08-15 11:22:08 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:22:11 info: ru
+2024-08-15 11:22:11 info: null
+2024-08-15 11:22:41 info: Server is running on port http://localhost:3001 1723702961297 salom
+2024-08-15 11:22:41 info: i18next is ready...
+2024-08-15 11:22:41 info: 
+2024-08-15 11:22:50 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:22:52 info: ru
+2024-08-15 11:23:53 info: Server is running on port http://localhost:3001 1723703033596 salom
+2024-08-15 11:23:53 info: i18next is ready...
+2024-08-15 11:23:53 info: 
+2024-08-15 11:23:57 info: {
+  web_app: { category: [], userTelegramId: '1723701413112.8347' },
+  _id: new ObjectId('66bd98a5d3a42740a12061a4'),
+  userId: '1094968462',
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T05:56:53.104Z,
+  updatedAt: 2024-08-15T05:56:53.113Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:25:36 info: Server is running on port http://localhost:3001 1723703136604 salom
+2024-08-15 11:25:36 info: i18next is ready...
+2024-08-15 11:25:36 info: 
+2024-08-15 11:25:48 info: null
+2024-08-15 11:25:52 info: ru
+2024-08-15 11:25:52 info: {
+  web_app: { category: [], userTelegramId: '1723703152065.8672' },
+  _id: new ObjectId('66bd9f6c369e28058e275032'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:25:48.901Z,
+  updatedAt: 2024-08-15T06:25:52.066Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:25:54 info: ctx language=> ru
+2024-08-15 11:26:04 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703164506-1094968462'
+  },
+  _id: new ObjectId('66bd9f6c369e28058e275032'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:25:48.901Z,
+  updatedAt: 2024-08-15T06:25:52.066Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:29:35 info: null
+2024-08-15 11:29:38 info: ru
+2024-08-15 11:29:38 info: {
+  web_app: { category: [], userTelegramId: '1723703378816.0903' },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:29:38.817Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:29:45 info: ctx language=> uz
+2024-08-15 11:30:30 info: Server is running on port http://localhost:3001 1723703430352 salom
+2024-08-15 11:30:30 info: i18next is ready...
+2024-08-15 11:30:30 info: 
+2024-08-15 11:30:38 info: {
+  web_app: { category: [], userTelegramId: '1723703378816.0903' },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:29:38.817Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:30:45 info: ru
+2024-08-15 11:30:45 info: {
+  web_app: { category: [], userTelegramId: '1723703445748.8867' },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:30:45.746Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:30:53 info: ctx language=> uz
+2024-08-15 11:31:32 info: Server is running on port http://localhost:3001 1723703492007 salom
+2024-08-15 11:31:32 info: i18next is ready...
+2024-08-15 11:31:32 info: 
+2024-08-15 11:31:35 info: Server is running on port http://localhost:3001 1723703495916 salom
+2024-08-15 11:31:36 info: i18next is ready...
+2024-08-15 11:31:36 info: 
+2024-08-15 11:31:51 info: {
+  web_app: { category: [], userTelegramId: '1723703445748.8867' },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:30:45.746Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:31:51 info: {
+  web_app: { category: [], userTelegramId: '1723703445748.8867' },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:30:45.746Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:31:55 info: ru
+2024-08-15 11:31:57 info: {
+  web_app: { category: [], userTelegramId: '1723703517793.3958' },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:31:57.793Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:32:00 info: ctx language=> uz
+2024-08-15 11:33:35 info: Server is running on port http://localhost:3001 1723703615957 salom
+2024-08-15 11:33:36 info: i18next is ready...
+2024-08-15 11:33:36 info: 
+2024-08-15 11:33:37 info: {
+  web_app: { category: [], userTelegramId: '1723703517793.3958' },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:31:57.793Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:33:44 info: ru
+2024-08-15 11:33:44 info: {
+  web_app: { category: [], userTelegramId: '1723703624894.6707' },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:33:44.895Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:33:50 info: ctx language=> ru
+2024-08-15 11:34:00 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703640148-1094968462'
+  },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:33:44.895Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:34:24 info: Server is running on port http://localhost:3001 1723703664396 salom
+2024-08-15 11:34:24 info: i18next is ready...
+2024-08-15 11:34:24 info: 
+2024-08-15 11:34:40 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703640148-1094968462'
+  },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:33:44.895Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:34:40 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703640148-1094968462'
+  },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:33:44.895Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:36:14 info: Server is running on port http://localhost:3001 1723703774401 salom
+2024-08-15 11:36:14 info: i18next is ready...
+2024-08-15 11:36:14 info: 
+2024-08-15 11:36:15 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703640148-1094968462'
+  },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:33:44.895Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:36:15 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703640148-1094968462'
+  },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:33:44.895Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:36:21 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703640148-1094968462'
+  },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:33:44.895Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:36:21 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703640148-1094968462'
+  },
+  _id: new ObjectId('66bda04f369e28058e275059'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:29:35.211Z,
+  updatedAt: 2024-08-15T06:33:44.895Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:36:35 info: null
+2024-08-15 11:36:37 info: ru
+2024-08-15 11:36:37 info: {
+  web_app: { category: [], userTelegramId: '1723703797900.058' },
+  _id: new ObjectId('66bda1f35a05f85e03bf89c8'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:36:35.774Z,
+  updatedAt: 2024-08-15T06:36:37.900Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 11:36:41 info: ctx language=> ru
+2024-08-15 11:36:53 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723703813821-1094968462'
+  },
+  _id: new ObjectId('66bda1f35a05f85e03bf89c8'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:36:35.774Z,
+  updatedAt: 2024-08-15T06:36:37.900Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Maxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:37:40 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'beauty_blogger', 'gamer_streamer' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703836828'
+  },
+  _id: new ObjectId('66bda1f35a05f85e03bf89c8'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:36:35.774Z,
+  updatedAt: 2024-08-15T06:36:37.900Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Maxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:37:40 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'beauty_blogger', 'gamer_streamer' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703836828'
+  },
+  _id: new ObjectId('66bda1f35a05f85e03bf89c8'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:36:35.774Z,
+  updatedAt: 2024-08-15T06:36:37.900Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Maxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:38:02 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'beauty_blogger', 'gamer_streamer' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703836828'
+  },
+  _id: new ObjectId('66bda1f35a05f85e03bf89c8'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:36:35.774Z,
+  updatedAt: 2024-08-15T06:36:37.900Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Maxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:38:02 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'beauty_blogger', 'gamer_streamer' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703836828'
+  },
+  _id: new ObjectId('66bda1f35a05f85e03bf89c8'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:36:35.774Z,
+  updatedAt: 2024-08-15T06:36:37.900Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Maxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 11:42:58 info: Server is running on port http://localhost:3001 1723704178931 salom
+2024-08-15 11:42:59 info: i18next is ready...
+2024-08-15 11:42:59 info: 
+2024-08-15 11:44:45 info: null
+2024-08-15 11:44:49 info: uz
+2024-08-15 11:44:49 info: {
+  web_app: { category: [], userTelegramId: '1723704289241.9524' },
+  _id: new ObjectId('66bda3dde2c5ce91f881dacb'),
+  userId: '6015429543',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:44:45.926Z,
+  updatedAt: 2024-08-15T06:44:49.242Z,
+  __v: 0,
+  language: 'uz'
+}
+2024-08-15 11:44:56 info: ctx language=> uz
+2024-08-15 11:45:09 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'undefined-1723704309359-6015429543'
+  },
+  _id: new ObjectId('66bda3dde2c5ce91f881dacb'),
+  userId: '6015429543',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T06:44:45.926Z,
+  updatedAt: 2024-08-15T06:44:49.242Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Nigora',
+  fromTelegram: {
+    id: 6015429543,
+    is_bot: false,
+    first_name: 'Nigora',
+    language_code: 'uz'
+  },
+  lastName: 'Sindorova',
+  phoneNumber: '998887020380'
+}

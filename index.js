@@ -25,6 +25,7 @@ const { publishPromotion, getWithCategoryPromotion, setAgree, setSelect, removeU
 const uploadMiddleware = require('./middlewares/upload.js');
 const Collaboration = require('./models/collaboration.js');
 const { default: axios } = require('axios');
+const logger = require('./utils/logger.js');
 const app = express();
 const BOT_TOKEN = process.env.BOT_TOKEN
 // Set up default mongoose connection MONGO
@@ -471,7 +472,6 @@ const PORT = process.env.PORT || config.port;
 startBot(bot)
 
 app.listen(PORT, () => {
-
-
+    logger.info(`Server is running on port http://localhost:${PORT} ${Date.now()} salom`)
     console.log(`Server is running on port http://localhost:${PORT} ${Date.now()} salom`);
 });

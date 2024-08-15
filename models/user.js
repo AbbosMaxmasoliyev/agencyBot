@@ -42,7 +42,6 @@ const userSchema = new Schema({
     },
     language: {
         type: String,
-
     },
     fromTelegram: {
         type: Object

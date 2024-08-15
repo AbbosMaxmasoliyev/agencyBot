@@ -4,6 +4,7 @@ const Barter = require("../models/barter");
 const Collaboration = require("../models/collaboration");
 const User = require("../models/user");
 const { sendMessageToUser } = require("../src/core/bot");
+const logger = require("../utils/logger");
 const sendMessagesToUsers = require("../utils/sendMessageSorting");
 const { textGetWithLanguage } = require("../utils/text");
 
@@ -39,7 +40,7 @@ const publishPromotion = async (req, res) => {
         console.log(results);
         res.status(201).send({ succes: true, message: "Barchaga jo'natildi" });
     } catch (error) {
-        console.log(error);
+        logger.error(error);
         res.status(400).send(error);
     }
 };
@@ -115,14 +116,14 @@ const createPromotion = async (req, res) => {
                     }
                 })
             } catch (error) {
-                console.log(error);
+                logger.error(error);
 
             }
         })
         // Xabar yuborish
 
     } catch (error) {
-        console.log(error);
+        logger.error(error);
         res.status(400).send({ error: 'Ishlatishda xatolik yuz berdi', details: error.message });
     }
 };
@@ -198,14 +199,17 @@ const setAgree = async (req, res) => {
         console.log(promotion);
 
         await promotionDoc.save();
-        sendMessageToUser(`${textGetWithLanguage(promotionDoc.owner, "agreement")}\n${textGetWithLanguage(promotionDoc.owner, promotion)}\n${textGetWithLanguage(promotionDoc.owner, "named")}:${promotionDoc.title}\n${textGetWithLanguage(promotionDoc.owner, "whoIs")} ${user.phoneNumber}`, promotionDoc.owner.userId)
+        if (promotionDoc.owner) {
+            sendMessageToUser(`${textGetWithLanguage(promotionDoc.owner, "agreement")}\n${textGetWithLanguage(promotionDoc.owner, promotion)}\n${textGetWithLanguage(promotionDoc.owner, "named")}:${promotionDoc.title}\n${textGetWithLanguage(promotionDoc.owner, "whoIs")} ${user.phoneNumber}`, promotionDoc.owner.userId)
+        }
         res.status(200).json({ message: 'Foydalanuvchi muvaffaqiyatli qo‘shildi', promotionDoc })
         // Agar user ID oldindan mavjud bo'lmasa, qo'shing
 
 
 
     } catch (error) {
-        console.error(error);
+        logger.error(error);
+
         res.status(400).send({ message: "Error fetching promotions", error });
     }
 };
@@ -224,6 +228,8 @@ const getMyPromotions = async (req, res) => {
         console.log(collaborations);
         res.status(200).send(collaborations);
     } catch (error) {
+        logger.error(error);
+
         res.status(500).send(error);
     }
 };
@@ -290,7 +296,8 @@ const setSelect = async (req, res) => {
 
 
     } catch (error) {
-        console.error(error);
+        logger.error(error);
+
         res.status(400).send({ message: "Error fetching promotions", error });
     }
 };

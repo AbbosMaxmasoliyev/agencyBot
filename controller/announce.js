@@ -1,5 +1,6 @@
 const Announce = require('../models/announce');
 const User = require('../models/user');
+const logger = require('../utils/logger');
 
 const createAnnounce = async (req, res) => {
     try {
@@ -37,6 +38,7 @@ const getAllAnnounces = async (req, res) => {
         const announces = await Announce.find().populate("owner").populate("agree");
         res.status(200).send(announces);
     } catch (error) {
+        logger.error(error)
         res.status(500).send(error);
     }
 };
@@ -49,6 +51,7 @@ const getAnnounceById = async (req, res) => {
         }
         res.status(200).send(announce);
     } catch (error) {
+        logger.error(error)
         res.status(500).send(error);
     }
 };
@@ -93,6 +96,7 @@ const deleteAnnounceById = async (req, res) => {
 
         res.status(200).send(announce);
     } catch (error) {
+        logger.error(error)
         res.status(500).send(error);
     }
 };

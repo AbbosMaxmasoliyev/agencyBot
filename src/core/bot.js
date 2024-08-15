@@ -1,5 +1,6 @@
 const { Telegraf } = require("telegraf");
 const config = require("../utils/config");
+const logger = require("../../utils/logger");
 
 const groupId = process.env.GROUP_ID
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -8,7 +9,7 @@ async function sendMessageToGroup(message) {
         await bot.telegram.sendMessage(groupId, message, { parse_mode: 'HTML' });
         console.log('Xabar yuborildi!');
     } catch (error) {
-        console.error('Xabar yuborishda xatolik:', error);
+        logger.error('Xabar yuborishda xatolik:', error);
     }
 }
 
@@ -17,7 +18,7 @@ async function sendMessageToUser(message, userId, markup) {
         await bot.telegram.sendMessage(userId, message, markup);
         console.log('Xabar yuborildi!');
     } catch (error) {
-        console.error('Xabar yuborishda xatolik:', error);
+        logger.error('Xabar yuborishda xatolik:', error);
     }
 }
 

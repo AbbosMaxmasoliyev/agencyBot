@@ -1,5 +1,6 @@
 const Barter = require('../models/barter');
 const User = require('../models/user');
+const logger = require('../utils/logger');
 
 const createBarter = async (req, res) => {
     try {
@@ -27,7 +28,7 @@ const createBarter = async (req, res) => {
         await collaboration.save();
         res.status(201).send(collaboration);
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).send(error);
     }
 };
@@ -37,6 +38,8 @@ const getAllBarters = async (req, res) => {
         const barters = await Barter.find().populate("owner").populate("agree");
         res.status(200).send(barters);
     } catch (error) {
+        logger.error(error)
+
         res.status(500).send(error);
     }
 };
@@ -49,6 +52,8 @@ const getBarterById = async (req, res) => {
         }
         res.status(200).send(barter);
     } catch (error) {
+        logger.error(error)
+
         res.status(500).send(error);
     }
 };
@@ -78,6 +83,8 @@ const updateBarterById = async (req, res) => {
         }
         res.status(200).send(barter);
     } catch (error) {
+        logger.error(error)
+
         res.status(400).send(error);
     }
 };
@@ -93,6 +100,8 @@ const deleteBarterById = async (req, res) => {
 
         res.status(200).send(barter);
     } catch (error) {
+        logger.error(error)
+
         res.status(500).send(error);
     }
 };

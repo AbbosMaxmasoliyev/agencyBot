@@ -1,6 +1,7 @@
 const { Scenes, Markup } = require("telegraf");
 const { User } = require("../database");
 const { default: axios } = require("axios");
+const logger = require("../../utils/logger");
 
 const scene = new Scenes.BaseScene("start");
 
@@ -10,8 +11,9 @@ let WEB_APP_URL = process.env.WEB_APP;
 scene.enter(async (ctx) => {
   let userId = ctx.message.chat.id;
   let user = await User.findOne({ userId, active: true });
-  console.log(user);
-  
+  logger.info(user);
+  user.language ? await ctx.i18n.changeLanguage(user.language) : null
+
   console.log(userId);
   if (user?.web_app?.gender) {
     const keyboard = Markup.inlineKeyboard([

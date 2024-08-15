@@ -1,5 +1,6 @@
 const Advertise = require('../models/advertise');
 const User = require('../models/user');
+const logger = require('../utils/logger');
 
 const createAdvertise = async (req, res) => {
     try {
@@ -37,6 +38,8 @@ const getAllAdvertises = async (req, res) => {
         const advertises = await Advertise.find().populate("owner").populate("agree");
         res.status(200).send(advertises);
     } catch (error) {
+        logger.error(error);
+
         res.status(500).send(error);
     }
 };
@@ -49,6 +52,8 @@ const getAdvertiseById = async (req, res) => {
         }
         res.status(200).send(advertise);
     } catch (error) {
+        logger.error(error);
+
         res.status(500).send(error);
     }
 };
@@ -78,6 +83,8 @@ const updateAdvertiseById = async (req, res) => {
         }
         res.status(200).send(advertise);
     } catch (error) {
+        logger.error(error);
+
         res.status(400).send(error);
     }
 };
@@ -93,6 +100,8 @@ const deleteAdvertiseById = async (req, res) => {
 
         res.status(200).send(advertise);
     } catch (error) {
+        logger.error(error);
+
         res.status(500).send(error);
     }
 };

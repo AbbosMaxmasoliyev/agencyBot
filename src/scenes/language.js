@@ -1,6 +1,7 @@
 const { Scenes, Markup } = require("telegraf");
 const User = require("../../models/user");
 const bot = require("../core/bot");
+const logger = require("../../utils/logger");
 
 const language = new Scenes.WizardScene(
   "language",
@@ -18,23 +19,29 @@ const language = new Scenes.WizardScene(
 
   // Tanlangan tilni saqlash va o'zgartirish bosqichi
   async (ctx) => {
-    const selectedLanguage = ctx.callbackQuery?.data;
+    const selectedLanguage = ctx?.callbackQuery?.data;
     const messageId = ctx?.message?.message_id;
     console.log(messageId);
 
     ctx.deleteMessage(messageId)
-    await ctx?.answerCbQuery();
-    console.log(selectedLanguage);
+
+
+    logger.info(selectedLanguage);
     // Foydalanuvchi tanlagan tilni saqlashdi
-    const userId = ctx.from.id.toString();
-    await User.findOneAndUpdate(
+    const userId = ctx.from.id;
+    let user = await User.findOne(
       { userId, active: true, status: false },
-      { $set: { language: selectedLanguage } },
-      { new: true }
     );
+    await ctx?.answerCbQuery();
+    user.language = selectedLanguage
+    await user.save()
+    logger.info(user);
+    await ctx.i18n.changeLanguage(selectedLanguage);
 
     // Tarjima tilini o‘zgartiring
-    await ctx.i18n.changeLanguage(selectedLanguage);
+
+    // logger.info("ctx language=> " + ctx.i18n.language)
+
 
     return ctx.scene.enter("auth");
   }

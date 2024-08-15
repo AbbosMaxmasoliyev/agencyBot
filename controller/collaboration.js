@@ -1,5 +1,6 @@
 const Collaboration = require('../models/collaboration');
 const User = require('../models/user');
+const logger = require('../utils/logger');
 
 const createCollaboration = async (req, res) => {
     try {
@@ -37,6 +38,7 @@ const getAllCollaborations = async (req, res) => {
         console.log(collaborations);
         res.status(200).send(collaborations);
     } catch (error) {
+        logger.error(error)
         res.status(500).send(error);
     }
 };
@@ -48,6 +50,7 @@ const getMyCollaborations = async (req, res) => {
         console.log(collaborations);
         res.status(200).send(collaborations);
     } catch (error) {
+        logger.error(error)
         res.status(500).send(error);
     }
 };
@@ -60,6 +63,7 @@ const getCollaborationById = async (req, res) => {
         }
         res.status(200).send(collaboration);
     } catch (error) {
+        logger.error(error)
         res.status(500).send(error);
     }
 };
@@ -87,6 +91,7 @@ const updateCollaborationById = async (req, res) => {
         }
         res.status(200).send(collaboration);
     } catch (error) {
+        logger.error(error)
         res.status(400).send(error);
     }
 };
@@ -102,6 +107,7 @@ const deleteCollaborationById = async (req, res) => {
 
         res.status(200).send(collaboration);
     } catch (error) {
+        logger.error(error)
         res.status(500).send(error);
     }
 };

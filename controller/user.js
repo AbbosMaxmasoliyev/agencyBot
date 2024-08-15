@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const logger = require("../src/utils/logger");
 
 async function updateUser(userId, path, updateInfo) {
 
@@ -29,7 +30,7 @@ async function updateUserData(userTelegramId, updatingData) {
         await Promise.all(updatePromises);
         console.log("Barcha yangilanishlar muvaffaqiyatli bajarildi.");
     } catch (error) {
-        console.error("Yangilanishlar davomida xatolik yuz berdi:", error);
+        logger.error("Yangilanishlar davomida xatolik yuz berdi:", error);
     }
 }
 

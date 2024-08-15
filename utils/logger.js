@@ -1,5 +1,19 @@
 const winston = require("winston");
-const config = require("./config");
+const { Telegraf } = require("telegraf");
+const path = require("path");
+
+require("dotenv").config({
+    path: path.resolve(__dirname, `../../.env.${process.env.NODE_ENV}`),
+});
+
+const bot = new Telegraf(process.env.LOG_BOT_TOKEN);
+const logChatId = process.env.CHAT_ID;
+
+const sendLogToTelegram = (level, message) => {
+    bot.telegram
+        .sendMessage(logChatId, `${level.toUpperCase()}: ${message}`)
+        .catch((err) => console.error("Error sending log to Telegram:", err));
+};
 
 const logFormat = winston.format.printf(({ level, message, timestamp }) => {
     return `${timestamp} ${level}: ${message}`;
@@ -16,12 +30,26 @@ const logger = winston.createLogger({
         new winston.transports.File({
             filename: "logs/error.log",
             level: "error",
+            log: (info) => sendLogToTelegram("error", info.message),
         }),
-        new winston.transports.File({ filename: "logs/combined.log" }),
+        new winston.transports.File({
+            filename: "logs/combined.log",
+            level: "info",
+            log: (info) => sendLogToTelegram("info", info.message),
+        }),
+        new winston.transports.File({ filename: "logs/all.log" }),
     ],
 });
 
-if (config.NODE_ENV !== "production") {
+logger.on("data", (info) => {
+    if (info.level === "error") {
+        sendLogToTelegram("error", info.message);
+    } else if (info.level === "info") {
+        sendLogToTelegram("info", info.message);
+    }
+});
+
+if (process.env.NODE_ENV !== "production") {
     logger.add(
         new winston.transports.Console({
             format: winston.format.combine(
@@ -34,5 +62,7 @@ if (config.NODE_ENV !== "production") {
         })
     );
 }
+
+bot.launch();
 
 module.exports = logger;

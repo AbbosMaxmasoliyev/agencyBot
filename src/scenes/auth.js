@@ -2,9 +2,8 @@ const {
   Scenes: { WizardScene },
   Markup,
 } = require("telegraf");
-const db = require("../database");
 const User = require("../../models/user");
-const bot = require("../core/bot");
+const logger = require("../../utils/logger");
 
 function validateName(name) {
   const nameRegex = /^[A-Za-z\u0400-\u04FF]{2,}$/;
@@ -20,6 +19,13 @@ const scene = new WizardScene(
   "auth",
   async (ctx) => {
     ctx.reply(ctx.i18n.t("name"));
+    let userId = ctx.chat.id
+    let user = await User.findOne({ userId, active: true, status: false })
+    console.log("====24");
+    console.log(user);
+    console.log("====24");
+
+
     return ctx.wizard.next();
   },
   async (ctx) => {
@@ -32,6 +38,7 @@ const scene = new WizardScene(
 
     ctx.wizard.state.firstName = firstName;
     ctx.reply(ctx.i18n.t("surname"));
+    logger.info("ctx language=> " + ctx.i18n.language)
     return ctx.wizard.next();
   },
   async (ctx) => {

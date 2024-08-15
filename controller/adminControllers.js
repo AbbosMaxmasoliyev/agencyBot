@@ -1,6 +1,7 @@
 const Admin = require('../models/admin');
 const { generateToken, decodeToken } = require('../utils/generateToken');
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const logger = require('../utils/logger');
 // Sign-up (Ro'yxatdan o'tish)
 const signUp = async (req, res) => {
     const { username, password } = req.body;
@@ -20,7 +21,7 @@ const signUp = async (req, res) => {
             token: generateToken({ username: admin.username })
         });
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).json({ message: error.message });
     }
 };
@@ -37,7 +38,7 @@ const signIn = async (req, res) => {
         let checkPassword = await admin.matchPassword(password)
 
         console.log(checkPassword);
-        
+
 
         if (admin && checkPassword) {
             if (admin.role == "superadmin") {
@@ -58,7 +59,7 @@ const signIn = async (req, res) => {
             res.status(401).json({ message: 'Invalid username or password' });
         }
     } catch (error) {
-        console.log(error);
+        logger.error(error)
 
         res.status(400).json({ message: error.message });
     }
@@ -84,7 +85,7 @@ const createManager = async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).json({ message: error.message });
     }
 }
@@ -95,6 +96,8 @@ const getManagers = async (req, res) => {
         let managers = await Admin.find({ role: "manager" })
         res.status(200).send(managers)
     } catch (error) {
+        logger.error(error);
+
         res.status(400).send({ success: false })
 
     }
@@ -136,7 +139,7 @@ const updateManager = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).json({ message: error.message });
     }
 };
@@ -157,7 +160,7 @@ const deleteManager = async (req, res) => {
             message: 'Manager deleted successfully'
         });
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).json({ message: error.message });
     }
 };

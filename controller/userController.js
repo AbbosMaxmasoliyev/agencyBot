@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const { sendMessageToGroup, sendMessageToUser } = require('../src/core/bot');
 const { textGetWithLanguage } = require("../utils/text");
 const { keyboard } = require('telegraf/markup');
+const logger = require('../src/utils/logger');
 
 const BOT_TOKEN = process.env.BOT_TOKEN
 const WEB_APP_URL = process.env.WEB_APP
@@ -49,7 +50,7 @@ const createUser = async (req, res) => {
 
         res.status(201).send(user);
     } catch (error) {
-        console.log(error);
+        logger.error(error)
 
         res.status(400).send({ message: error.message });
     }
@@ -79,6 +80,8 @@ const getUsers = async (req, res) => {
 
         res.status(200).send({ users, total: totalUsers });
     } catch (error) {
+        logger.error(error)
+
         res.status(500).send({ message: error.message });
     }
 };
@@ -100,6 +103,8 @@ const getUsersAdmin = async (req, res) => {
 
         res.status(200).send({ users, total: totalUsers });
     } catch (error) {
+        logger.error(error)
+
         res.status(500).send({ message: error.message });
     }
 };
@@ -110,6 +115,8 @@ const orderUser = async (req, res) => {
         const users = await User.find({ status: false, active: true });
         res.status(200).send(users);
     } catch (error) {
+        logger.error(error)
+
         res.status(500).send({ message: error.message });
     }
 };
@@ -136,7 +143,7 @@ const updateUser = async (req, res) => {
         if (!user) return res.status(404).send({ message: 'User not found' });
         res.status(200).send(user);
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).send({ message: error.message });
     }
 };
@@ -172,7 +179,7 @@ const updateUseStatus = async (req, res) => {
         return res.status(400).send({ msg: "failed" });
 
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).send({ message: error.message });
     }
 };
@@ -202,7 +209,7 @@ const updateUserWebInfo = async (req, res) => {
 
         res.status(200).send({ success: true });
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).send({ message: error.message });
     }
 };
@@ -225,7 +232,7 @@ const updateUserBot = async (req, res) => {
 
         res.status(200).send({ success: true });
     } catch (error) {
-        console.log(error);
+        logger.error(error)
         res.status(400).send({ message: error.message });
     }
 };
@@ -242,6 +249,8 @@ const deleteUser = async (req, res) => {
         res.status(200).send({ message: 'User deleted successfully' });
 
     } catch (error) {
+        logger.error(error)
+
         res.status(500).send({ message: error.message });
     }
 };
