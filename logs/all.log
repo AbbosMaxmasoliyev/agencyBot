@@ -1194,3 +1194,271 @@
   lastName: 'Sindorova',
   phoneNumber: '998887020380'
 }
+2024-08-15 19:44:55 info: Server is running on port http://localhost:3001 1723733095985 salom
+2024-08-15 19:44:56 info: i18next is ready...
+2024-08-15 19:44:56 info: 
+2024-08-15 19:44:56 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'food_blogger', 'beauty_blogger' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703951295'
+  },
+  _id: new ObjectId('66bda26f5a05f85e03bf89f7'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:38:39.511Z,
+  updatedAt: 2024-08-15T06:38:41.298Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 19:44:56 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'food_blogger', 'beauty_blogger' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703951295'
+  },
+  _id: new ObjectId('66bda26f5a05f85e03bf89f7'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:38:39.511Z,
+  updatedAt: 2024-08-15T06:38:41.298Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 19:45:32 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'food_blogger', 'beauty_blogger' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703951295'
+  },
+  _id: new ObjectId('66bda26f5a05f85e03bf89f7'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:38:39.511Z,
+  updatedAt: 2024-08-15T06:38:41.298Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 19:45:32 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'food_blogger', 'beauty_blogger' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703951295'
+  },
+  _id: new ObjectId('66bda26f5a05f85e03bf89f7'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:38:39.511Z,
+  updatedAt: 2024-08-15T06:38:41.298Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 19:47:44 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'food_blogger', 'beauty_blogger' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703951295'
+  },
+  _id: new ObjectId('66bda26f5a05f85e03bf89f7'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:38:39.511Z,
+  updatedAt: 2024-08-15T06:38:41.298Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 19:47:44 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'food_blogger', 'beauty_blogger' ],
+    instagram: '@instagram',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1723703951295'
+  },
+  _id: new ObjectId('66bda26f5a05f85e03bf89f7'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-08-15T06:38:39.511Z,
+  updatedAt: 2024-08-15T06:38:41.298Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '+998991214237'
+}
+2024-08-15 19:47:58 info: null
+2024-08-15 19:48:00 info: ru
+2024-08-15 19:48:01 info: {
+  web_app: { category: [], userTelegramId: '1723733281086.8198' },
+  _id: new ObjectId('66be151e09fb13a91018240e'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T14:47:58.423Z,
+  updatedAt: 2024-08-15T14:48:01.087Z,
+  __v: 0,
+  language: 'ru'
+}
+2024-08-15 19:48:04 info: ctx language=> ru
+2024-08-15 19:48:12 info: {
+  web_app: {
+    category: [],
+    userTelegramId: 'Otajon_Makxmasoliyev-1723733292490-1094968462'
+  },
+  _id: new ObjectId('66be151e09fb13a91018240e'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-08-15T14:47:58.423Z,
+  updatedAt: 2024-08-15T14:48:01.087Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Maxmasoliyev',
+  phoneNumber: '+998991214237'
+}

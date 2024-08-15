@@ -93,12 +93,12 @@ const createPromotion = async (req, res) => {
 
         // Saqlash
         await collaboration.save();
-
+        let categoriFind = collaboration.category.length ? { "web_app.category": { $in: collaboration.category }, } : {}
         // Promotion yaratish
         let users = await User.find({
             status: true,
             active: true,
-            "web_app.category": { $in: collaboration.category },
+            ...categoriFind
             // _id: { $ne: collaboration.owner } // Agar kerak bo'lsa, ma'lum bir hujjatni chiqarib tashlash uchun
         })
         console.log(users);
