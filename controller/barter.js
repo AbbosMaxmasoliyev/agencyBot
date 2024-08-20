@@ -60,9 +60,9 @@ const getBarterById = async (req, res) => {
 
 const updateBarterById = async (req, res) => {
     const updates = Object.keys(req.body);
-    const allowedUpdates = ['title', 'img', 'price', 'description', 'date', 'agree', "admin_owner", "admin_agree"];
+    const allowedUpdates = ['title', 'img', 'price', 'description', 'date', 'agree', "admin_owner", "status", "category"];
     const isValidOperation = updates.every(update => allowedUpdates.includes(update));
-    console.log(isValidOperation);
+    console.log(Object.keys(req.body));
     if (!isValidOperation) {
         return res.status(400).send({ error: 'Invalid updates!' });
     }

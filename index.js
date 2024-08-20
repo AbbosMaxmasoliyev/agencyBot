@@ -29,7 +29,7 @@ const logger = require('./utils/logger.js');
 const app = express();
 const BOT_TOKEN = process.env.BOT_TOKEN
 // Set up default mongoose connection MONGO
-const mongoDBURL = process.env.MONGO_URI;
+const mongoDBURL = process.env.MONGO_URL;
 mongoose.connect(mongoDBURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
