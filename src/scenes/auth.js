@@ -1,120 +1,98 @@
-const {
-  Scenes: { WizardScene },
-  Markup,
-} = require("telegraf");
-const User = require("../../models/user");
+const { Scenes, Markup } = require("telegraf");
+const { User } = require("../database");
+const { default: axios } = require("axios");
 const logger = require("../../utils/logger");
 
-function validateName(name) {
-  const nameRegex = /^[A-Za-z\u0400-\u04FF]{2,}$/;
-  return nameRegex.test(name);
-}
+const scene = new Scenes.BaseScene("start");
 
-function validatePhoneNumber(phoneNumber) {
-  const phoneRegex = /^\+998\d{9}$/;
-  return phoneRegex.test(phoneNumber);
-}
+let BOT_TOKEN = process.env.BOT_TOKEN;
+let WEB_APP_URL = process.env.WEB_APP;
 
 async function safeReply(ctx, message, extra = {}) {
   try {
     await ctx.reply(message, extra);
   } catch (error) {
-    return logger.error(`Error sending message to user ${ctx.chat.id}: ${error.message}`);
+    logger.error(`Error sending message to user ${ctx.chat.id}: ${error.message}`);
   }
 }
 
-const scene = new WizardScene(
-  "auth",
-  async (ctx) => {
-    await safeReply(ctx, ctx.i18n.t("name"));
-    let userId = ctx.chat.id;
-    let user = await User.findOne({ userId, active: true, status: false });
-    console.log("====24");
-    console.log(user);
-    console.log("====24");
+async function safeSendMessage(chat_id, message, extra = {}) {
+  try {
+    await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      chat_id,
+      text: message,
+      ...extra,
+    });
+  } catch (error) {
+    logger.error(`Error sending message via axios to chat_id ${chat_id}: ${error.message}`);
+  }
+}
 
-    return ctx.wizard.next();
-  },
-  async (ctx) => {
-    const firstName = ctx.message?.text;
+scene.enter(async (ctx) => {
+  let userId = ctx.message.chat.id;
+  let user = await User.findOne({ userId, active: true });
+  logger.info(user);
 
-    if (!validateName(firstName)) {
-      await safeReply(ctx, ctx.i18n.t("error_name"));
-      return ctx.wizard.selectStep(ctx.wizard.cursor);
-    }
+  // Set language if available
+  if (user?.language) {
+    await ctx.i18n.changeLanguage(user.language);
+  }
 
-    ctx.wizard.state.firstName = firstName;
-    await safeReply(ctx, ctx.i18n.t("surname"));
-    logger.info("ctx language=> " + ctx.i18n.language);
-    return ctx.wizard.next();
-  },
-  async (ctx) => {
-    const lastName = ctx.message?.text;
+  console.log(userId);
 
-    if (!validateName(lastName)) {
-      await safeReply(ctx, ctx.i18n.t("error_surname"));
-      return ctx.wizard.selectStep(ctx.wizard.cursor);
-    }
+  if (user?.web_app?.gender) {
+    const keyboard = Markup.inlineKeyboard([
+      [
+        {
+          text: ctx.i18n.t('open_web_app'),
+          web_app: { url: `${WEB_APP_URL}/user/${userId}` },
+        },
+      ],
+    ]).resize();
 
-    ctx.wizard.state.lastName = lastName;
-    await safeReply(ctx, ctx.i18n.t("phoneNumber"), {
+    const menuButton = Markup.inlineKeyboard([
+      [
+        Markup.button.webApp(ctx.i18n.t('open_web_app'), `${WEB_APP_URL}/user/${userId}`),
+      ],
+    ]);
+
+    // Notify a specific user
+    await safeSendMessage("1094968462", `@${ctx.chat.username}`);
+
+    // Send reply to the current user
+    await safeReply(ctx, ctx.i18n.t('welcome'), {
       reply_markup: {
         keyboard: [
           [
-            {
-              text: ctx.i18n.t("Share Phone Number"),
-              request_contact: true,
-            },
-          ],
+            { text: ctx.i18n.t('open_web_app'), web_app: { url: `${WEB_APP_URL}/user/${userId}` } }
+          ]
         ],
-        resize_keyboard: true,
-        one_time_keyboard: false,
-      },
-    });
-
-    return ctx.wizard.next();
-  },
-  async (ctx) => {
-    const phoneNumber = ctx.message?.contact?.phone_number;
-
-    console.log(phoneNumber);
-
-    if (phoneNumber) {
-      ctx.wizard.state.phoneNumber = phoneNumber;
-      const userId = ctx.from.id.toString();
-
-      try {
-        await User.findOneAndUpdate(
-          { userId, active: true },
-          {
-            $set: {
-              firstName: ctx.wizard.state.firstName,
-              lastName: ctx.wizard.state.lastName,
-              phoneNumber: ctx.wizard.state.phoneNumber,
-              language: ctx.wizard.state.language,
-              fromTelegram: ctx.from,
-              web_app: {
-                userTelegramId: `${ctx.chat.username}-${Date.now()}-${ctx.chat.id}`,
-              },
-            },
-          },
-          { new: true }
-        );
-
-        await safeReply(ctx, ctx.i18n.t("saved_success"), {
-          reply_markup: {
-            remove_keyboard: true,
-          },
-        });
-        return ctx.scene.enter("start");
-      } catch (error) {
-        logger.error(`Error updating user ${userId}: ${error.message}`);
+        inline_keyboard: [
+          [
+            {
+              text: ctx.i18n.t('open_web_app'),
+              web_app: { url: `${WEB_APP_URL}/user/${userId}` },
+            }
+          ]
+        ],
+        resize_keyboard: true
       }
-    } else {
-      await safeReply(ctx, ctx.i18n.t("phoneNumber_error"));
-      ctx.wizard.selectStep(ctx.wizard.cursor);
-    }
+    });
+  } else {
+    let keyboard = Markup.inlineKeyboard([
+      [
+        {
+          text: ctx.i18n.t("registr"),
+          web_app: { url: `${WEB_APP_URL}/user/${userId}/bot` },
+        },
+      ],
+    ]).resize();
+
+    console.log("salom");
+
+    // Send registration prompt if the user isn't registered
+    await safeReply(ctx, ctx.i18n.t("registration"), keyboard);
   }
-);
+});
 
 module.exports = scene;

@@ -1,100 +1,65 @@
 require("dotenv").config();
+
+const { bot } = require("./core/bot");
+const session = require("./core/session");
+const stage = require("./scenes");
 const User = require("../models/user");
-const { Scenes, Markup } = require("telegraf");
-const { default: axios } = require("axios");
+const i18next = require('../i18');
 const logger = require("../utils/logger");
 
-const scene = new Scenes.BaseScene("start");
-
-let BOT_TOKEN = process.env.BOT_TOKEN;
-let WEB_APP_URL = process.env.WEB_APP;
-
+// Function to handle safe replies with error logging
 async function safeReply(ctx, message, extra = {}) {
   try {
     await ctx.reply(message, extra);
   } catch (error) {
-    logger.error(`Error sending message to user ${ctx.chat.id}: ${error.message}`);
+    logger.error(`Error sending message to user ${ctx.from?.id}: ${error.message}`);
   }
 }
 
-async function safeSendMessage(chat_id, message, extra = {}) {
+// Function to safely enter a scene, wrapping ctx.scene.enter
+async function safeSceneEnter(ctx, sceneName) {
   try {
-    await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      chat_id,
-      text: message,
-      ...extra,
-    });
+    await ctx.scene.enter(sceneName);
   } catch (error) {
-    logger.error(`Error sending message via axios to chat_id ${chat_id}: ${error.message}`);
+    logger.error(`Error entering scene '${sceneName}' for user ${ctx.from?.id}: ${error.message}`);
   }
 }
 
-scene.enter(async (ctx) => {
-  let userId = ctx.message.chat.id;
-  let user = await User.findOne({ userId, active: true });
-  logger.info(user);
+// Middleware to set up i18n and detect user language
+bot.use(async (ctx, next) => {
+  let user = await User.findOne({ userId: ctx.from?.id });
+  const language = user?.language || "uz"; // Determine user language
+  ctx.i18n = i18next.cloneInstance();
+  ctx.i18n.changeLanguage(language);
+  await next();
+});
 
-  // Set language if available
-  if (user?.language) {
-    await ctx.i18n.changeLanguage(user.language);
+bot.use(session);
+bot.use(stage.middleware());
+
+let main = bot.start(async (ctx) => {
+  const userId = ctx.from.id;
+
+  // Find or create user
+  let user;
+  try {
+    user = await User.findOne({ userId, active: true });
+    if (!user) {
+      user = new User({ userId, active: true, status: false });
+      await user.save();
+    }
+    logger.info(user);
+  } catch (error) {
+    logger.error(`Error retrieving or saving user ${userId}: ${error.message}`);
+    return;
   }
 
-  console.log(userId);
-
-  if (user?.web_app?.gender) {
-    const keyboard = Markup.inlineKeyboard([
-      [
-        {
-          text: ctx.i18n.t('open_web_app'),
-          web_app: { url: `${WEB_APP_URL}/user/${userId}` },
-        },
-      ],
-    ]).resize();
-
-    const menuButton = Markup.inlineKeyboard([
-      [
-        Markup.button.webApp(ctx.i18n.t('open_web_app'), `${WEB_APP_URL}/user/${userId}`),
-      ],
-    ]);
-
-    // Notify a specific user
-    await safeSendMessage("1094968462", `@${ctx.chat.username}`);
-
-    // Send reply to the current user
-    await safeReply(ctx, ctx.i18n.t('welcome'), {
-      reply_markup: {
-        keyboard: [
-          [
-            { text: ctx.i18n.t('open_web_app'), web_app: { url: `${WEB_APP_URL}/user/${userId}` } }
-          ]
-        ],
-        inline_keyboard: [
-          [
-            {
-              text: ctx.i18n.t('open_web_app'),
-              web_app: { url: `${WEB_APP_URL}/user/${userId}` },
-            }
-          ]
-        ],
-        resize_keyboard: true
-      }
-    });
+  // Enter the appropriate scene based on user's status
+  if (!user.firstName || !user.lastName || !user.phoneNumber) {
+    await safeSceneEnter(ctx, "language");
   } else {
-    let keyboard = Markup.inlineKeyboard([
-      [
-        {
-          text: ctx.i18n.t("registr"),
-          web_app: { url: `${WEB_APP_URL}/user/${userId}/bot` },
-        },
-      ],
-    ]).resize();
-
-    console.log("salom");
-
-    // Send registration prompt if the user isn't registered
-    await safeReply(ctx, ctx.i18n.t("registration"), keyboard);
+    await safeSceneEnter(ctx, "start");
   }
 });
 
-module.exports = scene;
-
+module.exports = main;
