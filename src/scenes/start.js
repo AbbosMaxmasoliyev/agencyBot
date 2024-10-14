@@ -15,18 +15,12 @@ function validatePhoneNumber(phoneNumber) {
   return phoneRegex.test(phoneNumber);
 }
 
-async function safeReply(ctx, message, extra = {}) {
-  try {
-    await ctx.reply(message, extra);
-  } catch (error) {
-    logger.error(`Error sending message to user ${ctx.chat.id}: ${error.message}`);
-  }
-}
+
 
 const scene = new WizardScene(
   "auth",
   async (ctx) => {
-    await safeReply(ctx, ctx.i18n.t("name"));
+    await safeMessage(ctx, ctx.i18n.t("name"));
     let userId = ctx.chat.id;
     let user = await User.findOne({ userId, active: true, status: false });
     console.log("====24");
@@ -39,12 +33,12 @@ const scene = new WizardScene(
     const firstName = ctx.message?.text;
 
     if (!validateName(firstName)) {
-      await safeReply(ctx, ctx.i18n.t("error_name"));
+      await safeMessage(ctx, ctx.i18n.t("error_name"));
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 
     ctx.wizard.state.firstName = firstName;
-    await safeReply(ctx, ctx.i18n.t("surname"));
+    await safeMessage(ctx, ctx.i18n.t("surname"));
     logger.info("ctx language=> " + ctx.i18n.language);
     return ctx.wizard.next();
   },
@@ -52,12 +46,12 @@ const scene = new WizardScene(
     const lastName = ctx.message?.text;
 
     if (!validateName(lastName)) {
-      await safeReply(ctx, ctx.i18n.t("error_surname"));
+      await safeMessage(ctx, ctx.i18n.t("error_surname"));
       return ctx.wizard.selectStep(ctx.wizard.cursor);
     }
 
     ctx.wizard.state.lastName = lastName;
-    await safeReply(ctx, ctx.i18n.t("phoneNumber"), {
+    await safeMessage(ctx, ctx.i18n.t("phoneNumber"), {
       reply_markup: {
         keyboard: [
           [
@@ -101,7 +95,7 @@ const scene = new WizardScene(
           { new: true }
         );
 
-        await safeReply(ctx, ctx.i18n.t("saved_success"), {
+        await safeMessage(ctx, ctx.i18n.t("saved_success"), {
           reply_markup: {
             remove_keyboard: true,
           },
@@ -111,7 +105,7 @@ const scene = new WizardScene(
         logger.error(`Error updating user ${userId}: ${error.message}`);
       }
     } else {
-      await safeReply(ctx, ctx.i18n.t("phoneNumber_error"));
+      await safeMessage(ctx, ctx.i18n.t("phoneNumber_error"));
       ctx.wizard.selectStep(ctx.wizard.cursor);
     }
   }

@@ -2460,3 +2460,697 @@
   lastName: 'Makxmasoliyev',
   phoneNumber: '998991214237'
 }
+2024-10-14 23:03:48 info: Server is running on port http://localhost:3001 1728929028883 salom
+2024-10-14 23:03:49 info: i18next is ready...
+2024-10-14 23:03:49 info: 
+2024-10-14 23:03:51 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'lifestyle', 'beauty_blogger' ],
+    instagram: '@otajon_makhmasoliyev',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725474598970'
+  },
+  _id: new ObjectId('66d8a6dff88e40bc30280b1b'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-04T18:28:47.550Z,
+  updatedAt: 2024-09-04T18:28:51.429Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '998991214237'
+}
+2024-10-14 23:03:52 info: {
+  userId: '824242598',
+  status: false,
+  active: true,
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  action: 'telegram',
+  is_bot: false,
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:03:52 info: {
+  userId: '824242598',
+  status: false,
+  active: true,
+  web_app: { category: [], userTelegramId: '1728929031917.5818' },
+  action: 'telegram',
+  is_bot: false,
+  _id: new ObjectId('670d5d070322eba8f5d037ba'),
+  createdAt: 2024-10-14T18:03:51.916Z,
+  updatedAt: 2024-10-14T18:03:51.917Z,
+  __v: 0
+}
+2024-10-14 23:03:52 info: {
+  userId: '824242598',
+  status: false,
+  active: true,
+  web_app: { category: [], userTelegramId: '1728929031953.3381' },
+  action: 'telegram',
+  is_bot: false,
+  _id: new ObjectId('670d5d070322eba8f5d037bc'),
+  createdAt: 2024-10-14T18:03:51.952Z,
+  updatedAt: 2024-10-14T18:03:51.953Z,
+  __v: 0
+}
+2024-10-14 23:03:52 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'lifestyle', 'beauty_blogger' ],
+    instagram: '@otajon_makhmasoliyev',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725474598970'
+  },
+  _id: new ObjectId('66d8a6dff88e40bc30280b1b'),
+  userId: '1094968462',
+  status: false,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-04T18:28:47.550Z,
+  updatedAt: 2024-09-04T18:28:51.429Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '998991214237'
+}
+2024-10-14 23:03:52 info: {
+  userId: '824242598',
+  status: false,
+  active: true,
+  web_app: { category: [], userTelegramId: '1728929032035.4446' },
+  action: 'telegram',
+  is_bot: false,
+  _id: new ObjectId('670d5d080322eba8f5d037bf'),
+  createdAt: 2024-10-14T18:03:52.032Z,
+  updatedAt: 2024-10-14T18:03:52.036Z,
+  __v: 0
+}
+2024-10-14 23:03:52 info: {
+  web_app: {
+    gender: 'female',
+    role: 'freelancer',
+    youtube: '',
+    category: [ 'marketing', 'business_administration' ],
+    instagram: 'zarinna.nt',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725880390904'
+  },
+  _id: new ObjectId('66de7fce73990331ab07d435'),
+  userId: '5067643031',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-09T04:55:42.185Z,
+  updatedAt: 2024-09-09T04:55:43.981Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Зарина',
+  fromTelegram: {
+    id: 5067643031,
+    is_bot: false,
+    first_name: 'Zarina Takhirovna',
+    username: 'takhirovna_z',
+    language_code: 'ru'
+  },
+  lastName: 'Нуруллаева',
+  phoneNumber: '998935828000'
+}
+2024-10-14 23:03:52 info: {
+  web_app: {
+    gender: 'female',
+    role: 'freelancer',
+    youtube: '',
+    category: [ 'marketing', 'business_administration' ],
+    instagram: 'zarinna.nt',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725880390904'
+  },
+  _id: new ObjectId('66de7fce73990331ab07d435'),
+  userId: '5067643031',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-09T04:55:42.185Z,
+  updatedAt: 2024-09-09T04:55:43.981Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Зарина',
+  fromTelegram: {
+    id: 5067643031,
+    is_bot: false,
+    first_name: 'Zarina Takhirovna',
+    username: 'takhirovna_z',
+    language_code: 'ru'
+  },
+  lastName: 'Нуруллаева',
+  phoneNumber: '998935828000'
+}
+2024-10-14 23:03:52 info: {
+  userId: '426068891',
+  status: false,
+  active: true,
+  web_app: { category: [], userTelegramId: '1728929031838.9663' },
+  action: 'telegram',
+  is_bot: false,
+  _id: new ObjectId('670d5d070322eba8f5d037b5'),
+  createdAt: 2024-10-14T18:03:51.817Z,
+  updatedAt: 2024-10-14T18:03:51.837Z,
+  __v: 0
+}
+2024-10-14 23:06:31 info: Server is running on port http://localhost:3001 1728929191042 salom
+2024-10-14 23:06:31 info: i18next is ready...
+2024-10-14 23:06:31 info: 
+2024-10-14 23:06:45 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:06:45 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:06:45 info: {
+  web_app: { category: [], userTelegramId: '1728929031838.9663' },
+  _id: new ObjectId('670d5d070322eba8f5d037b5'),
+  userId: '426068891',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.817Z,
+  updatedAt: 2024-10-14T18:03:51.837Z,
+  __v: 0
+}
+2024-10-14 23:06:46 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'lifestyle', 'beauty_blogger' ],
+    instagram: '@otajon_makhmasoliyev',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725474598970'
+  },
+  _id: new ObjectId('66d8a6dff88e40bc30280b1b'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-04T18:28:47.550Z,
+  updatedAt: 2024-09-04T18:28:51.429Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '998991214237'
+}
+2024-10-14 23:06:46 info: {
+  web_app: {
+    gender: 'female',
+    role: 'freelancer',
+    youtube: '',
+    category: [ 'marketing', 'business_administration' ],
+    instagram: 'zarinna.nt',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725880390904'
+  },
+  _id: new ObjectId('66de7fce73990331ab07d435'),
+  userId: '5067643031',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-09T04:55:42.185Z,
+  updatedAt: 2024-09-09T04:55:43.981Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Зарина',
+  fromTelegram: {
+    id: 5067643031,
+    is_bot: false,
+    first_name: 'Zarina Takhirovna',
+    username: 'takhirovna_z',
+    language_code: 'ru'
+  },
+  lastName: 'Нуруллаева',
+  phoneNumber: '998935828000'
+}
+2024-10-14 23:06:46 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:06:46 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:06:46 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'lifestyle', 'beauty_blogger' ],
+    instagram: '@otajon_makhmasoliyev',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725474598970'
+  },
+  _id: new ObjectId('66d8a6dff88e40bc30280b1b'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-04T18:28:47.550Z,
+  updatedAt: 2024-09-04T18:28:51.429Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '998991214237'
+}
+2024-10-14 23:06:47 info: {
+  web_app: {
+    gender: 'female',
+    role: 'freelancer',
+    youtube: '',
+    category: [ 'marketing', 'business_administration' ],
+    instagram: 'zarinna.nt',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725880390904'
+  },
+  _id: new ObjectId('66de7fce73990331ab07d435'),
+  userId: '5067643031',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-09T04:55:42.185Z,
+  updatedAt: 2024-09-09T04:55:43.981Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Зарина',
+  fromTelegram: {
+    id: 5067643031,
+    is_bot: false,
+    first_name: 'Zarina Takhirovna',
+    username: 'takhirovna_z',
+    language_code: 'ru'
+  },
+  lastName: 'Нуруллаева',
+  phoneNumber: '998935828000'
+}
+2024-10-14 23:06:55 info: Server is running on port http://localhost:3001 1728929215832 salom
+2024-10-14 23:06:56 info: i18next is ready...
+2024-10-14 23:06:56 info: 
+2024-10-14 23:07:08 info: {
+  web_app: { category: [], userTelegramId: '1728929031838.9663' },
+  _id: new ObjectId('670d5d070322eba8f5d037b5'),
+  userId: '426068891',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.817Z,
+  updatedAt: 2024-10-14T18:03:51.837Z,
+  __v: 0
+}
+2024-10-14 23:08:27 info: Server is running on port http://localhost:3001 1728929307489 salom
+2024-10-14 23:08:27 info: i18next is ready...
+2024-10-14 23:08:27 info: 
+2024-10-14 23:08:35 info: {
+  web_app: { category: [], userTelegramId: '1728929031838.9663' },
+  _id: new ObjectId('670d5d070322eba8f5d037b5'),
+  userId: '426068891',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.817Z,
+  updatedAt: 2024-10-14T18:03:51.837Z,
+  __v: 0
+}
+2024-10-14 23:08:35 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:08:35 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:08:35 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:08:55 info: Server is running on port http://localhost:3001 1728929335470 salom
+2024-10-14 23:08:55 info: i18next is ready...
+2024-10-14 23:08:55 info: 
+2024-10-14 23:08:58 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:08:58 info: {
+  web_app: { category: [], userTelegramId: '1728929031838.9663' },
+  _id: new ObjectId('670d5d070322eba8f5d037b5'),
+  userId: '426068891',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.817Z,
+  updatedAt: 2024-10-14T18:03:51.837Z,
+  __v: 0
+}
+2024-10-14 23:08:58 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'lifestyle', 'beauty_blogger' ],
+    instagram: '@otajon_makhmasoliyev',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725474598970'
+  },
+  _id: new ObjectId('66d8a6dff88e40bc30280b1b'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-04T18:28:47.550Z,
+  updatedAt: 2024-09-04T18:28:51.429Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '998991214237'
+}
+2024-10-14 23:08:58 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:08:58 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:08:58 error: Error sending message to user 426068891: 403: Forbidden: bot was blocked by the user
+2024-10-14 23:08:58 info: {
+  web_app: {
+    gender: 'female',
+    role: 'freelancer',
+    youtube: '',
+    category: [ 'marketing', 'business_administration' ],
+    instagram: 'zarinna.nt',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725880390904'
+  },
+  _id: new ObjectId('66de7fce73990331ab07d435'),
+  userId: '5067643031',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-09T04:55:42.185Z,
+  updatedAt: 2024-09-09T04:55:43.981Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Зарина',
+  fromTelegram: {
+    id: 5067643031,
+    is_bot: false,
+    first_name: 'Zarina Takhirovna',
+    username: 'takhirovna_z',
+    language_code: 'ru'
+  },
+  lastName: 'Нуруллаева',
+  phoneNumber: '998935828000'
+}
+2024-10-14 23:08:58 info: {
+  web_app: { category: [], userTelegramId: '1728929031896.715' },
+  _id: new ObjectId('670d5d070322eba8f5d037b8'),
+  userId: '824242598',
+  status: false,
+  active: true,
+  action: 'telegram',
+  is_bot: false,
+  createdAt: 2024-10-14T18:03:51.871Z,
+  updatedAt: 2024-10-14T18:03:51.896Z,
+  __v: 0
+}
+2024-10-14 23:08:59 info: {
+  web_app: {
+    gender: 'male',
+    role: 'bloger',
+    youtube: '',
+    category: [ 'lifestyle', 'beauty_blogger' ],
+    instagram: '@otajon_makhmasoliyev',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725474598970'
+  },
+  _id: new ObjectId('66d8a6dff88e40bc30280b1b'),
+  userId: '1094968462',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-04T18:28:47.550Z,
+  updatedAt: 2024-09-04T18:28:51.429Z,
+  __v: 0,
+  language: 'ru',
+  firstName: 'Otajon',
+  fromTelegram: {
+    id: 1094968462,
+    is_bot: false,
+    first_name: 'Otajon',
+    last_name: 'Makxmasoliyev',
+    username: 'Otajon_Makxmasoliyev',
+    language_code: 'en'
+  },
+  lastName: 'Makxmasoliyev',
+  phoneNumber: '998991214237'
+}
+2024-10-14 23:08:59 info: {
+  web_app: {
+    gender: 'female',
+    role: 'freelancer',
+    youtube: '',
+    category: [ 'marketing', 'business_administration' ],
+    instagram: 'zarinna.nt',
+    telegram: '',
+    you_tube_price: null,
+    instagram_reels_price: null,
+    instagram_stories_price: null,
+    instagram_post_price: null,
+    telegram_post_price: null,
+    userTelegramId: '1725880390904'
+  },
+  _id: new ObjectId('66de7fce73990331ab07d435'),
+  userId: '5067643031',
+  status: true,
+  active: true,
+  action: 'web',
+  is_bot: false,
+  createdAt: 2024-09-09T04:55:42.185Z,
+  updatedAt: 2024-09-09T04:55:43.981Z,
+  __v: 0,
+  language: 'uz',
+  firstName: 'Зарина',
+  fromTelegram: {
+    id: 5067643031,
+    is_bot: false,
+    first_name: 'Zarina Takhirovna',
+    username: 'takhirovna_z',
+    language_code: 'ru'
+  },
+  lastName: 'Нуруллаева',
+  phoneNumber: '998935828000'
+}

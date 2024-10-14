@@ -2,6 +2,9 @@ const { Scenes, Markup } = require("telegraf");
 const User = require("../../models/user");
 const bot = require("../core/bot");
 const logger = require("../../utils/logger");
+const { safeMessage } = require("../../utils/text");
+
+
 
 const language = new Scenes.WizardScene(
   "language",
@@ -9,11 +12,11 @@ const language = new Scenes.WizardScene(
   (ctx) => {
     // Tilni tanlash uchun klaviatura
     const keyboard = Markup.inlineKeyboard([
-      [Markup.button.callback('O\'zbekcha', 'uz')],
-      [Markup.button.callback('Русский', 'ru')]
+      [Markup.button.callback("O'zbekcha", "uz")],
+      [Markup.button.callback('Русский', "ru")],
     ]);
 
-    ctx.reply("Tilni tanlang:", keyboard);
+    safeMessage(ctx, "Tilni tanlang:", keyboard);
     return ctx.wizard.next();
   },
 
@@ -21,27 +24,31 @@ const language = new Scenes.WizardScene(
   async (ctx) => {
     const selectedLanguage = ctx?.callbackQuery?.data;
     const messageId = ctx?.message?.message_id;
-    console.log(messageId);
 
-    ctx.deleteMessage(messageId)
-
+    try {
+      if (messageId) {
+        await ctx.deleteMessage(messageId); // Xabarni o'chirish
+      }
+    } catch (error) {
+      logger.error(`Error deleting message for user ${ctx.chat.id}: ${error.message}`);
+    }
 
     logger.info(selectedLanguage);
-    // Foydalanuvchi tanlagan tilni saqlashdi
+
+    // Foydalanuvchi tanlagan tilni saqlash
     const userId = ctx.from.id;
-    let user = await User.findOne(
-      { userId, active: true, status: false },
-    );
-    await ctx?.answerCbQuery();
-    user.language = selectedLanguage
-    await user.save()
-    logger.info(user);
-    await ctx.i18n.changeLanguage(selectedLanguage);
+    let user = await User.findOne({ userId, active: true, status: false });
 
-    // Tarjima tilini o‘zgartiring
+    if (user) {
+      await ctx?.answerCbQuery();  // Callbackni tasdiqlash
+      user.language = selectedLanguage;
+      await user.save();
+      await ctx.i18n.changeLanguage(selectedLanguage);
 
-    // logger.info("ctx language=> " + ctx.i18n.language)
-
+      logger.info(`User ${userId} selected language: ${selectedLanguage}`);
+    } else {
+      logger.error(`User not found with ID: ${userId}`);
+    }
 
     return ctx.scene.enter("auth");
   }
